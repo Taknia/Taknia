@@ -9,7 +9,7 @@
 
                 <!-- التأكد من إدراج الحقل car_color بعد حقل العميل partner_id إذا لم يكن model_year موجودًا -->
                 <xpath expr="//field[@name='partner_id']" position="after">
-                    <field name="car_color"/>
+                <!-- <field name="car_color"/> -->
                 </xpath>
 
             </field>
