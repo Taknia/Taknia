@@ -20,4 +20,4 @@
                     <strong>Car Color:</strong>
                     <span t-field="doc.car_color"/>
                 </div>
-            </
+            </>
