@@ -1,6 +1,6 @@
 from odoo import models, fields
 
-class salereport(models.Model):
+class SaleOrder(models.Model):
     _inherit = 'sale.order'  # توريث من النموذج الأصلي
 
     car_type = fields.Char(string="Car Type")
