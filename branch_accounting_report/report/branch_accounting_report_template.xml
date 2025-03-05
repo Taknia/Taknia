@@ -1,0 +1,46 @@
+<odoo>
+    <template id="branch_accounting_report_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <h2>Branch Accounting Report</h2>
+                    <p>From: <t t-esc="date_from"/> To: <t t-esc="date_to"/></p>
+                    <t t-if="branch_option == 'specific'">
+                        <h3>Branch: <t t-foreach="branches" t-as="branch">
+                            <span t-esc="branch.name"/>
+                        </t></h3>
+                    </t>
+                    <t t-else="">
+                        <h3>All Branches</h3>
+                    </t>
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Move</th>
+                                <th>Date</th>
+                                <th>Branch</th>
+                                <th>Journal</th>
+                                <th>Account</th>
+                                <th>Debit</th>
+                                <th>Credit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="docs" t-as="move">
+                                <tr>
+                                    <td t-esc="move.name"/>
+                                    <td t-esc="move.date"/>
+                                    <td t-esc="move.branch_id.name"/>
+                                    <td t-esc="move.journal_id.name"/>
+                                    <td><t t-foreach="move.line_ids" t-as="line"><p t-esc="line.account_id.name"/></t></td>
+                                    <td><t t-foreach="move.line_ids" t-as="line"><p t-esc="line.debit"/></t></td>
+                                    <td><t t-foreach="move.line_ids" t-as="line"><p t-esc="line.credit"/></t></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>
