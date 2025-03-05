@@ -1,7 +1,7 @@
 from odoo import models, api
 
 class BranchAccountingReport(models.AbstractModel):
-    _name = 'report.branch_accounting_report.branch_accounting_report_template'
+    _name = 'report.branch_acc_report.template'
     _description = 'Branch Accounting Report'
 
     @api.model

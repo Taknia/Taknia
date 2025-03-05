@@ -43,4 +43,4 @@ class BranchAccountingReportWizard(models.TransientModel):
             'date_from': self.date_from,
             'date_to': self.date_to,
         }
-        return self.env.ref('branch_accounting_report.action_branch_accounting_report').report_action(self, data=data)
+        return self.env.ref('branch_accounting_report.action_branch_acc_report').report_action(self, data=data)
