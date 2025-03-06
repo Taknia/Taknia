@@ -12,6 +12,7 @@
         'views/partner_accounting_report_wizard_view.xml',
         'reports/branch_accounting_report_template.xml',
         'reports/partner_accounting_report_template.xml',
+        'views/branch_accounting_report_action.xml',
     ],
     'installable': True,
     'application': False,
