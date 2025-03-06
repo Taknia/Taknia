@@ -22,6 +22,7 @@
         'wizard/partner_ledger_report_wizard_view.xml',
         'reports/branch_accounting_report_templates.xml',
         'reports/partner_ledger_report_templates.xml',
+        'views/branch_accounting_report_wizard_view.xml'
     ],
     'installable': True,
     'application': True,
