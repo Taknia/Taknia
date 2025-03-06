@@ -1,3 +1,1 @@
-from . import models
-from . import reports
-from . import wizards
+from odoo import models, fields, reports, wizards, api
