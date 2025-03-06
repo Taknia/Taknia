@@ -1,11 +1,35 @@
 <odoo>
-    <report
-        id="action_print_accounting_report"
-        string="Accounting Report"
-        model="accounting.report"
-        report_type="qweb-pdf"
-        name="emad_branch_accounting_report.accounting_report_template"
-        file="emad_branch_accounting_report.accounting_report_template"
-        print_report_name="'Accounting Report - %s' % (object.date_from)"
-    />
+    <template id="accounting_report_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <h2 style="text-align: center;">Accounting Report</h2>
+                    <h4 style="text-align: center;">
+                        <t t-esc="o.date_from"/> to <t t-esc="o.date_to"/>
+                    </h4>
+
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Account</th>
+                                <th>Debit</th>
+                                <th>Credit</th>
+                                <th>Balance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="o._get_report_lines()" t-as="line">
+                                <tr>
+                                    <td><t t-esc="line['account']"/></td>
+                                    <td><t t-esc="line['debit']"/></td>
+                                    <td><t t-esc="line['credit']"/></td>
+                                    <td><t t-esc="line['balance']"/></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
 </odoo>
