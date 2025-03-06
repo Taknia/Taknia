@@ -7,7 +7,6 @@
     'depends': ['account', 'base'],
     'data': [
         'security/ir.model.access.csv',
-        'views/menuitems.xml',
         'views/branch_accounting_report_wizard_view.xml',
         'views/partner_accounting_report_wizard_view.xml',
         'reports/branch_accounting_report_template.xml',
@@ -15,6 +14,7 @@
         'views/branch_accounting_report_action.xml',
         'views/branch_accounting_report_views.xml',  # هنا الملف الجديد
         'views/branch_accounting_report_wizard_action.xml',  # لازم هذا السطر موجود
+        'views/menuitems.xml',
     ],
     'installable': True,
     'application': False,

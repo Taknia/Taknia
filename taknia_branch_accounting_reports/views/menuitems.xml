@@ -12,4 +12,6 @@
               name="Partner Accounting Report"
               parent="menu_branch_reports_root"
               action="action_partner_accounting_report_wizard"/>
+
+
 </odoo>
