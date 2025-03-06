@@ -1,7 +1,7 @@
 from odoo import models, fields, api, _
 
-class BranchAccountingReportWizard(models.TransientModel):
-    _name = 'branch.accounting.report.wizard'
+class PartnerLedgerReportWizardd(models.TransientModel):
+    _name = 'partner.ledger.report.wizard'
     _description = 'Branch Accounting Report Wizard'
 
     date_from = fields.Date(string='Start Date', required=True)
