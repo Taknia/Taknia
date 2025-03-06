@@ -1,0 +1,25 @@
+<odoo>
+    <!-- تقرير حسابات الفروع -->
+    <record id="action_report_branch_accounting" model="ir.actions.report">
+        <field name="name">Branch Accounting Report</field>
+        <field name="model">branch.accounting.report.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">emad_branch_accounting_report.report_branch_accounting</field>
+        <field name="report_file">emad_branch_accounting_report.report_branch_accounting</field>
+        <field name="print_report_name">'Branch Accounting Report - %s' % (object.report_date)</field>
+        <field name="binding_model_id" ref="model_branch_accounting_report_wizard"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- تقرير دفتر حسابات الشريك -->
+    <record id="action_report_partner_ledger" model="ir.actions.report">
+        <field name="name">Partner Ledger Report</field>
+        <field name="model">partner.ledger.report.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">emad_branch_accounting_report.report_partner_ledger</field>
+        <field name="report_file">emad_branch_accounting_report.report_partner_ledger</field>
+        <field name="print_report_name">'Partner Ledger Report - %s' % (object.report_date)</field>
+        <field name="binding_model_id" ref="model_partner_ledger_report_wizard"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>
