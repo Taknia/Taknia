@@ -1,36 +1,23 @@
 {
-    'name': 'Taknia Soft - Accounting Reports by EMAD Kadry',
+    'name': 'Emad Branch Accounting Report',
     'version': '1.0',
-    'summary': 'Advanced Accounting Reports with Branch, Partner & Currency Filters',
-    'description': """
-        Custom accounting reports including:
-        - General Accounting Report with Branches, Journals, Partners & Currency filters
-        - Partner Ledger Report with same filters
-        - PDF & Excel output
-        - Supports multi-branch structure (Company > Branches)
-    """,
-    'author': 'EMAD Kadry',
-    'company': 'Taknia Soft',
-    'website': 'http://www.takniasoft.com',
+    'summary': 'Advanced accounting reports with branches and partner ledger support',
+    'author': 'Emad Kadry - Taknia Soft',
+    'website': 'https://www.taknia.com',
     'category': 'Accounting',
+    'license': 'LGPL-3',
     'depends': ['account', 'base'],
     'data': [
         'security/ir.model.access.csv',
-        'views/branch_accounting_report_view.xml',
-        'views/partner_ledger_report_view.xml',
-        'wizard/branch_accounting_report_wizard_view.xml',
-        'wizard/partner_ledger_report_wizard_view.xml',
-        'reports/branch_accounting_report_templates.xml',
-        'reports/partner_ledger_report_templates.xml',
-        'views/branch_accounting_report_wizard_view.xml'
-        'wizard/partner_ledger_report_wizard.xml'
+        'views/menu.xml',
+        'views/accounting_report_view.xml',
+        'views/partner_ledger_view.xml',
+        'wizards/accounting_report_wizard.xml',
+        'wizards/partner_ledger_wizard.xml',
+        'reports/accounting_report_template.xml',
+        'reports/partner_ledger_template.xml',
     ],
     'installable': True,
-    'application': True,
-    'license': 'LGPL-3',
-    'assets': {
-        'web.assets_backend': [
-            'branch_accounting_report/static/src/css/custom_report_styles.css',
-        ],
-    }
+    'application': False,
+    'auto_install': False,
 }

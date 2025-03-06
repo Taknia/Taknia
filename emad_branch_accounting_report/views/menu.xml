@@ -1,0 +1,5 @@
+<odoo>
+    <menuitem id="menu_taknia_reports" name="Taknia Soft Reports" parent="account.menu_finance_reports"/>
+    <menuitem id="menu_accounting_report" name="Accounting Report" parent="menu_taknia_reports" action="accounting_report_action"/>
+    <menuitem id="menu_partner_ledger_report" name="Partner Ledger Report" parent="menu_taknia_reports" action="partner_ledger_report_action"/>
+</odoo>
