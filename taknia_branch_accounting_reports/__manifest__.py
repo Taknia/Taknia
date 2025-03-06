@@ -13,6 +13,7 @@
         'reports/branch_accounting_report_template.xml',
         'reports/partner_accounting_report_template.xml',
         'views/branch_accounting_report_action.xml',
+        'views/branch_accounting_report_wizard_action.xml',  # لازم هذا السطر موجود
     ],
     'installable': True,
     'application': False,
