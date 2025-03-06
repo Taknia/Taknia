@@ -1,0 +1,11 @@
+<odoo>
+    <template id="report_branch_accounting_template">
+        <t t-call="web.external_layout">
+            <div>
+                <h2>Branch Accounting Report</h2>
+                <p>Date From: <t t-esc="doc.date_from"/></p>
+                <p>Date To: <t t-esc="doc.date_to"/></p>
+            </div>
+        </t>
+    </template>
+</odoo>

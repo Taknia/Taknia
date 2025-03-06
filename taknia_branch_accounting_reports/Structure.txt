@@ -1,0 +1,27 @@
+taknia_branch_accounting_reports/
+│
+├── __init__.py
+├── __manifest__.py
+│
+├── models/
+│   ├── __init__.py
+│   ├── branch_accounting_report.py
+│   ├── partner_accounting_report.py
+│
+├── wizard/
+│   ├── __init__.py
+│   ├── branch_accounting_report_wizard.py
+│   ├── partner_accounting_report_wizard.py
+│
+├── reports/
+│   ├── __init__.py
+│   ├── branch_accounting_report_template.xml
+│   ├── partner_accounting_report_template.xml
+│
+├── views/
+│   ├── branch_accounting_report_wizard_view.xml
+│   ├── partner_accounting_report_wizard_view.xml
+│   ├── menuitems.xml
+│
+└── security/
+    ├── ir.model.access.csv

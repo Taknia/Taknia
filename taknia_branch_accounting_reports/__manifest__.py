@@ -1,0 +1,19 @@
+{
+    'name': 'Branch & Partner Accounting Reports',
+    'version': '1.0',
+    'author': 'EMAD Kadry - Taknia Soft',
+    'category': 'Accounting',
+    'summary': 'Advanced Branch and Partner Accounting Reports',
+    'depends': ['account', 'base'],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/menuitems.xml',
+        'views/branch_accounting_report_wizard_view.xml',
+        'views/partner_accounting_report_wizard_view.xml',
+        'reports/branch_accounting_report_template.xml',
+        'reports/partner_accounting_report_template.xml',
+    ],
+    'installable': True,
+    'application': False,
+    'license': 'LGPL-3',
+}
