@@ -1,0 +1,65 @@
+<odoo>
+    <record id="view_customer_scoring_form" model="ir.ui.view">
+        <field name="name">customer.scoring.form</field>
+        <field name="model">customer.credit.scoring</field>
+        <field name="arch" type="xml">
+            <form string="Customer Credit Scoring">
+                <sheet>
+                    <group>
+                        <field name="partner_id"/>
+                        <field name="branch_id"/>
+                        <field name="scoring_date"/>
+                    </group>
+                    <group string="Credit Factors">
+                        <group>
+                            <field name="payment_history"/>
+                            <field name="credit_utilization"/>
+                            <field name="length_of_relationship"/>
+                        </group>
+                        <group>
+                            <field name="financial_stability"/>
+                            <field name="transaction_volume"/>
+                            <field name="dispute_history"/>
+                        </group>
+                    </group>
+                    <group string="Credit Score">
+                        <field name="credit_score" widget="progressbar" options="{'max_value': 100}"/>
+                        <field name="credit_rating"/>
+                        <field name="scoring_analysis" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_customer_scoring_tree" model="ir.ui.view">
+        <field name="name">customer.scoring.tree</field>
+        <field name="model">customer.credit.scoring</field>
+        <field name="arch" type="xml">
+            <tree string="Customer Credit Scoring">
+                <field name="partner_id"/>
+                <field name="branch_id"/>
+                <field name="scoring_date"/>
+                <field name="credit_score"/>
+                <field name="credit_rating"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_customer_scoring" model="ir.actions.act_window">
+        <field name="name">Customer Credit Scoring</field>
+        <field name="res_model">customer.credit.scoring</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>
+                Use this section to evaluate and monitor the creditworthiness of your customers.
+                The scoring is based on payment history, transaction volume, financial stability, and other factors.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_customer_scoring"
+              parent="menu_financial_reports"
+              action="action_customer_scoring"
+              sequence="40"/>
+</odoo>

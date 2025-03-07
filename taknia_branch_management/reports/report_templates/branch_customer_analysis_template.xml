@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- تعريف قالب التقرير الخاص بتحليل العملاء للفروع -->
+        <template id="branch_customer_analysis_template">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <!-- عنوان التقرير -->
+                    <h2 class="text-center">Branch Customer Analysis Report</h2>
+
+                    <!-- معلومات الفروع -->
+                    <div class="row">
+                        <div class="col-6">
+                            <strong>Branch:</strong> 
+                            <span t-esc="doc.branch_id.name"/>
+                        </div>
+                        <div class="col-6 text-right">
+                            <strong>Date:</strong>
+                            <span t-esc="doc.date"/>
+                        </div>
+                    </div>
+
+                    <!-- تحليل العملاء -->
+                    <h3 class="mt-4">Customer Analysis</h3>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Customer</th>
+                                <th>Total Revenue</th>
+                                <th>Outstanding Amount</th>
+                                <th>Last Payment Date</th>
+                                <th>Payment Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="doc.customer_lines" t-as="line">
+                                <td t-esc="line.customer_id.name"/>
+                                <td t-esc="line.total_revenue"/>
+                                <td t-esc="line.outstanding_amount"/>
+                                <td t-esc="line.last_payment_date"/>
+                                <td t-esc="line.payment_status"/>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- تحليل العملاء الإضافي -->
+                    <h3 class="mt-4">Additional Customer Insights</h3>
+                    <p><strong>Branch Manager:</strong> <span t-esc="doc.branch_manager.name"/></p>
+                    <p><strong>Financial Advisor:</strong> <span t-esc="doc.financial_advisor.name"/></p>
+                    <p><strong>Customer Summary:</strong> <span t-esc="doc.customer_summary"/></p>
+
+                    <!-- رسومات بيانية (إذا كانت متاحة) -->
+                    <div t-if="doc.customer_chart">
+                        <h3 class="mt-4">Customer Distribution Chart</h3>
+                        <img t-att-src="'data:image/png;base64,' + doc.customer_chart" alt="Customer Chart"/>
+                    </div>
+
+                    <!-- إجمالي التقرير -->
+                    <div class="text-center mt-5">
+                        <h4>Total Customer Overview</h4>
+                        <strong>Total Revenue: </strong>
+                        <span t-esc="doc.total_revenue"/>
+                    </div>
+
+                </div>
+            </t>
+        </template>
+
+    </data>
+</odoo>

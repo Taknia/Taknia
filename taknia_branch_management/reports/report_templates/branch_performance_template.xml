@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- تعريف قالب التقرير الخاص بأداء الفروع -->
+        <template id="branch_performance_template">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <!-- عنوان التقرير -->
+                    <h2 class="text-center">Branch Performance Report</h2>
+                    
+                    <!-- معلومات الفروع -->
+                    <div class="row">
+                        <div class="col-6">
+                            <strong>Branch:</strong> 
+                            <span t-esc="doc.branch_id.name"/>
+                        </div>
+                        <div class="col-6 text-right">
+                            <strong>Date:</strong>
+                            <span t-esc="doc.date"/>
+                        </div>
+                    </div>
+
+                    <!-- مؤشرات الأداء -->
+                    <h3 class="mt-4">Performance Indicators</h3>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Indicator</th>
+                                <th>Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Revenue</td>
+                                <td t-esc="doc.kpi_revenue"/>
+                            </tr>
+                            <tr>
+                                <td>Customer Satisfaction</td>
+                                <td t-esc="doc.kpi_customer_satisfaction"/>
+                            </tr>
+                            <tr>
+                                <td>Employee Performance</td>
+                                <td t-esc="doc.kpi_employee_performance"/>
+                            </tr>
+                            <tr>
+                                <td>Expenses</td>
+                                <td t-esc="doc.kpi_expenses"/>
+                            </tr>
+                            <tr>
+                                <td>Profit</td>
+                                <td t-esc="doc.kpi_profit"/>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- تحليلات إضافية -->
+                    <h3 class="mt-4">Additional Analysis</h3>
+                    <p><strong>Branch Manager:</strong> <span t-esc="doc.branch_manager.name"/></p>
+                    <p><strong>Budget:</strong> <span t-esc="doc.budget_amount"/></p>
+                    <p><strong>Customer Feedback:</strong> <span t-esc="doc.customer_feedback"/></p>
+
+                    <!-- رسومات بيانية (إذا كانت متاحة) -->
+                    <div t-if="doc.performance_chart">
+                        <h3 class="mt-4">Performance Chart</h3>
+                        <img t-att-src="'data:image/png;base64,' + doc.performance_chart" alt="Performance Chart"/>
+                    </div>
+
+                    <!-- إجمالي التقرير -->
+                    <div class="text-center mt-5">
+                        <h4>Total Performance</h4>
+                        <strong>Total Revenue: </strong>
+                        <span t-esc="doc.total_revenue"/>
+                    </div>
+
+                </div>
+            </t>
+        </template>
+
+    </data>
+</odoo>

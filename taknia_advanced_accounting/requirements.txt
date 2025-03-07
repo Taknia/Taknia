@@ -1,0 +1,8 @@
+requests
+pandas
+gspread
+oauth2client
+openai
+PyJWT
+XlsxWriter
+matplotlib   # أو plotly

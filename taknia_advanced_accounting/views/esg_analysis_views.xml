@@ -1,0 +1,83 @@
+<odoo>
+    <record id="view_esg_analysis_form" model="ir.ui.view">
+        <field name="name">esg.analysis.form</field>
+        <field name="model">esg.analysis</field>
+        <field name="arch" type="xml">
+            <form string="ESG Analysis">
+                <sheet>
+                    <group>
+                        <field name="branch_id"/>
+                        <field name="analysis_date"/>
+                    </group>
+
+                    <group string="Environmental Factors">
+                        <group>
+                            <field name="carbon_footprint"/>
+                            <field name="energy_efficiency_score"/>
+                        </group>
+                        <group>
+                            <field name="waste_management_score"/>
+                            <field name="water_usage_score"/>
+                        </group>
+                    </group>
+
+                    <group string="Social Factors">
+                        <group>
+                            <field name="employee_satisfaction_score"/>
+                            <field name="community_engagement_score"/>
+                        </group>
+                        <group>
+                            <field name="diversity_inclusion_score"/>
+                        </group>
+                    </group>
+
+                    <group string="Governance Factors">
+                        <group>
+                            <field name="board_diversity_score"/>
+                            <field name="ethics_compliance_score"/>
+                        </group>
+                        <group>
+                            <field name="transparency_score"/>
+                        </group>
+                    </group>
+
+                    <group string="Overall ESG Score">
+                        <field name="overall_esg_score"/>
+                        <field name="esg_rating"/>
+                        <field name="recommendations" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_esg_analysis_tree" model="ir.ui.view">
+        <field name="name">esg.analysis.tree</field>
+        <field name="model">esg.analysis</field>
+        <field name="arch" type="xml">
+            <tree string="ESG Analysis">
+                <field name="branch_id"/>
+                <field name="analysis_date"/>
+                <field name="overall_esg_score"/>
+                <field name="esg_rating"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_esg_analysis" model="ir.actions.act_window">
+        <field name="name">ESG Analysis</field>
+        <field name="res_model">esg.analysis</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>
+                This report evaluates your branch's Environmental, Social, and Governance (ESG) performance.
+                Use it to enhance sustainability and attract eco-conscious investors.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_esg_analysis"
+              parent="menu_financial_reports"
+              action="action_esg_analysis"
+              sequence="60"/>
+</odoo>

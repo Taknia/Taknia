@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- تعريف الإجراء لتقرير مقارنة الفروع بين المناطق -->
+        <record id="action_regional_comparison_report" model="ir.actions.act_window">
+            <field name="name">Regional Comparison Report</field>
+            <field name="res_model">regional.comparison.report</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="binding_model_id" ref="model_regional_comparison_report"/>
+            <field name="context">{}</field>
+        </record>
+
+        <!-- تعريف الإجراء للتقرير داخل قائمة التقارير -->
+        <record id="action_regional_comparison_report_menu" model="ir.actions.act_window">
+            <field name="name">Regional Comparison Reports</field>
+            <field name="res_model">regional.comparison.report</field>
+            <field name="view_mode">tree,form</field>
+            <field name="target">current</field>
+            <field name="context">{}</field>
+        </record>
+
+        <!-- إضافة التقرير إلى القائمة -->
+        <menuitem id="regional_comparison_report_menu"
+                  name="Regional Comparison"
+                  parent="taknia_branch_management.menu_reports"
+                  action="action_regional_comparison_report_menu"
+                  sequence="70"/>
+
+        <!-- تعريف زر الإجراء لطباعة التقرير -->
+        <record id="action_regional_comparison_report_print" model="ir.actions.report">
+            <field name="name">Regional Comparison Report</field>
+            <field name="model">regional.comparison.report</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">taknia_branch_management.report_regional_comparison</field>
+            <field name="report_file">taknia_branch_management.report_regional_comparison</field>
+            <field name="binding_model_id" ref="model_regional_comparison_report"/>
+        </record>
+
+    </data>
+</odoo>

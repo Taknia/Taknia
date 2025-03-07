@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- تعريف قائمة القوائم -->
+        <menuitem id="taknia_branch_management_menu" name="Taknia Branch Management" sequence="10"/>
+        
+        <!-- قائمة فرعية لإدارة الفروع حسب المناطق -->
+        <menuitem id="taknia_regional_management_menu" name="Regional Management" parent="taknia_branch_management_menu" sequence="80"/>
+
+        <!-- نافذة عرض تقرير إدارة الفروع حسب المناطق -->
+        <record id="view_regional_management_form" model="ir.ui.view">
+            <field name="name">regional.management.form</field>
+            <field name="model">taknia.regional.management</field>
+            <field name="arch" type="xml">
+                <form string="Regional Management">
+                    <sheet>
+                        <group>
+                            <!-- حقل المنطقة -->
+                            <field name="region_id" required="1"/>
+                            
+                            <!-- حقل الفروع التابعة للمنطقة -->
+                            <field name="branch_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                            
+                            <!-- حقل الأداء الإقليمي -->
+                            <field name="regional_performance" readonly="1" widget="html"/>
+                            
+                            <!-- حقل مقارنة الفروع الإقليمية -->
+                            <field name="regional_comparison" readonly="1" widget="html"/>
+                            
+                            <!-- حقل التحليل الإقليمي -->
+                            <field name="regional_analysis" readonly="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- نافذة قائمة الفروع حسب المناطق -->
+        <record id="view_regional_management_tree" model="ir.ui.view">
+            <field name="name">regional.management.tree</field>
+            <field name="model">taknia.regional.management</field>
+            <field name="arch" type="xml">
+                <tree string="Regional Management">
+                    <field name="region_id"/>
+                    <field name="branch_ids"/>
+                    <field name="regional_performance"/>
+                    <field name="regional_comparison"/>
+                    <field name="regional_analysis"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- إنشاء القائمة الفرعية لعرض إدارة الفروع حسب المناطق -->
+        <act_window id="action_regional_management"
+            name="Regional Management"
+            res_model="taknia.regional.management"
+            view_mode="tree,form"
+            menu_id="taknia_regional_management_menu"/>
+        
+    </data>
+</odoo>

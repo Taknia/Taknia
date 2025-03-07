@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- تعريف قالب التقرير الخاص بمقارنة الفروع حسب المناطق -->
+        <template id="regional_comparison_template">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <!-- عنوان التقرير -->
+                    <h2 class="text-center">Regional Branch Comparison Report</h2>
+
+                    <!-- معلومات التقرير -->
+                    <div class="row">
+                        <div class="col-6">
+                            <strong>Region:</strong> 
+                            <span t-esc="doc.region_id.name"/>
+                        </div>
+                        <div class="col-6 text-right">
+                            <strong>Date:</strong>
+                            <span t-esc="doc.date"/>
+                        </div>
+                    </div>
+
+                    <!-- جدول مقارنة الفروع -->
+                    <h3 class="mt-4">Branch Comparison by Region</h3>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Branch</th>
+                                <th>Total Revenue</th>
+                                <th>Number of Customers</th>
+                                <th>Operational Score</th>
+                                <th>Financial Score</th>
+                                <th>Employee Performance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="doc.branch_comparison_lines" t-as="line">
+                                <td t-esc="line.branch_id.name"/>
+                                <td t-esc="line.total_revenue"/>
+                                <td t-esc="line.number_of_customers"/>
+                                <td t-esc="line.operational_score"/>
+                                <td t-esc="line.financial_score"/>
+                                <td t-esc="line.employee_performance"/>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- تحليل التوزيع الإقليمي -->
+                    <h3 class="mt-4">Regional Performance Analysis</h3>
+                    <p><strong>Total Regional Revenue:</strong> <span t-esc="doc.total_regional_revenue"/></p>
+                    <p><strong>Total Number of Customers in Region:</strong> <span t-esc="doc.total_number_of_customers"/></p>
+
+                    <!-- رسومات بيانية (إذا كانت متاحة) -->
+                    <div t-if="doc.regional_performance_chart">
+                        <h3 class="mt-4">Regional Performance Chart</h3>
+                        <img t-att-src="'data:image/png;base64,' + doc.regional_performance_chart" alt="Regional Performance Chart"/>
+                    </div>
+
+                    <!-- إجمالي التقرير -->
+                    <div class="text-center mt-5">
+                        <h4>Total Regional Overview</h4>
+                        <strong>Total Regional Score: </strong>
+                        <span t-esc="doc.total_regional_score"/>
+                    </div>
+
+                </div>
+            </t>
+        </template>
+
+    </data>
+</odoo>

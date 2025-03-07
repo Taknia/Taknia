@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- تعريف الإجراء لتقرير تحليل المصاريف للفروع -->
+        <record id="action_branch_expense_analysis_report" model="ir.actions.act_window">
+            <field name="name">Branch Expense Analysis Report</field>
+            <field name="res_model">branch.expense.analysis.report</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="binding_model_id" ref="model_branch_expense_analysis_report"/>
+            <field name="context">{}</field>
+        </record>
+
+        <!-- تعريف الإجراء للتقرير داخل قائمة التقارير -->
+        <record id="action_branch_expense_analysis_report_menu" model="ir.actions.act_window">
+            <field name="name">Branch Expense Analysis Reports</field>
+            <field name="res_model">branch.expense.analysis.report</field>
+            <field name="view_mode">tree,form</field>
+            <field name="target">current</field>
+            <field name="context">{}</field>
+        </record>
+
+        <!-- إضافة التقرير إلى القائمة -->
+        <menuitem id="branch_expense_analysis_report_menu"
+                  name="Branch Expense Analysis"
+                  parent="taknia_branch_management.menu_reports"
+                  action="action_branch_expense_analysis_report_menu"
+                  sequence="30"/>
+
+        <!-- تعريف زر الإجراء لطباعة التقرير -->
+        <record id="action_branch_expense_analysis_report_print" model="ir.actions.report">
+            <field name="name">Branch Expense Analysis Report</field>
+            <field name="model">branch.expense.analysis.report</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">taknia_branch_management.report_branch_expense_analysis</field>
+            <field name="report_file">taknia_branch_management.report_branch_expense_analysis</field>
+            <field name="binding_model_id" ref="model_branch_expense_analysis_report"/>
+        </record>
+
+    </data>
+</odoo>

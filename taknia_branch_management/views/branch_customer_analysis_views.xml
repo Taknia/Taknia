@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- تعريف قائمة القوائم -->
+        <menuitem id="taknia_branch_management_menu" name="Taknia Branch Management" sequence="10"/>
+        
+        <!-- قائمة فرعية لتحليل العملاء -->
+        <menuitem id="taknia_branch_customer_analysis_menu" name="Customer Analysis" parent="taknia_branch_management_menu" sequence="10"/>
+
+        <!-- نافذة عرض تقرير تحليل العملاء -->
+        <record id="view_branch_customer_analysis_form" model="ir.ui.view">
+            <field name="name">branch.customer.analysis.form</field>
+            <field name="model">taknia.branch.customer.analysis</field>
+            <field name="arch" type="xml">
+                <form string="Branch Customer Analysis">
+                    <sheet>
+                        <group>
+                            <!-- حقل الفرع -->
+                            <field name="branch_id" required="1"/>
+                            
+                            <!-- حقل التاريخ -->
+                            <field name="date" default="context_today()"/>
+                            
+                            <!-- حقل ربحية العملاء -->
+                            <field name="customer_profitability" readonly="1" widget="html"/>
+                            
+                            <!-- حقل تحليل الإيرادات -->
+                            <field name="revenue_analysis" readonly="1" widget="html"/>
+                            
+                            <!-- حقل تحليل سلوك العملاء -->
+                            <field name="customer_behavior_analysis" readonly="1" widget="html"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- نافذة قائمة تحليل العملاء -->
+        <record id="view_branch_customer_analysis_tree" model="ir.ui.view">
+            <field name="name">branch.customer.analysis.tree</field>
+            <field name="model">taknia.branch.customer.analysis</field>
+            <field name="arch" type="xml">
+                <tree string="Branch Customer Analysis">
+                    <field name="branch_id"/>
+                    <field name="date"/>
+                    <field name="customer_profitability"/>
+                    <field name="revenue_analysis"/>
+                    <field name="customer_behavior_analysis"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- إنشاء القائمة الفرعية لعرض تحليل العملاء -->
+        <act_window id="action_branch_customer_analysis"
+            name="Customer Analysis"
+            res_model="taknia.branch.customer.analysis"
+            view_mode="tree,form"
+            menu_id="taknia_branch_customer_analysis_menu"/>
+        
+    </data>
+</odoo>

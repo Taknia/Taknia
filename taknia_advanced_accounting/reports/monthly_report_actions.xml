@@ -1,0 +1,20 @@
+<odoo>
+    <record id="action_monthly_financial_report" model="ir.actions.act_window">
+        <field name="name">التقرير المالي الشهري</field>
+        <field name="res_model">financial.report</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('report_type', '=', 'monthly')]</field>
+        <field name="context">{'default_report_type': 'monthly'}</field>
+        <field name="help" type="html">
+            <p>
+                هذا التقرير يعرض ملخص مالي شامل لكل شهر بشكل تلقائي، مع تفاصيل للأرباح والمصاريف والمؤشرات المالية الأساسية.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_monthly_financial_report"
+              name="التقرير المالي الشهري"
+              parent="taknia_advanced_accounting.menu_main"
+              action="action_monthly_financial_report"
+              sequence="30"/>
+</odoo>

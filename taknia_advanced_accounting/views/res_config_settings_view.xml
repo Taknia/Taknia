@@ -1,0 +1,52 @@
+<odoo>
+    <record id="view_res_config_settings_inherit_advanced_accounting" model="ir.ui.view">
+        <field name="name">res.config.settings.inherit.advanced.accounting</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block" string="Advanced Accounting Integration">
+                    <h2>Advanced Accounting Settings</h2>
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="chatgpt_api_key"/>
+                            <input name="chatgpt_api_key" type="char"/>
+                        </div>
+                        <div class="col-6">
+                            <label for="google_sheets_credentials"/>
+                            <textarea name="google_sheets_credentials"/>
+                        </div>
+                    </div>
+
+                    <h3>Power BI Integration</h3>
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="powerbi_client_id"/>
+                            <input name="powerbi_client_id" type="char"/>
+                        </div>
+                        <div class="col-6">
+                            <label for="powerbi_client_secret"/>
+                            <input name="powerbi_client_secret" type="char"/>
+                        </div>
+                        <div class="col-6">
+                            <label for="powerbi_tenant_id"/>
+                            <input name="powerbi_tenant_id" type="char"/>
+                        </div>
+                    </div>
+
+                    <h3>Bank Integration</h3>
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="bank_api_url"/>
+                            <input name="bank_api_url" type="char"/>
+                        </div>
+                        <div class="col-6">
+                            <label for="bank_api_key"/>
+                            <input name="bank_api_key" type="char"/>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

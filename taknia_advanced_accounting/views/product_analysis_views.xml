@@ -1,0 +1,71 @@
+<odoo>
+    <record id="view_product_analysis_form" model="ir.ui.view">
+        <field name="name">product.analysis.form</field>
+        <field name="model">product.cost.analysis</field>
+        <field name="arch" type="xml">
+            <form string="Product Cost Analysis">
+                <sheet>
+                    <group>
+                        <field name="product_id"/>
+                        <field name="branch_id"/>
+                        <field name="analysis_date"/>
+                    </group>
+
+                    <group string="Cost Breakdown">
+                        <group>
+                            <field name="direct_materials_cost"/>
+                            <field name="direct_labor_cost"/>
+                        </group>
+                        <group>
+                            <field name="overhead_cost"/>
+                            <field name="total_cost"/>
+                        </group>
+                    </group>
+
+                    <group string="Profitability Analysis">
+                        <group>
+                            <field name="sales_price"/>
+                            <field name="profit_margin"/>
+                        </group>
+                        <group>
+                            <field name="profitability_rating"/>
+                            <field name="profitability_analysis" nolabel="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_product_analysis_tree" model="ir.ui.view">
+        <field name="name">product.analysis.tree</field>
+        <field name="model">product.cost.analysis</field>
+        <field name="arch" type="xml">
+            <tree string="Product Cost Analysis">
+                <field name="product_id"/>
+                <field name="branch_id"/>
+                <field name="analysis_date"/>
+                <field name="total_cost"/>
+                <field name="sales_price"/>
+                <field name="profit_margin"/>
+                <field name="profitability_rating"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_product_cost_analysis" model="ir.actions.act_window">
+        <field name="name">Product Cost Analysis</field>
+        <field name="res_model">product.cost.analysis</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>
+                This report helps you break down product costs and calculate profitability to enhance your pricing strategy.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_product_cost_analysis"
+              parent="menu_financial_reports"
+              action="action_product_cost_analysis"
+              sequence="50"/>
+</odoo>

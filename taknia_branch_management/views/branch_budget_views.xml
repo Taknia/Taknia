@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- عرض قائمة تقارير الميزانية (Tree View) -->
+    <record id="view_taknia_branch_budget_tree" model="ir.ui.view">
+        <field name="name">taknia.branch.budget.tree</field>
+        <field name="model">taknia.branch.budget</field>
+        <field name="arch" type="xml">
+            <tree string="Branch Budget">
+                <field name="branch_id"/>
+                <field name="budget_amount" string="Budget Amount"/>
+                <field name="actual_amount" string="Actual Amount"/>
+                <field name="variance" string="Variance"/>
+                <field name="budget_status" string="Status"/>
+                <field name="date" string="Date"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- عرض تقرير الميزانية بشكل تفصيلي (Form View) -->
+    <record id="view_taknia_branch_budget_form" model="ir.ui.view">
+        <field name="name">taknia.branch.budget.form</field>
+        <field name="model">taknia.branch.budget</field>
+        <field name="arch" type="xml">
+            <form string="Branch Budget Details">
+                <sheet>
+                    <group>
+                        <group name="branch_info">
+                            <field name="branch_id" string="Branch"/>
+                            <field name="budget_amount" string="Budget Amount"/>
+                            <field name="actual_amount" string="Actual Amount"/>
+                            <field name="variance" string="Variance"/>
+                            <field name="budget_status" string="Status"/>
+                            <field name="date" string="Date"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- عرض البحث المتقدم (Search View) -->
+    <record id="view_taknia_branch_budget_search" model="ir.ui.view">
+        <field name="name">taknia.branch.budget.search</field>
+        <field name="model">taknia.branch.budget</field>
+        <field name="arch" type="xml">
+            <search string="Branch Budget Reports">
+                <filter name="filter_branch" string="Branch" domain="[('branch_id', '!=', False)]"/>
+                <filter name="filter_status" string="Status" domain="[('budget_status', '=', 'active')]"/>
+                <field name="branch_id" string="Branch"/>
+                <field name="budget_status" string="Status"/>
+                <field name="date" string="Date"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- إنشاء إجراء لعرض تقارير الميزانية -->
+    <record id="action_taknia_branch_budget" model="ir.actions.act_window">
+        <field name="name">Branch Budget</field>
+        <field name="res_model">taknia.branch.budget</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_taknia_branch_budget_tree"/>
+        <field name="search_view_id" ref="view_taknia_branch_budget_search"/>
+    </record>
+
+    <!-- ربط القائمة بـ Menus -->
+    <menuitem id="taknia_branch_budget_menu" name="Branch Budget" parent="taknia_branches_menu" action="action_taknia_branch_budget" sequence="3"/>
+</odoo>

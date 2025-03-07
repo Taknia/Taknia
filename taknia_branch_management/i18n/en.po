@@ -1,0 +1,262 @@
+# English translation for Taknia Branch Management module
+
+msgid "Taknia Branch Management"
+msgstr "Taknia Branch Management"
+
+msgid "Branch"
+msgstr "Branch"
+
+msgid "Branches"
+msgstr "Branches"
+
+msgid "Branch Manager"
+msgstr "Branch Manager"
+
+msgid "Branch Performance"
+msgstr "Branch Performance"
+
+msgid "Branch Budget"
+msgstr "Branch Budget"
+
+msgid "Branch KPI Dashboard"
+msgstr "Branch KPI Dashboard"
+
+msgid "Branch Customer Analysis"
+msgstr "Branch Customer Analysis"
+
+msgid "Branch Expense Analysis"
+msgstr "Branch Expense Analysis"
+
+msgid "Branch Stock Analysis"
+msgstr "Branch Stock Analysis"
+
+msgid "Branch Employee Analysis"
+msgstr "Branch Employee Analysis"
+
+msgid "Branch ESG Analysis"
+msgstr "Branch ESG Analysis"
+
+msgid "Branch Financial Health"
+msgstr "Branch Financial Health"
+
+msgid "Branch Scoring"
+msgstr "Branch Scoring"
+
+msgid "Regional Management"
+msgstr "Regional Management"
+
+msgid "Google Sheets Integration"
+msgstr "Google Sheets Integration"
+
+msgid "Power BI Integration"
+msgstr "Power BI Integration"
+
+msgid "Bank Integration"
+msgstr "Bank Integration"
+
+msgid "Budget"
+msgstr "Budget"
+
+msgid "Revenue"
+msgstr "Revenue"
+
+msgid "Expenses"
+msgstr "Expenses"
+
+msgid "Profit"
+msgstr "Profit"
+
+msgid "Customer Satisfaction"
+msgstr "Customer Satisfaction"
+
+msgid "Employee Performance"
+msgstr "Employee Performance"
+
+msgid "Sustainability"
+msgstr "Sustainability"
+
+msgid "AI Recommendations"
+msgstr "AI Recommendations"
+
+msgid "Financial Health"
+msgstr "Financial Health"
+
+msgid "Scoring Analysis"
+msgstr "Scoring Analysis"
+
+msgid "Performance"
+msgstr "Performance"
+
+msgid "Analysis"
+msgstr "Analysis"
+
+msgid "Report"
+msgstr "Report"
+
+msgid "Dashboard"
+msgstr "Dashboard"
+
+msgid "KPI Report"
+msgstr "KPI Report"
+
+msgid "Export"
+msgstr "Export"
+
+msgid "PDF"
+msgstr "PDF"
+
+msgid "Excel"
+msgstr "Excel"
+
+msgid "Branch Details"
+msgstr "Branch Details"
+
+msgid "Branch Location"
+msgstr "Branch Location"
+
+msgid "Budget Alerts"
+msgstr "Budget Alerts"
+
+msgid "Performance Indicators"
+msgstr "Performance Indicators"
+
+msgid "Customer Analysis"
+msgstr "Customer Analysis"
+
+msgid "Stock Analysis"
+msgstr "Stock Analysis"
+
+msgid "Employee Analysis"
+msgstr "Employee Analysis"
+
+msgid "ESG Analysis"
+msgstr "ESG Analysis"
+
+msgid "Create Branch"
+msgstr "Create Branch"
+
+msgid "Edit Branch"
+msgstr "Edit Branch"
+
+msgid "Delete Branch"
+msgstr "Delete Branch"
+
+msgid "Branch Name"
+msgstr "Branch Name"
+
+msgid "Branch Manager"
+msgstr "Branch Manager"
+
+msgid "Branch Region"
+msgstr "Branch Region"
+
+msgid "Branch Budget"
+msgstr "Branch Budget"
+
+msgid "Branch Revenue"
+msgstr "Branch Revenue"
+
+msgid "Branch Expenses"
+msgstr "Branch Expenses"
+
+msgid "Branch Scoring"
+msgstr "Branch Scoring"
+
+msgid "Regional Comparison"
+msgstr "Regional Comparison"
+
+msgid "Partner"
+msgstr "Partner"
+
+msgid "Partner Ledger"
+msgstr "Partner Ledger"
+
+msgid "Profit Margin"
+msgstr "Profit Margin"
+
+msgid "Cost Analysis"
+msgstr "Cost Analysis"
+
+msgid "Budget Performance"
+msgstr "Budget Performance"
+
+msgid "Operating Profit"
+msgstr "Operating Profit"
+
+msgid "Operating Costs"
+msgstr "Operating Costs"
+
+msgid "Employee Satisfaction"
+msgstr "Employee Satisfaction"
+
+msgid "Customer Feedback"
+msgstr "Customer Feedback"
+
+msgid "Expense Report"
+msgstr "Expense Report"
+
+msgid "Monthly Report"
+msgstr "Monthly Report"
+
+msgid "Annual Report"
+msgstr "Annual Report"
+
+msgid "Generate Report"
+msgstr "Generate Report"
+
+msgid "KPI Dashboard"
+msgstr "KPI Dashboard"
+
+msgid "Financial Health Dashboard"
+msgstr "Financial Health Dashboard"
+
+msgid "Sustainability Report"
+msgstr "Sustainability Report"
+
+msgid "KPI Target"
+msgstr "KPI Target"
+
+msgid "Branch Comparison"
+msgstr "Branch Comparison"
+
+msgid "Settings"
+msgstr "Settings"
+
+msgid "Save"
+msgstr "Save"
+
+msgid "Cancel"
+msgstr "Cancel"
+
+msgid "Are you sure you want to delete this branch?"
+msgstr "Are you sure you want to delete this branch?"
+
+msgid "KPI Charts"
+msgstr "KPI Charts"
+
+msgid "Revenue Growth"
+msgstr "Revenue Growth"
+
+msgid "Customer Growth"
+msgstr "Customer Growth"
+
+msgid "Employee Growth"
+msgstr "Employee Growth"
+
+msgid "No data available"
+msgstr "No data available"
+
+msgid "Please set up the branches first."
+msgstr "Please set up the branches first."
+
+msgid "Budget Exceeded"
+msgstr "Budget Exceeded"
+
+msgid "Performance Below Target"
+msgstr "Performance Below Target"
+
+msgid "Alert"
+msgstr "Alert"
+
+msgid "Critical Alert"
+msgstr "Critical Alert"

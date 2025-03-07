@@ -1,0 +1,262 @@
+# Arabic translation for Taknia Branch Management module
+
+msgid "Taknia Branch Management"
+msgstr "إدارة الفروع تكينيا"
+
+msgid "Branch"
+msgstr "فرع"
+
+msgid "Branches"
+msgstr "الفروع"
+
+msgid "Branch Manager"
+msgstr "مدير الفرع"
+
+msgid "Branch Performance"
+msgstr "أداء الفرع"
+
+msgid "Branch Budget"
+msgstr "ميزانية الفرع"
+
+msgid "Branch KPI Dashboard"
+msgstr "لوحة مؤشرات الأداء للفرع"
+
+msgid "Branch Customer Analysis"
+msgstr "تحليل العملاء للفرع"
+
+msgid "Branch Expense Analysis"
+msgstr "تحليل المصاريف للفرع"
+
+msgid "Branch Stock Analysis"
+msgstr "تحليل المخزون للفرع"
+
+msgid "Branch Employee Analysis"
+msgstr "تحليل الموظفين للفرع"
+
+msgid "Branch ESG Analysis"
+msgstr "تحليل الاستدامة ESG للفرع"
+
+msgid "Branch Financial Health"
+msgstr "الصحة المالية للفرع"
+
+msgid "Branch Scoring"
+msgstr "تقييم الفرع"
+
+msgid "Regional Management"
+msgstr "إدارة المناطق"
+
+msgid "Google Sheets Integration"
+msgstr "تكامل مع جداول Google"
+
+msgid "Power BI Integration"
+msgstr "تكامل مع Power BI"
+
+msgid "Bank Integration"
+msgstr "تكامل مع البنوك"
+
+msgid "Budget"
+msgstr "الميزانية"
+
+msgid "Revenue"
+msgstr "الإيرادات"
+
+msgid "Expenses"
+msgstr "المصاريف"
+
+msgid "Profit"
+msgstr "الربح"
+
+msgid "Customer Satisfaction"
+msgstr "رضا العملاء"
+
+msgid "Employee Performance"
+msgstr "أداء الموظفين"
+
+msgid "Sustainability"
+msgstr "الاستدامة"
+
+msgid "AI Recommendations"
+msgstr "توصيات الذكاء الصناعي"
+
+msgid "Financial Health"
+msgstr "الصحة المالية"
+
+msgid "Scoring Analysis"
+msgstr "تحليل التقييم"
+
+msgid "Performance"
+msgstr "الأداء"
+
+msgid "Analysis"
+msgstr "التحليل"
+
+msgid "Report"
+msgstr "التقرير"
+
+msgid "Dashboard"
+msgstr "لوحة القيادة"
+
+msgid "KPI Report"
+msgstr "تقرير مؤشرات الأداء"
+
+msgid "Export"
+msgstr "تصدير"
+
+msgid "PDF"
+msgstr "PDF"
+
+msgid "Excel"
+msgstr "Excel"
+
+msgid "Branch Details"
+msgstr "تفاصيل الفرع"
+
+msgid "Branch Location"
+msgstr "موقع الفرع"
+
+msgid "Budget Alerts"
+msgstr "تنبيهات الميزانية"
+
+msgid "Performance Indicators"
+msgstr "مؤشرات الأداء"
+
+msgid "Customer Analysis"
+msgstr "تحليل العملاء"
+
+msgid "Stock Analysis"
+msgstr "تحليل المخزون"
+
+msgid "Employee Analysis"
+msgstr "تحليل الموظفين"
+
+msgid "ESG Analysis"
+msgstr "تحليل ESG"
+
+msgid "Create Branch"
+msgstr "إنشاء فرع"
+
+msgid "Edit Branch"
+msgstr "تعديل الفرع"
+
+msgid "Delete Branch"
+msgstr "حذف الفرع"
+
+msgid "Branch Name"
+msgstr "اسم الفرع"
+
+msgid "Branch Manager"
+msgstr "مدير الفرع"
+
+msgid "Branch Region"
+msgstr "منطقة الفرع"
+
+msgid "Branch Budget"
+msgstr "ميزانية الفرع"
+
+msgid "Branch Revenue"
+msgstr "إيرادات الفرع"
+
+msgid "Branch Expenses"
+msgstr "مصاريف الفرع"
+
+msgid "Branch Scoring"
+msgstr "تقييم الفرع"
+
+msgid "Regional Comparison"
+msgstr "مقارنة إقليمية"
+
+msgid "Partner"
+msgstr "شريك"
+
+msgid "Partner Ledger"
+msgstr "دفتر حسابات الشريك"
+
+msgid "Profit Margin"
+msgstr "هامش الربح"
+
+msgid "Cost Analysis"
+msgstr "تحليل التكاليف"
+
+msgid "Budget Performance"
+msgstr "أداء الميزانية"
+
+msgid "Operating Profit"
+msgstr "الربح التشغيلي"
+
+msgid "Operating Costs"
+msgstr "التكاليف التشغيلية"
+
+msgid "Employee Satisfaction"
+msgstr "رضا الموظفين"
+
+msgid "Customer Feedback"
+msgstr "ملاحظات العملاء"
+
+msgid "Expense Report"
+msgstr "تقرير المصاريف"
+
+msgid "Monthly Report"
+msgstr "التقرير الشهري"
+
+msgid "Annual Report"
+msgstr "التقرير السنوي"
+
+msgid "Generate Report"
+msgstr "إنشاء تقرير"
+
+msgid "KPI Dashboard"
+msgstr "لوحة مؤشرات الأداء"
+
+msgid "Financial Health Dashboard"
+msgstr "لوحة الصحة المالية"
+
+msgid "Sustainability Report"
+msgstr "تقرير الاستدامة"
+
+msgid "KPI Target"
+msgstr "هدف مؤشر الأداء"
+
+msgid "Branch Comparison"
+msgstr "مقارنة الفروع"
+
+msgid "Settings"
+msgstr "الإعدادات"
+
+msgid "Save"
+msgstr "حفظ"
+
+msgid "Cancel"
+msgstr "إلغاء"
+
+msgid "Are you sure you want to delete this branch?"
+msgstr "هل أنت متأكد أنك تريد حذف هذا الفرع؟"
+
+msgid "KPI Charts"
+msgstr "مخططات مؤشرات الأداء"
+
+msgid "Revenue Growth"
+msgstr "نمو الإيرادات"
+
+msgid "Customer Growth"
+msgstr "نمو العملاء"
+
+msgid "Employee Growth"
+msgstr "نمو الموظفين"
+
+msgid "No data available"
+msgstr "لا توجد بيانات متاحة"
+
+msgid "Please set up the branches first."
+msgstr "يرجى إعداد الفروع أولاً"
+
+msgid "Budget Exceeded"
+msgstr "تجاوز الميزانية"
+
+msgid "Performance Below Target"
+msgstr "الأداء أقل من الهدف"
+
+msgid "Alert"
+msgstr "تنبيه"
+
+msgid "Critical Alert"
+msgstr "تنبيه حرج"

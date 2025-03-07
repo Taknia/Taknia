@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- تعريف قالب التقرير الخاص بالصحة المالية للفروع -->
+        <template id="branch_financial_health_template">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <!-- عنوان التقرير -->
+                    <h2 class="text-center">Branch Financial Health Report</h2>
+                    
+                    <!-- معلومات الفروع -->
+                    <div class="row">
+                        <div class="col-6">
+                            <strong>Branch:</strong> 
+                            <span t-esc="doc.branch_id.name"/>
+                        </div>
+                        <div class="col-6 text-right">
+                            <strong>Date:</strong>
+                            <span t-esc="doc.date"/>
+                        </div>
+                    </div>
+
+                    <!-- مؤشرات الصحة المالية -->
+                    <h3 class="mt-4">Financial Health Indicators</h3>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Indicator</th>
+                                <th>Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Total Revenue</td>
+                                <td t-esc="doc.total_revenue"/>
+                            </tr>
+                            <tr>
+                                <td>Total Expenses</td>
+                                <td t-esc="doc.total_expenses"/>
+                            </tr>
+                            <tr>
+                                <td>Net Profit</td>
+                                <td t-esc="doc.net_profit"/>
+                            </tr>
+                            <tr>
+                                <td>Operating Margin</td>
+                                <td t-esc="doc.operating_margin"/>
+                            </tr>
+                            <tr>
+                                <td>Debt to Equity Ratio</td>
+                                <td t-esc="doc.debt_to_equity_ratio"/>
+                            </tr>
+                            <tr>
+                                <td>Liquidity Ratio</td>
+                                <td t-esc="doc.liquidity_ratio"/>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- مقارنة مع الميزانية -->
+                    <h3 class="mt-4">Budget vs Actual Performance</h3>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Budget</th>
+                                <th>Actual</th>
+                                <th>Variance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Revenue</td>
+                                <td t-esc="doc.budget_revenue"/>
+                                <td t-esc="doc.actual_revenue"/>
+                                <td t-esc="doc.revenue_variance"/>
+                            </tr>
+                            <tr>
+                                <td>Expenses</td>
+                                <td t-esc="doc.budget_expenses"/>
+                                <td t-esc="doc.actual_expenses"/>
+                                <td t-esc="doc.expenses_variance"/>
+                            </tr>
+                            <tr>
+                                <td>Profit</td>
+                                <td t-esc="doc.budget_profit"/>
+                                <td t-esc="doc.actual_profit"/>
+                                <td t-esc="doc.profit_variance"/>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- شرح أداء الفروع -->
+                    <h3 class="mt-4">Branch Financial Analysis</h3>
+                    <p><strong>Branch Manager:</strong> <span t-esc="doc.branch_manager.name"/></p>
+                    <p><strong>Financial Advisor:</strong> <span t-esc="doc.financial_advisor.name"/></p>
+                    <p><strong>Performance Overview:</strong> <span t-esc="doc.performance_overview"/></p>
+
+                    <!-- رسومات بيانية (إذا كانت متاحة) -->
+                    <div t-if="doc.financial_chart">
+                        <h3 class="mt-4">Financial Chart</h3>
+                        <img t-att-src="'data:image/png;base64,' + doc.financial_chart" alt="Financial Chart"/>
+                    </div>
+
+                    <!-- إجمالي التقرير -->
+                    <div class="text-center mt-5">
+                        <h4>Total Financial Health</h4>
+                        <strong>Total Net Profit: </strong>
+                        <span t-esc="doc.total_net_profit"/>
+                    </div>
+
+                </div>
+            </t>
+        </template>
+
+    </data>
+</odoo>

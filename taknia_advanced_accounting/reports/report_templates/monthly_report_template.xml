@@ -1,0 +1,58 @@
+<odoo>
+    <template id="monthly_financial_report_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <div class="page">
+                    <h2 style="text-align: center;">📅 التقرير المالي الشهري</h2>
+                    <h3 style="text-align: center;">🔹 شهر: <t t-esc="doc.report_month"/> - <t t-esc="doc.report_year"/></h3>
+                    <h4 style="text-align: center;">🔹 الفرع: <t t-esc="doc.branch_id.name or 'كل الفروع'"/></h4>
+
+                    <div style="margin: 20px 0;">
+                        <h3>📊 ملخص الأداء المالي:</h3>
+                        <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+                            <tr style="background-color: #f0f0f0; text-align: left;">
+                                <th style="padding: 8px; border: 1px solid #ddd;">البند</th>
+                                <th style="padding: 8px; border: 1px solid #ddd;">القيمة</th>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px; border: 1px solid #ddd;">إجمالي الإيرادات</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;"><t t-esc="doc.total_revenue"/></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px; border: 1px solid #ddd;">إجمالي المصروفات</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;"><t t-esc="doc.total_expenses"/></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px; border: 1px solid #ddd;">صافي الربح</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;"><t t-esc="doc.net_profit"/></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px; border: 1px solid #ddd;">هامش الربح</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;"><t t-esc="doc.profit_margin"/>%</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div style="margin: 20px 0;">
+                        <h3>📈 المؤشرات المالية:</h3>
+                        <ul>
+                            <li>معدل النمو الشهري: <t t-esc="doc.monthly_growth_rate"/>%</li>
+                            <li>التدفقات النقدية: <t t-esc="doc.cash_flow"/> </li>
+                            <li>عدد الفواتير المسددة: <t t-esc="doc.paid_invoices_count"/></li>
+                            <li>عدد الفواتير المتأخرة: <t t-esc="doc.overdue_invoices_count"/></li>
+                        </ul>
+                    </div>
+
+                    <div style="margin: 20px 0;">
+                        <h3>📌 ملاحظات وتحليلات:</h3>
+                        <p><t t-esc="doc.notes"/></p>
+                    </div>
+
+                    <div style="margin-top: 40px; font-size: 12px; text-align: right;">
+                        <i>تم إنشاء هذا التقرير بواسطة Taknia Advanced Accounting.</i>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

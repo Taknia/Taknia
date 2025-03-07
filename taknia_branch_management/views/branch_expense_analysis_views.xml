@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- تعريف قائمة القوائم -->
+        <menuitem id="taknia_branch_management_menu" name="Taknia Branch Management" sequence="10"/>
+        
+        <!-- قائمة فرعية لتحليل المصاريف -->
+        <menuitem id="taknia_branch_expense_analysis_menu" name="Expense Analysis" parent="taknia_branch_management_menu" sequence="20"/>
+
+        <!-- نافذة عرض تقرير تحليل المصاريف -->
+        <record id="view_branch_expense_analysis_form" model="ir.ui.view">
+            <field name="name">branch.expense.analysis.form</field>
+            <field name="model">taknia.branch.expense.analysis</field>
+            <field name="arch" type="xml">
+                <form string="Branch Expense Analysis">
+                    <sheet>
+                        <group>
+                            <!-- حقل الفرع -->
+                            <field name="branch_id" required="1"/>
+                            
+                            <!-- حقل التاريخ -->
+                            <field name="date" default="context_today()"/>
+                            
+                            <!-- حقل تحليل المصاريف -->
+                            <field name="expense_analysis" readonly="1" widget="html"/>
+                            
+                            <!-- حقل مقارنة المصاريف -->
+                            <field name="expense_comparison" readonly="1" widget="html"/>
+                            
+                            <!-- حقل المصاريف المرتبطة بالمشاريع -->
+                            <field name="project_related_expenses" readonly="1" widget="html"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- نافذة قائمة تحليل المصاريف -->
+        <record id="view_branch_expense_analysis_tree" model="ir.ui.view">
+            <field name="name">branch.expense.analysis.tree</field>
+            <field name="model">taknia.branch.expense.analysis</field>
+            <field name="arch" type="xml">
+                <tree string="Branch Expense Analysis">
+                    <field name="branch_id"/>
+                    <field name="date"/>
+                    <field name="expense_analysis"/>
+                    <field name="expense_comparison"/>
+                    <field name="project_related_expenses"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- إنشاء القائمة الفرعية لعرض تحليل المصاريف -->
+        <act_window id="action_branch_expense_analysis"
+            name="Expense Analysis"
+            res_model="taknia.branch.expense.analysis"
+            view_mode="tree,form"
+            menu_id="taknia_branch_expense_analysis_menu"/>
+        
+    </data>
+</odoo>

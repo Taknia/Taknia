@@ -1,0 +1,70 @@
+# Translation of taknia_advanced_accounting to Arabic
+msgid ""
+msgstr ""
+"Project-Id-Version: taknia_advanced_accounting\n"
+"POT-Creation-Date: 2025-03-06\n"
+"PO-Revision-Date: 2025-03-06\n"
+"Last-Translator: Taknia Team\n"
+"Language-Team: Arabic\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Advanced Accounting Dashboard"
+msgstr "لوحة التحكم المحاسبية المتقدمة"
+
+msgid "Financial Reports"
+msgstr "التقارير المالية"
+
+msgid "AI Financial Recommendations"
+msgstr "توصيات مالية ذكية"
+
+msgid "Monthly Financial Report"
+msgstr "التقرير المالي الشهري"
+
+msgid "Partner Ledger"
+msgstr "كشف حساب الشركاء"
+
+msgid "KPI Dashboard"
+msgstr "لوحة مؤشرات الأداء"
+
+msgid "Branch Comparison"
+msgstr "مقارنة الفروع"
+
+msgid "Customer Profitability Analysis"
+msgstr "تحليل ربحية العملاء"
+
+msgid "Product Cost Analysis"
+msgstr "تحليل تكاليف المنتجات"
+
+msgid "ESG Analysis"
+msgstr "تحليل الاستدامة (ESG)"
+
+msgid "Settings"
+msgstr "الإعدادات"
+
+msgid "Google Sheets Integration"
+msgstr "التكامل مع جوجل شيتس"
+
+msgid "Power BI Sync"
+msgstr "المزامنة مع Power BI"
+
+msgid "Bank Integration"
+msgstr "تكامل البنوك"
+
+msgid "Credit Scoring"
+msgstr "التصنيف الائتماني"
+
+msgid "AI Advice"
+msgstr "استشارات الذكاء الصناعي"
+
+msgid "Run Financial Report"
+msgstr "تشغيل التقرير المالي"
+
+msgid "Generate Monthly Report"
+msgstr "توليد التقرير الشهري"
+
+msgid "Execute Recommendation"
+msgstr "تنفيذ التوصية"
+

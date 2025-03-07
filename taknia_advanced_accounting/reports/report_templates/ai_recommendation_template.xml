@@ -1,0 +1,48 @@
+<odoo>
+    <template id="ai_recommendation_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <div class="page">
+                    <h2 style="text-align: center;">🤖 توصيات الذكاء الصناعي المالية</h2>
+                    <h4 style="text-align: center;">🔹 التاريخ: <t t-esc="doc.recommendation_date"/></h4>
+                    <h4 style="text-align: center;">🔹 الفرع: <t t-esc="doc.branch_id.name or 'كل الفروع'"/></h4>
+                    <h4 style="text-align: center;">🔹 نوع التقرير: <t t-esc="doc.report_type"/></h4>
+
+                    <div style="margin: 20px 0;">
+                        <h3>📋 ملخص البيانات المالية:</h3>
+                        <ul>
+                            <li>إجمالي الإيرادات: <t t-esc="doc.total_revenue"/> </li>
+                            <li>إجمالي المصروفات: <t t-esc="doc.total_expenses"/> </li>
+                            <li>صافي الربح: <t t-esc="doc.net_profit"/> </li>
+                            <li>هامش الربح: <t t-esc="doc.profit_margin"/>%</li>
+                        </ul>
+                    </div>
+
+                    <div style="margin: 20px 0;">
+                        <h3>📊 تحليل الذكاء الصناعي:</h3>
+                        <p><t t-esc="doc.ai_analysis"/></p>
+                    </div>
+
+                    <div style="margin: 20px 0;">
+                        <h3>✅ التوصيات:</h3>
+                        <p><t t-esc="doc.recommendations"/></p>
+                    </div>
+
+                    <div style="margin-top: 30px; text-align: center;">
+                        <h4>🔔 هل تريد تنفيذ التوصية؟</h4>
+                        <p>
+                            - إنشاء تذكير؟<br/>
+                            - إرسال بريد تنبيهي؟<br/>
+                            - تعديل الموازنة؟
+                        </p>
+                        <p>يمكنك تنفيذ ذلك مباشرة من النظام.</p>
+                    </div>
+
+                    <div style="margin-top: 40px; font-size: 12px; text-align: right;">
+                        <i>تم إنشاء هذا التقرير باستخدام Taknia Advanced Accounting مع ذكاء صناعي مدمج.</i>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

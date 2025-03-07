@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- القائمة الرئيسية لموديول Taknia Branch Management -->
+    <menuitem id="taknia_branch_management_menu" name="Taknia Branch Management" sequence="1"/>
+
+    <!-- قائمة الفروع -->
+    <menuitem id="taknia_branches_menu" name="Branches" parent="taknia_branch_management_menu" sequence="10"/>
+    
+    <menuitem id="taknia_branch_list_menu" name="Branch List" parent="taknia_branches_menu" action="action_taknia_branch_management" sequence="1"/>
+    <menuitem id="taknia_branch_performance_menu" name="Branch Performance" parent="taknia_branches_menu" action="action_taknia_branch_performance" sequence="2"/>
+    <menuitem id="taknia_branch_kpi_menu" name="KPI Dashboard" parent="taknia_branches_menu" action="action_taknia_branch_kpi_dashboard" sequence="3"/>
+    
+    <!-- قائمة التقارير -->
+    <menuitem id="taknia_reports_menu" name="Reports" parent="taknia_branch_management_menu" sequence="20"/>
+    
+    <menuitem id="taknia_branch_financial_health_menu" name="Financial Health Reports" parent="taknia_reports_menu" action="action_taknia_branch_financial_health" sequence="1"/>
+    <menuitem id="taknia_branch_expense_analysis_menu" name="Expense Analysis" parent="taknia_reports_menu" action="action_taknia_branch_expense_analysis" sequence="2"/>
+    <menuitem id="taknia_branch_stock_analysis_menu" name="Stock Analysis" parent="taknia_reports_menu" action="action_taknia_branch_stock_analysis" sequence="3"/>
+    <menuitem id="taknia_branch_customer_analysis_menu" name="Customer Analysis" parent="taknia_reports_menu" action="action_taknia_branch_customer_analysis" sequence="4"/>
+    <menuitem id="taknia_branch_scoring_menu" name="Branch Scoring" parent="taknia_reports_menu" action="action_taknia_branch_scoring" sequence="5"/>
+    
+    <!-- قائمة إعدادات التكامل -->
+    <menuitem id="taknia_integrations_menu" name="Integrations" parent="taknia_branch_management_menu" sequence="30"/>
+    
+    <menuitem id="taknia_google_sheets_integration_menu" name="Google Sheets Integration" parent="taknia_integrations_menu" action="action_taknia_google_sheets_integration" sequence="1"/>
+    <menuitem id="taknia_power_bi_integration_menu" name="Power BI Integration" parent="taknia_integrations_menu" action="action_taknia_power_bi_integration" sequence="2"/>
+    <menuitem id="taknia_bank_integration_menu" name="Bank Integration" parent="taknia_integrations_menu" action="action_taknia_bank_integration" sequence="3"/>
+    
+    <!-- قائمة إعدادات النظام -->
+    <menuitem id="taknia_config_menu" name="Settings" parent="taknia_branch_management_menu" sequence="40"/>
+    <menuitem id="taknia_res_config_settings_menu" name="Branch Management Settings" parent="taknia_config_menu" action="action_taknia_res_config_settings" sequence="1"/>
+</odoo>

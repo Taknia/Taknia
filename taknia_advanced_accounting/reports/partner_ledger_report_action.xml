@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <report
+        id="partner_ledger_pdf_report"
+        model="partner.ledger.wizard"
+        string="Partner Ledger"
+        report_type="qweb-pdf"
+        name="taknia_advanced_accounting.partner_ledger_pdf_template"
+        file="taknia_advanced_accounting.partner_ledger_pdf_template"
+    />
+</odoo>

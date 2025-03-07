@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- تعريف قائمة القوائم -->
+        <menuitem id="taknia_branch_management_menu" name="Taknia Branch Management" sequence="10"/>
+        
+        <!-- قائمة فرعية لتقييم الأداء (Scoring) -->
+        <menuitem id="taknia_branch_scoring_menu" name="Branch Scoring" parent="taknia_branch_management_menu" sequence="70"/>
+
+        <!-- نافذة عرض تقرير تقييم الأداء -->
+        <record id="view_branch_scoring_form" model="ir.ui.view">
+            <field name="name">branch.scoring.form</field>
+            <field name="model">taknia.branch.scoring</field>
+            <field name="arch" type="xml">
+                <form string="Branch Scoring">
+                    <sheet>
+                        <group>
+                            <!-- حقل الفرع -->
+                            <field name="branch_id" required="1"/>
+                            
+                            <!-- حقل التاريخ -->
+                            <field name="date" default="context_today()"/>
+                            
+                            <!-- حقل التقييم المالي -->
+                            <field name="financial_score" readonly="1"/>
+                            
+                            <!-- حقل التقييم المؤسسي -->
+                            <field name="institutional_score" readonly="1"/>
+                            
+                            <!-- حقل التقييم البيئي -->
+                            <field name="environmental_score" readonly="1"/>
+                            
+                            <!-- حقل التقييم الإجمالي -->
+                            <field name="total_score" readonly="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- نافذة قائمة تقييم الأداء -->
+        <record id="view_branch_scoring_tree" model="ir.ui.view">
+            <field name="name">branch.scoring.tree</field>
+            <field name="model">taknia.branch.scoring</field>
+            <field name="arch" type="xml">
+                <tree string="Branch Scoring">
+                    <field name="branch_id"/>
+                    <field name="date"/>
+                    <field name="financial_score"/>
+                    <field name="institutional_score"/>
+                    <field name="environmental_score"/>
+                    <field name="total_score"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- إنشاء القائمة الفرعية لعرض تقييم الأداء -->
+        <act_window id="action_branch_scoring"
+            name="Branch Scoring"
+            res_model="taknia.branch.scoring"
+            view_mode="tree,form"
+            menu_id="taknia_branch_scoring_menu"/>
+        
+    </data>
+</odoo>

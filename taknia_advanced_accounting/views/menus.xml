@@ -1,0 +1,79 @@
+<odoo>
+    <menuitem id="menu_taknia_advanced_accounting_root"
+              name="Advanced Accounting"
+              sequence="10"
+              parent=""
+              action=""
+              icon="taknia_advanced_accounting,static/description/icon.png"/>
+
+    <menuitem id="menu_taknia_reports"
+              name="Reports & Analytics"
+              parent="menu_taknia_advanced_accounting_root"
+              sequence="20"/>
+
+    <menuitem id="menu_financial_reports"
+              name="Financial Reports"
+              parent="menu_taknia_reports"
+              sequence="10"
+              action="action_financial_report"/>
+
+    <menuitem id="menu_kpi_dashboard"
+              name="KPI Dashboard"
+              parent="menu_taknia_reports"
+              sequence="20"
+              action="action_kpi_dashboard"/>
+
+    <menuitem id="menu_ai_recommendations"
+              name="AI Recommendations"
+              parent="menu_taknia_reports"
+              sequence="30"
+              action="action_ai_recommendation"/>
+
+    <menuitem id="menu_bank_integration"
+              name="Bank Integration"
+              parent="menu_taknia_reports"
+              sequence="40"
+              action="action_bank_integration"/>
+
+    <menuitem id="menu_google_sheets_sync"
+              name="Google Sheets Sync"
+              parent="menu_taknia_reports"
+              sequence="50"
+              action="action_google_sheets_sync"/>
+
+    <menuitem id="menu_power_bi_sync"
+              name="Power BI Sync"
+              parent="menu_taknia_reports"
+              sequence="60"
+              action="action_power_bi_sync"/>
+
+    <menuitem id="menu_customer_credit_scoring"
+              name="Customer Credit Scoring"
+              parent="menu_taknia_reports"
+              sequence="70"
+              action="action_customer_credit_scoring"/>
+
+    <menuitem id="menu_product_cost_analysis"
+              name="Product Cost Analysis"
+              parent="menu_taknia_reports"
+              sequence="80"
+              action="action_product_cost_analysis"/>
+
+    <menuitem id="menu_esg_analysis"
+              name="ESG Analysis"
+              parent="menu_taknia_reports"
+              sequence="90"
+              action="action_esg_analysis"/>
+
+    <menuitem id="menu_partner_profitability"
+              name="Partner Profitability"
+              parent="menu_taknia_reports"
+              sequence="100"
+              action="action_partner_profitability"/>
+
+    <menuitem id="menu_branch_comparison"
+              name="Branch Comparison"
+              parent="menu_taknia_reports"
+              sequence="110"
+              action="action_branch_comparison"/>
+</odoo>

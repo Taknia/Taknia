@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- تعريف قائمة القوائم -->
+        <menuitem id="taknia_branch_management_menu" name="Taknia Branch Management" sequence="10"/>
+        
+        <!-- قائمة فرعية لتحليل المخزون -->
+        <menuitem id="taknia_branch_stock_analysis_menu" name="Stock Analysis" parent="taknia_branch_management_menu" sequence="30"/>
+
+        <!-- نافذة عرض تقرير تحليل المخزون -->
+        <record id="view_branch_stock_analysis_form" model="ir.ui.view">
+            <field name="name">branch.stock.analysis.form</field>
+            <field name="model">taknia.branch.stock.analysis</field>
+            <field name="arch" type="xml">
+                <form string="Branch Stock Analysis">
+                    <sheet>
+                        <group>
+                            <!-- حقل الفرع -->
+                            <field name="branch_id" required="1"/>
+                            
+                            <!-- حقل التاريخ -->
+                            <field name="date" default="context_today()"/>
+                            
+                            <!-- حقل تحليل المخزون -->
+                            <field name="stock_analysis" readonly="1" widget="html"/>
+                            
+                            <!-- حقل مقارنة المخزون -->
+                            <field name="stock_comparison" readonly="1" widget="html"/>
+                            
+                            <!-- حقل حركة المخزون -->
+                            <field name="stock_movements" readonly="1" widget="html"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- نافذة قائمة تحليل المخزون -->
+        <record id="view_branch_stock_analysis_tree" model="ir.ui.view">
+            <field name="name">branch.stock.analysis.tree</field>
+            <field name="model">taknia.branch.stock.analysis</field>
+            <field name="arch" type="xml">
+                <tree string="Branch Stock Analysis">
+                    <field name="branch_id"/>
+                    <field name="date"/>
+                    <field name="stock_analysis"/>
+                    <field name="stock_comparison"/>
+                    <field name="stock_movements"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- إنشاء القائمة الفرعية لعرض تحليل المخزون -->
+        <act_window id="action_branch_stock_analysis"
+            name="Stock Analysis"
+            res_model="taknia.branch.stock.analysis"
+            view_mode="tree,form"
+            menu_id="taknia_branch_stock_analysis_menu"/>
+        
+    </data>
+</odoo>

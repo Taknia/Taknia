@@ -1,0 +1,32 @@
+<odoo>
+    <record id="view_accounting_report_wizard_form" model="ir.ui.view">
+        <field name="name">accounting.report.wizard.form</field>
+        <field name="model">accounting.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Accounting Report Wizard">
+                <group>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="branch_id"/>
+                    <field name="journal_ids" widget="many2many_tags"/>
+                    <field name="account_ids" widget="many2many_tags"/>
+                    <field name="partner_ids" widget="many2many_tags"/>
+                    <field name="currency_id"/>
+                    <field name="report_type"/>
+                    <field name="output_format" widget="selection"/>
+                </group>
+                <footer>
+                    <button name="action_generate_report" type="object" string="Generate Report" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_accounting_report_wizard" model="ir.actions.act_window">
+        <field name="name">Generate Accounting Report</field>
+        <field name="res_model">accounting.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

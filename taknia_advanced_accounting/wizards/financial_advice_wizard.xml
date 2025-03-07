@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_financial_advice_wizard_form" model="ir.ui.view">
+        <field name="name">financial.advice.wizard.form</field>
+        <field name="model">financial.advice.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Financial Advice Request">
+                <group>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="branch_id"/>
+                    <field name="advice_type"/>
+                </group>
+                <footer>
+                    <button name="action_get_advice" type="object" string="Generate Advice" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_financial_advice_wizard" model="ir.actions.act_window">
+        <field name="name">Financial Advice</field>
+        <field name="res_model">financial.advice.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_financial_advice_wizard"
+              parent="taknia_advanced_accounting.menu_root"
+              action="action_financial_advice_wizard"
+              name="Financial Advice"/>
+</odoo>

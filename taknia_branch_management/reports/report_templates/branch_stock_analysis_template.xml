@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- تعريف قالب التقرير الخاص بتحليل المخزون للفروع -->
+        <template id="branch_stock_analysis_template">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <!-- عنوان التقرير -->
+                    <h2 class="text-center">Branch Stock Analysis Report</h2>
+                    
+                    <!-- معلومات الفروع -->
+                    <div class="row">
+                        <div class="col-6">
+                            <strong>Branch:</strong> 
+                            <span t-esc="doc.branch_id.name"/>
+                        </div>
+                        <div class="col-6 text-right">
+                            <strong>Date:</strong>
+                            <span t-esc="doc.date"/>
+                        </div>
+                    </div>
+
+                    <!-- تحليل المخزون -->
+                    <h3 class="mt-4">Stock Analysis</h3>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Quantity in Stock</th>
+                                <th>Sales Quantity</th>
+                                <th>Purchases Quantity</th>
+                                <th>Stock Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="doc.stock_lines" t-as="line">
+                                <td t-esc="line.product_id.name"/>
+                                <td t-esc="line.quantity_in_stock"/>
+                                <td t-esc="line.sales_quantity"/>
+                                <td t-esc="line.purchases_quantity"/>
+                                <td t-esc="line.stock_value"/>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- تحليل المخزون الإضافي -->
+                    <h3 class="mt-4">Additional Stock Analysis</h3>
+                    <p><strong>Branch Manager:</strong> <span t-esc="doc.branch_manager.name"/></p>
+                    <p><strong>Financial Advisor:</strong> <span t-esc="doc.financial_advisor.name"/></p>
+                    <p><strong>Stock Summary:</strong> <span t-esc="doc.stock_summary"/></p>
+
+                    <!-- رسومات بيانية (إذا كانت متاحة) -->
+                    <div t-if="doc.stock_chart">
+                        <h3 class="mt-4">Stock Breakdown Chart</h3>
+                        <img t-att-src="'data:image/png;base64,' + doc.stock_chart" alt="Stock Chart"/>
+                    </div>
+
+                    <!-- إجمالي التقرير -->
+                    <div class="text-center mt-5">
+                        <h4>Total Stock Overview</h4>
+                        <strong>Total Stock Value: </strong>
+                        <span t-esc="doc.total_stock_value"/>
+                    </div>
+
+                </div>
+            </t>
+        </template>
+
+    </data>
+</odoo>

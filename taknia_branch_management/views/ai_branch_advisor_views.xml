@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- تعريف قائمة القوائم -->
+        <menuitem id="taknia_branch_management_menu" name="Taknia Branch Management" sequence="10"/>
+        
+        <!-- تعريف قائمة فرعية للمستشار الذكي -->
+        <menuitem id="taknia_branch_advisor_menu" name="AI Branch Advisor" parent="taknia_branch_management_menu" sequence="5"/>
+
+        <!-- نافذة عرض تقرير الذكاء الاصطناعي -->
+        <record id="view_ai_branch_advisor_form" model="ir.ui.view">
+            <field name="name">ai.branch.advisor.form</field>
+            <field name="model">taknia.ai.branch.advisor</field>
+            <field name="arch" type="xml">
+                <form string="AI Branch Advisor">
+                    <sheet>
+                        <group>
+                            <!-- حقل الفرع -->
+                            <field name="branch_id" required="1"/>
+                            
+                            <!-- حقل التاريخ -->
+                            <field name="date" default="context_today()"/>
+                            
+                            <!-- حقل النصائح المالية -->
+                            <field name="financial_advice" readonly="1" widget="html" />
+                            
+                            <!-- حقل النصائح التحليلية -->
+                            <field name="analytical_advice" readonly="1" widget="html" />
+                            
+                            <!-- حقل تنبيهات استباقية -->
+                            <field name="predictive_alerts" readonly="1" widget="html" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- نافذة قائمة المستشار الذكي (AI Branch Advisor) -->
+        <record id="view_ai_branch_advisor_tree" model="ir.ui.view">
+            <field name="name">ai.branch.advisor.tree</field>
+            <field name="model">taknia.ai.branch.advisor</field>
+            <field name="arch" type="xml">
+                <tree string="AI Branch Advisor">
+                    <field name="branch_id"/>
+                    <field name="date"/>
+                    <field name="financial_advice"/>
+                    <field name="analytical_advice"/>
+                    <field name="predictive_alerts"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- إنشاء القائمة الفرعية لعرض النصائح من المستشار الذكي -->
+        <act_window id="action_ai_branch_advisor"
+            name="AI Branch Advisor"
+            res_model="taknia.ai.branch.advisor"
+            view_mode="tree,form"
+            menu_id="taknia_branch_advisor_menu"/>
+
+    </data>
+</odoo>

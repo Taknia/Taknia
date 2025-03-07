@@ -1,0 +1,80 @@
+<odoo>
+    <record id="view_financial_report_tree" model="ir.ui.view">
+        <field name="name">financial.report.tree</field>
+        <field name="model">financial.report</field>
+        <field name="arch" type="xml">
+            <tree string="Financial Reports">
+                <field name="name"/>
+                <field name="report_type"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="branch_id"/>
+                <field name="total_debit"/>
+                <field name="total_credit"/>
+                <field name="balance"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_financial_report_form" model="ir.ui.view">
+        <field name="name">financial.report.form</field>
+        <field name="model">financial.report</field>
+        <field name="arch" type="xml">
+            <form string="Financial Report">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="report_type"/>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                            <field name="branch_id"/>
+                        </group>
+                        <group>
+                            <field name="total_debit" readonly="1"/>
+                            <field name="total_credit" readonly="1"/>
+                            <field name="balance" readonly="1"/>
+                            <field name="state" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Journal Entries">
+                            <field name="line_ids">
+                                <tree editable="bottom">
+                                    <field name="account_id"/>
+                                    <field name="partner_id"/>
+                                    <field name="debit"/>
+                                    <field name="credit"/>
+                                    <field name="balance"/>
+                                    <field name="date"/>
+                                    <field name="move_id"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                    <footer>
+                        <button name="action_generate_report" string="Generate Report" type="object" class="oe_highlight"/>
+                        <button string="Close" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_financial_report" model="ir.actions.act_window">
+        <field name="name">Financial Reports</field>
+        <field name="res_model">financial.report</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>
+                Use this section to generate and review financial reports for your company branches.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_financial_reports_action"
+              parent="menu_financial_reports"
+              action="action_financial_report"
+              sequence="10"/>
+</odoo>

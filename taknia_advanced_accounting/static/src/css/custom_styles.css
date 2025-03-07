@@ -1,0 +1,36 @@
+/* Custom styles for Taknia Advanced Accounting Module */
+
+.kpi-dashboard-container {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+}
+
+.kpi-card {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.kpi-card:hover {
+    background-color: #e9ecef;
+    transform: translateY(-5px);
+}
+
+.kpi-title {
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 8px;
+}
+
+.kpi-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #28a745;
+}
