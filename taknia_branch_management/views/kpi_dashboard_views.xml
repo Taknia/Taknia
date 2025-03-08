@@ -1,82 +1,33 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <!-- عرض لوحة تحكم KPI (Dashboard View) -->
-    <record id="view_taknia_kpi_dashboard" model="ir.ui.view">
-        <field name="name">taknia.kpi.dashboard</field>
-        <field name="model">taknia.kpi.dashboard</field>
+    <record id="view_kpi_dashboard_form" model="ir.ui.view">
+        <field name="name">kpi.dashboard.form</field>
+        <field name="model">branch.kpi.dashboard</field>
         <field name="arch" type="xml">
-            <dashboard string="KPI Dashboard">
-                <group>
-                    <widget name="kpi_metric" 
-                            string="KPI 1: Revenue"
-                            value="object.kpi_revenue"
-                            color="green"
-                            icon="fa-line-chart"/>
-                    <widget name="kpi_metric" 
-                            string="KPI 2: Customer Satisfaction"
-                            value="object.kpi_customer_satisfaction"
-                            color="blue"
-                            icon="fa-smile"/>
-                    <widget name="kpi_metric" 
-                            string="KPI 3: Employee Performance"
-                            value="object.kpi_employee_performance"
-                            color="orange"
-                            icon="fa-users"/>
-                    <widget name="kpi_metric" 
-                            string="KPI 4: Inventory Turnover"
-                            value="object.kpi_inventory_turnover"
-                            color="red"
-                            icon="fa-cogs"/>
-                </group>
-                <group>
-                    <widget name="kpi_metric" 
-                            string="KPI 5: Budget vs Actual"
-                            value="object.kpi_budget_vs_actual"
-                            color="purple"
-                            icon="fa-calculator"/>
-                    <widget name="kpi_metric" 
-                            string="KPI 6: Profit Margin"
-                            value="object.kpi_profit_margin"
-                            color="yellow"
-                            icon="fa-pie-chart"/>
-                    <widget name="kpi_metric" 
-                            string="KPI 7: Branch Performance"
-                            value="object.kpi_branch_performance"
-                            color="teal"
-                            icon="fa-tachometer"/>
-                    <widget name="kpi_metric" 
-                            string="KPI 8: ESG Score"
-                            value="object.kpi_esg_score"
-                            color="violet"
-                            icon="fa-leaf"/>
-                </group>
-            </dashboard>
+            <form string="KPI Dashboard">
+                <sheet>
+                    <group>
+                        <field name="branch_id"/>
+                        <field name="kpi_data"/>
+                    </group>
+                </sheet>
+            </form>
         </field>
     </record>
 
-    <!-- عرض البحث المتقدم (Search View) -->
-    <record id="view_taknia_kpi_dashboard_search" model="ir.ui.view">
-        <field name="name">taknia.kpi.dashboard.search</field>
-        <field name="model">taknia.kpi.dashboard</field>
+    <record id="view_kpi_dashboard_tree" model="ir.ui.view">
+        <field name="name">kpi.dashboard.tree</field>
+        <field name="model">branch.kpi.dashboard</field>
         <field name="arch" type="xml">
-            <search string="KPI Dashboard Search">
-                <filter name="filter_branch" string="Branch" domain="[('branch_id', '!=', False)]"/>
-                <filter name="filter_date" string="Date" domain="[('date', '!=', False)]"/>
-                <field name="branch_id" string="Branch"/>
-                <field name="date" string="Date"/>
-            </search>
+            <tree string="KPI Dashboard">
+                <field name="branch_id"/>
+                <field name="kpi_data"/>
+            </tree>
         </field>
     </record>
 
-    <!-- إنشاء إجراء لعرض لوحة تحكم KPI -->
-    <record id="action_taknia_kpi_dashboard" model="ir.actions.act_window">
+    <record id="action_kpi_dashboard" model="ir.actions.act_window">
         <field name="name">KPI Dashboard</field>
-        <field name="res_model">taknia.kpi.dashboard</field>
-        <field name="view_mode">dashboard</field>
-        <field name="view_id" ref="view_taknia_kpi_dashboard"/>
-        <field name="search_view_id" ref="view_taknia_kpi_dashboard_search"/>
+        <field name="res_model">branch.kpi.dashboard</field>
+        <field name="view_mode">tree,form</field>
     </record>
-
-    <!-- ربط القائمة بـ Menus -->
-    <menuitem id="taknia_kpi_dashboard_menu" name="KPI Dashboard" parent="taknia_branches_menu" action="action_taknia_kpi_dashboard" sequence="4"/>
 </odoo>

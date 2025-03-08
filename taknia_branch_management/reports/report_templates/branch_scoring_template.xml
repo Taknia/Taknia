@@ -1,89 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <data>
-
-        <!-- تعريف قالب التقرير الخاص بتقييم الفروع -->
-        <template id="branch_scoring_template">
-            <t t-call="web.external_layout">
+    <template id="branch_scoring_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
                 <div class="page">
-                    <!-- عنوان التقرير -->
-                    <h2 class="text-center">Branch Scoring Report</h2>
-
-                    <!-- معلومات الفروع -->
-                    <div class="row">
-                        <div class="col-6">
-                            <strong>Branch:</strong> 
-                            <span t-esc="doc.branch_id.name"/>
-                        </div>
-                        <div class="col-6 text-right">
-                            <strong>Date:</strong>
-                            <span t-esc="doc.date"/>
-                        </div>
-                    </div>
-
-                    <!-- تقييم الأداء المالي -->
-                    <h3 class="mt-4">Financial Scoring</h3>
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Criteria</th>
-                                <th>Score</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr t-foreach="doc.financial_scoring_lines" t-as="line">
-                                <td t-esc="line.criteria"/>
-                                <td t-esc="line.score"/>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <!-- تقييم الأداء التشغيلي -->
-                    <h3 class="mt-4">Operational Scoring</h3>
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Criteria</th>
-                                <th>Score</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr t-foreach="doc.operational_scoring_lines" t-as="line">
-                                <td t-esc="line.criteria"/>
-                                <td t-esc="line.score"/>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <!-- التقييم العام -->
-                    <h3 class="mt-4">Overall Branch Scoring</h3>
-                    <div>
-                        <strong>Overall Score:</strong> 
-                        <span t-esc="doc.overall_score"/>
-                    </div>
-
-                    <!-- تحليل التقييم -->
-                    <h3 class="mt-4">Scoring Analysis</h3>
-                    <div t-if="doc.scoring_analysis">
-                        <p><strong>Analysis Summary:</strong> <span t-esc="doc.scoring_analysis"/></p>
-                    </div>
-
-                    <!-- رسومات بيانية (إذا كانت متاحة) -->
-                    <div t-if="doc.scoring_chart">
-                        <h3 class="mt-4">Scoring Distribution Chart</h3>
-                        <img t-att-src="'data:image/png;base64,' + doc.scoring_chart" alt="Scoring Chart"/>
-                    </div>
-
-                    <!-- إجمالي التقرير -->
-                    <div class="text-center mt-5">
-                        <h4>Total Branch Score Overview</h4>
-                        <strong>Total Branch Score: </strong>
-                        <span t-esc="doc.total_branch_score"/>
-                    </div>
-
+                    <h2>Branch Scoring Report</h2>
+                    <p>Branch: <t t-esc="doc.branch_id.name"/></p>
+                    <p>Score: <t t-esc="doc.score"/></p>
+                    <p>Date: <t t-esc="doc.date"/></p>
                 </div>
             </t>
-        </template>
-
-    </data>
+        </t>
+    </template>
 </odoo>

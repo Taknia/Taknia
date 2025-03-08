@@ -1,86 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <data>
-
-        <!-- تعريف قالب التقرير الخاص بتوصيات الذكاء الصناعي -->
-        <template id="ai_recommendation_template">
-            <t t-call="web.external_layout">
+    <template id="ai_recommendation_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
                 <div class="page">
-                    <!-- عنوان التقرير -->
-                    <h2 class="text-center">AI Branch Performance Recommendations</h2>
-
-                    <!-- معلومات التقرير -->
-                    <div class="row">
-                        <div class="col-6">
-                            <strong>Branch:</strong> 
-                            <span t-esc="doc.branch_id.name"/>
-                        </div>
-                        <div class="col-6 text-right">
-                            <strong>Date:</strong>
-                            <span t-esc="doc.date"/>
-                        </div>
-                    </div>
-
-                    <!-- توصيات الذكاء الصناعي المالية -->
-                    <h3 class="mt-4">Financial Recommendations</h3>
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Recommendation</th>
-                                <th>Impact</th>
-                                <th>Suggested Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr t-foreach="doc.financial_recommendations" t-as="recommendation">
-                                <td t-esc="recommendation.description"/>
-                                <td t-esc="recommendation.impact"/>
-                                <td t-esc="recommendation.suggested_action"/>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <!-- توصيات الذكاء الصناعي التشغيلية -->
-                    <h3 class="mt-4">Operational Recommendations</h3>
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Recommendation</th>
-                                <th>Impact</th>
-                                <th>Suggested Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr t-foreach="doc.operational_recommendations" t-as="recommendation">
-                                <td t-esc="recommendation.description"/>
-                                <td t-esc="recommendation.impact"/>
-                                <td t-esc="recommendation.suggested_action"/>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <!-- تحليل التوصيات -->
-                    <h3 class="mt-4">Recommendation Analysis</h3>
-                    <div t-if="doc.recommendation_analysis">
-                        <p><strong>Summary of AI Recommendations:</strong> <span t-esc="doc.recommendation_analysis"/></p>
-                    </div>
-
-                    <!-- رسومات بيانية (إذا كانت متاحة) -->
-                    <div t-if="doc.ai_recommendation_chart">
-                        <h3 class="mt-4">Recommendation Impact Chart</h3>
-                        <img t-att-src="'data:image/png;base64,' + doc.ai_recommendation_chart" alt="AI Recommendation Chart"/>
-                    </div>
-
-                    <!-- إجمالي التقرير -->
-                    <div class="text-center mt-5">
-                        <h4>AI Recommendations Overview</h4>
-                        <strong>Overall AI Recommendation Impact: </strong>
-                        <span t-esc="doc.overall_ai_impact"/>
-                    </div>
-
+                    <h2>AI Branch Advisor Recommendations</h2>
+                    <p>Branch: <t t-esc="doc.branch_id.name"/></p>
+                    <p>Advice: <t t-esc="doc.advice"/></p>
+                    <p>Date: <t t-esc="doc.date"/></p>
                 </div>
             </t>
-        </template>
-
-    </data>
+        </t>
+    </template>
 </odoo>

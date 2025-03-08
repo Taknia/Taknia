@@ -1,76 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <data>
-
-        <!-- تعريف قائمة القوائم -->
-        <menuitem id="taknia_branch_management_menu" name="Taknia Branch Management" sequence="10"/>
-        
-        <!-- قائمة فرعية للإعدادات -->
-        <menuitem id="taknia_module_settings_menu" name="Module Settings" parent="taknia_branch_management_menu" sequence="100"/>
-
-        <!-- نافذة إعدادات المركزية -->
-        <record id="view_module_settings_form" model="ir.ui.view">
-            <field name="name">module.settings.form</field>
-            <field name="model">taknia.module.settings</field>
-            <field name="arch" type="xml">
-                <form string="Module Settings">
-                    <sheet>
-                        <group>
-                            <group name="general_settings">
-                                <!-- تمكين دعم Multi-Branch -->
-                                <field name="enable_multi_branch" string="Enable Multi-Branch" />
-                                
-                                <!-- تمكين دعم Multi-Company -->
-                                <field name="enable_multi_company" string="Enable Multi-Company" />
-                            </group>
-                            
-                            <group name="integrations_settings">
-                                <!-- تكامل مع Google Sheets -->
-                                <field name="google_sheets_integration" string="Enable Google Sheets Integration" />
-
-                                <!-- تكامل مع Power BI -->
-                                <field name="power_bi_integration" string="Enable Power BI Integration" />
-
-                                <!-- تكامل مع البنوك -->
-                                <field name="bank_integration" string="Enable Bank Integration" />
-                            </group>
-
-                            <group name="report_settings">
-                                <!-- تمكين تصدير التقارير PDF -->
-                                <field name="enable_pdf_export" string="Enable PDF Export" />
-
-                                <!-- تمكين تصدير التقارير Excel -->
-                                <field name="enable_excel_export" string="Enable Excel Export" />
-                            </group>
-
-                            <group name="budget_settings">
-                                <!-- تمكين مراقبة الميزانية -->
-                                <field name="enable_budget_monitoring" string="Enable Budget Monitoring" />
-
-                                <!-- تمكين تنبيهات تجاوز الميزانية -->
-                                <field name="enable_budget_alerts" string="Enable Budget Alerts" />
-                            </group>
-
-                            <group name="access_permissions">
-                                <!-- تخصيص صلاحيات الفروع -->
-                                <field name="custom_branch_permissions" string="Enable Custom Branch Permissions" />
-                                
-                                <!-- تخصيص صلاحيات المستخدمين -->
-                                <field name="custom_user_permissions" string="Enable Custom User Permissions" />
-                            </group>
-                        </group>
-                    </sheet>
-                </form>
-            </field>
-        </record>
-
-        <!-- نافذة عرض الإعدادات -->
-        <act_window id="action_module_settings"
-            name="Module Settings"
-            res_model="taknia.module.settings"
-            view_mode="form"
-            target="new"
-            menu_id="taknia_module_settings_menu"/>
-
-    </data>
+    <record id="view_res_config_settings_form_inherit" model="ir.ui.view">
+        <field name="name">res.config.settings.form.inherit</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.view_res_config_settings"/>
+        <field name="arch" type="xml">
+            <div name="settings" position="inside">
+                <group>
+                    <field name="branch_management_module_installed"/>
+                </group>
+            </div>
+        </field>
+    </record>
 </odoo>

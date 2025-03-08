@@ -1,61 +1,33 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <data>
-        <!-- تعريف قائمة القوائم -->
-        <menuitem id="taknia_branch_management_menu" name="Taknia Branch Management" sequence="10"/>
-        
-        <!-- قائمة فرعية لتحليل الصحة المالية -->
-        <menuitem id="taknia_branch_financial_health_menu" name="Financial Health" parent="taknia_branch_management_menu" sequence="60"/>
+    <record id="view_branch_financial_health_form" model="ir.ui.view">
+        <field name="name">branch.financial.health.form</field>
+        <field name="model">branch.financial.health</field>
+        <field name="arch" type="xml">
+            <form string="Branch Financial Health">
+                <sheet>
+                    <group>
+                        <field name="branch_id"/>
+                        <field name="financial_health_data"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
-        <!-- نافذة عرض تقرير تحليل الصحة المالية -->
-        <record id="view_branch_financial_health_form" model="ir.ui.view">
-            <field name="name">branch.financial.health.form</field>
-            <field name="model">taknia.branch.financial.health</field>
-            <field name="arch" type="xml">
-                <form string="Branch Financial Health">
-                    <sheet>
-                        <group>
-                            <!-- حقل الفرع -->
-                            <field name="branch_id" required="1"/>
-                            
-                            <!-- حقل التاريخ -->
-                            <field name="date" default="context_today()"/>
-                            
-                            <!-- حقل التحليل المالي -->
-                            <field name="financial_analysis" readonly="1" widget="html"/>
-                            
-                            <!-- حقل مقارنة الصحة المالية -->
-                            <field name="financial_health_comparison" readonly="1" widget="html"/>
-                            
-                            <!-- حقل تقييم الصحة المالية -->
-                            <field name="overall_financial_health" readonly="1"/>
-                        </group>
-                    </sheet>
-                </form>
-            </field>
-        </record>
+    <record id="view_branch_financial_health_tree" model="ir.ui.view">
+        <field name="name">branch.financial.health.tree</field>
+        <field name="model">branch.financial.health</field>
+        <field name="arch" type="xml">
+            <tree string="Branch Financial Health">
+                <field name="branch_id"/>
+                <field name="financial_health_data"/>
+            </tree>
+        </field>
+    </record>
 
-        <!-- نافذة قائمة تحليل الصحة المالية -->
-        <record id="view_branch_financial_health_tree" model="ir.ui.view">
-            <field name="name">branch.financial.health.tree</field>
-            <field name="model">taknia.branch.financial.health</field>
-            <field name="arch" type="xml">
-                <tree string="Branch Financial Health">
-                    <field name="branch_id"/>
-                    <field name="date"/>
-                    <field name="financial_analysis"/>
-                    <field name="financial_health_comparison"/>
-                    <field name="overall_financial_health"/>
-                </tree>
-            </field>
-        </record>
-
-        <!-- إنشاء القائمة الفرعية لعرض تحليل الصحة المالية -->
-        <act_window id="action_branch_financial_health"
-            name="Financial Health"
-            res_model="taknia.branch.financial.health"
-            view_mode="tree,form"
-            menu_id="taknia_branch_financial_health_menu"/>
-        
-    </data>
+    <record id="action_branch_financial_health" model="ir.actions.act_window">
+        <field name="name">Branch Financial Health</field>
+        <field name="res_model">branch.financial.health</field>
+        <field name="view_mode">tree,form</field>
+    </record>
 </odoo>

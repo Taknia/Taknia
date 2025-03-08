@@ -1,49 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <data>
-
-        <!-- تعريف الويزارد لتقارير أداء الفروع -->
-        <record id="view_branch_performance_wizard" model="ir.ui.view">
-            <field name="name">branch.performance.wizard.form</field>
-            <field name="model">branch.performance.wizard</field>
-            <field name="arch" type="xml">
-                <form string="Branch Performance Report">
+    <record id="view_branch_performance_wizard_form" model="ir.ui.view">
+        <field name="name">branch.performance.wizard.form</field>
+        <field name="model">branch.performance.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Branch Performance Wizard">
+                <sheet>
                     <group>
-                        <group name="branch_group">
-                            <!-- اختيار الفرع -->
-                            <field name="branch_id" placeholder="Select Branch" widget="many2one" options="{'no_create': True}"/>
-                            <!-- اختيار الفترة الزمنية -->
-                            <field name="start_date" widget="date" string="Start Date"/>
-                            <field name="end_date" widget="date" string="End Date"/>
-                            <!-- اختيار مؤشرات الأداء -->
-                            <field name="kpi_revenue" widget="boolean" string="Include Revenue"/>
-                            <field name="kpi_customer_satisfaction" widget="boolean" string="Include Customer Satisfaction"/>
-                            <field name="kpi_employee_performance" widget="boolean" string="Include Employee Performance"/>
-                        </group>
+                        <field name="branch_id"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
                     </group>
                     <footer>
-                        <button string="Generate Report" type="object" name="action_generate_report" class="btn-primary"/>
-                        <button string="Cancel" type="object" name="action_cancel" class="btn-secondary"/>
+                        <button string="Generate Report" type="object" name="generate_report" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
                     </footer>
-                </form>
-            </field>
-        </record>
-
-        <!-- تعريف الويزارد للإجراءات -->
-        <record id="action_branch_performance_wizard" model="ir.actions.act_window">
-            <field name="name">Branch Performance Wizard</field>
-            <field name="res_model">branch.performance.wizard</field>
-            <field name="view_mode">form</field>
-            <field name="view_id" ref="view_branch_performance_wizard"/>
-            <field name="target">new</field>
-        </record>
-
-        <!-- إضافة الويزارد إلى القائمة -->
-        <menuitem id="branch_performance_wizard_menu"
-                  name="Branch Performance Wizard"
-                  parent="taknia_branch_management.menu_reports"
-                  action="action_branch_performance_wizard"
-                  sequence="60"/>
-
-    </data>
+                </sheet>
+            </form>
+        </field>
+    </record>
 </odoo>

@@ -1,62 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <data>
-
-        <!-- تعريف الويزارد لاستشارات مالية -->
-        <record id="view_financial_advice_wizard" model="ir.ui.view">
-            <field name="name">financial.advice.wizard.form</field>
-            <field name="model">financial.advice.wizard</field>
-            <field name="arch" type="xml">
-                <form string="Financial Advice Wizard">
+    <record id="view_financial_advice_wizard_form" model="ir.ui.view">
+        <field name="name">financial.advice.wizard.form</field>
+        <field name="model">financial.advice.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Financial Advice Wizard">
+                <sheet>
                     <group>
-                        <group name="advice_group">
-                            <!-- اختيار الفروع -->
-                            <field name="branch_id" placeholder="Select Branch" widget="many2one" options="{'no_create': True}"/>
-                            <!-- اختيار الفئة المالية -->
-                            <field name="financial_category" placeholder="Select Financial Category" widget="selection">
-                                <selection>
-                                    <item name="profit_loss" string="Profit/Loss Analysis"/>
-                                    <item name="cash_flow" string="Cash Flow Analysis"/>
-                                    <item name="revenue_growth" string="Revenue Growth"/>
-                                    <item name="budget_comparison" string="Budget vs Actual"/>
-                                </selection>
-                            </field>
-                            <!-- اختيار الفترة الزمنية -->
-                            <field name="start_date" widget="date" string="Start Date"/>
-                            <field name="end_date" widget="date" string="End Date"/>
-                            <!-- نوع الاستشارة -->
-                            <field name="advice_type" placeholder="Select Advice Type" widget="selection">
-                                <selection>
-                                    <item name="financial_planning" string="Financial Planning"/>
-                                    <item name="investment_advice" string="Investment Advice"/>
-                                    <item name="debt_management" string="Debt Management"/>
-                                </selection>
-                            </field>
-                        </group>
+                        <field name="branch_id"/>
+                        <field name="advice"/>
                     </group>
                     <footer>
-                        <button string="Get Advice" type="object" name="action_generate_advice" class="btn-primary"/>
-                        <button string="Cancel" type="object" name="action_cancel" class="btn-secondary"/>
+                        <button string="Submit" type="object" name="submit_advice" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
                     </footer>
-                </form>
-            </field>
-        </record>
-
-        <!-- تعريف الإجراء الخاص بالويزارد -->
-        <record id="action_financial_advice_wizard" model="ir.actions.act_window">
-            <field name="name">Financial Advice Wizard</field>
-            <field name="res_model">financial.advice.wizard</field>
-            <field name="view_mode">form</field>
-            <field name="view_id" ref="view_financial_advice_wizard"/>
-            <field name="target">new</field>
-        </record>
-
-        <!-- إضافة الويزارد إلى القائمة -->
-        <menuitem id="financial_advice_wizard_menu"
-                  name="Financial Advice Wizard"
-                  parent="taknia_branch_management.menu_reports"
-                  action="action_financial_advice_wizard"
-                  sequence="70"/>
-
-    </data>
+                </sheet>
+            </form>
+        </field>
+    </record>
 </odoo>

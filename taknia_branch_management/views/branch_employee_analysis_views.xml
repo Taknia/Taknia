@@ -1,61 +1,33 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <data>
-        <!-- تعريف قائمة القوائم -->
-        <menuitem id="taknia_branch_management_menu" name="Taknia Branch Management" sequence="10"/>
-        
-        <!-- قائمة فرعية لتحليل الموظفين -->
-        <menuitem id="taknia_branch_employee_analysis_menu" name="Employee Analysis" parent="taknia_branch_management_menu" sequence="40"/>
+    <record id="view_branch_employee_analysis_form" model="ir.ui.view">
+        <field name="name">branch.employee.analysis.form</field>
+        <field name="model">branch.employee.analysis</field>
+        <field name="arch" type="xml">
+            <form string="Branch Employee Analysis">
+                <sheet>
+                    <group>
+                        <field name="branch_id"/>
+                        <field name="employee_data"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
-        <!-- نافذة عرض تقرير تحليل الموظفين -->
-        <record id="view_branch_employee_analysis_form" model="ir.ui.view">
-            <field name="name">branch.employee.analysis.form</field>
-            <field name="model">taknia.branch.employee.analysis</field>
-            <field name="arch" type="xml">
-                <form string="Branch Employee Analysis">
-                    <sheet>
-                        <group>
-                            <!-- حقل الفرع -->
-                            <field name="branch_id" required="1"/>
-                            
-                            <!-- حقل التاريخ -->
-                            <field name="date" default="context_today()"/>
-                            
-                            <!-- حقل تحليل أداء الموظفين -->
-                            <field name="employee_performance" readonly="1" widget="html"/>
-                            
-                            <!-- حقل مقارنة أداء الموظفين -->
-                            <field name="employee_performance_comparison" readonly="1" widget="html"/>
-                            
-                            <!-- حقل تقييم الاستدامة للمشاريع -->
-                            <field name="employee_sustainability_evaluation" readonly="1" widget="html"/>
-                        </group>
-                    </sheet>
-                </form>
-            </field>
-        </record>
+    <record id="view_branch_employee_analysis_tree" model="ir.ui.view">
+        <field name="name">branch.employee.analysis.tree</field>
+        <field name="model">branch.employee.analysis</field>
+        <field name="arch" type="xml">
+            <tree string="Branch Employee Analysis">
+                <field name="branch_id"/>
+                <field name="employee_data"/>
+            </tree>
+        </field>
+    </record>
 
-        <!-- نافذة قائمة تحليل الموظفين -->
-        <record id="view_branch_employee_analysis_tree" model="ir.ui.view">
-            <field name="name">branch.employee.analysis.tree</field>
-            <field name="model">taknia.branch.employee.analysis</field>
-            <field name="arch" type="xml">
-                <tree string="Branch Employee Analysis">
-                    <field name="branch_id"/>
-                    <field name="date"/>
-                    <field name="employee_performance"/>
-                    <field name="employee_performance_comparison"/>
-                    <field name="employee_sustainability_evaluation"/>
-                </tree>
-            </field>
-        </record>
-
-        <!-- إنشاء القائمة الفرعية لعرض تحليل الموظفين -->
-        <act_window id="action_branch_employee_analysis"
-            name="Employee Analysis"
-            res_model="taknia.branch.employee.analysis"
-            view_mode="tree,form"
-            menu_id="taknia_branch_employee_analysis_menu"/>
-        
-    </data>
+    <record id="action_branch_employee_analysis" model="ir.actions.act_window">
+        <field name="name">Branch Employee Analysis</field>
+        <field name="res_model">branch.employee.analysis</field>
+        <field name="view_mode">tree,form</field>
+    </record>
 </odoo>

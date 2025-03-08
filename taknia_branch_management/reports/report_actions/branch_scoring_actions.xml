@@ -1,42 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <data>
-
-        <!-- تعريف الإجراء لتقرير تقييم الفروع (Scoring) -->
-        <record id="action_branch_scoring_report" model="ir.actions.act_window">
-            <field name="name">Branch Scoring Report</field>
-            <field name="res_model">branch.scoring.report</field>
-            <field name="view_mode">form</field>
-            <field name="target">new</field>
-            <field name="binding_model_id" ref="model_branch_scoring_report"/>
-            <field name="context">{}</field>
-        </record>
-
-        <!-- تعريف الإجراء للتقرير داخل قائمة التقارير -->
-        <record id="action_branch_scoring_report_menu" model="ir.actions.act_window">
-            <field name="name">Branch Scoring Reports</field>
-            <field name="res_model">branch.scoring.report</field>
-            <field name="view_mode">tree,form</field>
-            <field name="target">current</field>
-            <field name="context">{}</field>
-        </record>
-
-        <!-- إضافة التقرير إلى القائمة -->
-        <menuitem id="branch_scoring_report_menu"
-                  name="Branch Scoring"
-                  parent="taknia_branch_management.menu_reports"
-                  action="action_branch_scoring_report_menu"
-                  sequence="60"/>
-
-        <!-- تعريف زر الإجراء لطباعة التقرير -->
-        <record id="action_branch_scoring_report_print" model="ir.actions.report">
-            <field name="name">Branch Scoring Report</field>
-            <field name="model">branch.scoring.report</field>
-            <field name="report_type">qweb-pdf</field>
-            <field name="report_name">taknia_branch_management.report_branch_scoring</field>
-            <field name="report_file">taknia_branch_management.report_branch_scoring</field>
-            <field name="binding_model_id" ref="model_branch_scoring_report"/>
-        </record>
-
-    </data>
+    <record id="action_report_branch_scoring" model="ir.actions.report">
+        <field name="name">Branch Scoring Report</field>
+        <field name="model">branch.scoring</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">taknia_branch_management.branch_scoring_template</field>
+        <field name="report_file">taknia_branch_management.branch_scoring_template</field>
+    </record>
 </odoo>

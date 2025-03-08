@@ -1,105 +1,25 @@
-# Taknia Branch Management - Odoo 18
+# Taknia Branch Management
 
-**Taknia Branch Management** هو موديول Odoo 18 متقدم لإدارة الفروع. يتيح لك هذا الموديول إدارة فروع الشركات بطريقة مهنية وفعّالة من خلال تقديم مجموعة واسعة من الميزات التي تشمل التقارير المتقدمة، الذكاء الصناعي، التكاملات، ولوحات القيادة. يدعم الموديول الهيكل متعدد الفروع والشركات (Multi-Branch & Multi-Company) ويسمح بإدارة الأداء المالي، الميزانية، وتحليل العملاء بشكل سهل ومرن.
+## Overview
+The Taknia Branch Management module for Odoo provides comprehensive branch management features including performance tracking, budget management, KPI dashboards, AI branch advisory, customer analysis, expense analysis, stock analysis, employee analysis, ESG analysis, financial health tracking, branch scoring, regional management, and integrations with Google Sheets and Power BI.
 
-## المميزات الرئيسية
+## Features
+- **Branch Management**: Manage branches with details such as branch name, code, manager, and location.
+- **Performance Tracking**: Track branch performance with KPIs and generate performance reports.
+- **Budget Management**: Manage and track branch budgets, including spent and remaining amounts.
+- **KPI Dashboards**: Visualize branch KPIs with interactive dashboards.
+- **AI Branch Advisor**: Get AI-driven advice for branch performance improvement.
+- **Customer Analysis**: Analyze customer data at the branch level.
+- **Expense Analysis**: Track and analyze branch expenses.
+- **Stock Analysis**: Monitor and analyze branch stock levels.
+- **Employee Analysis**: Analyze employee data and performance at the branch level.
+- **ESG Analysis**: Track and analyze branch performance on environmental, social, and governance criteria.
+- **Financial Health Tracking**: Monitor the financial health of branches.
+- **Branch Scoring**: Score branches based on various performance metrics.
+- **Regional Management**: Manage branches at the regional level, including regional comparisons.
+- **Integrations**: Sync data with Google Sheets and Power BI for enhanced reporting and analysis.
 
-### 1. **تعريف الفروع**
-   - إنشاء هيكل للفروع يدعم Multi-Branch و Multi-Company.
-   - ربط الفروع بالمستخدمين، العملاء، الحسابات، والمستودعات.
-   - حقول متقدمة تشمل الميزانية، المدير، المنطقة، الإيرادات، العملاء، إلخ.
-
-### 2. **تقارير متقدمة**
-   - تقارير أداء الفروع.
-   - تقارير مالية صحية.
-   - تقارير مقارنة المخزون والمصاريف.
-   - تقارير رضا العملاء.
-   - تقارير تحليل حركة الموظفين.
-   - تقارير تقييم الاستدامة (ESG).
-   - تقارير تحليل العملاء لكل فرع.
-   - تقارير Scoring لكل فرع.
-
-### 3. **ذكاء صناعي**
-   - **AI Advisor** يقترح استشارات مالية وتحليلية.
-   - **تنبيهات استباقية (Predictive Alerts)**.
-   - أداة تحليل تاريخية لتوقع أداء الفروع.
-
-### 4. **لوحات القيادة (Dashboards)**
-   - لوحة إدارة الفروع.
-   - مؤشرات الأداء التشغيلية.
-   - مقارنة الفروع.
-   - رضا العملاء.
-   - أداء الموظفين.
-   - تحقيق الأهداف.
-
-### 5. **تكاملات**
-   - تكامل مع **Google Sheets**.
-   - تكامل مع **Power BI**.
-   - تكامل مع **البنوك (Bank Integration)**.
-
-### 6. **إدارة الميزانية (Budget)**
-   - تحديد ميزانية لكل فرع.
-   - متابعة الأداء مقارنة بالميزانية.
-   - تنبيهات تجاوز الميزانية.
-
-### 7. **تحليل العملاء والمنتجات**
-   - تحليل ربحية العملاء.
-   - تحليل المنتجات حسب الفرع.
-   - تحليل زمني لتحصيلات العملاء.
-
-### 8. **إدارة إقليمية**
-   - تقسيم الفروع حسب المناطق.
-   - مقارنة الأداء بين المناطق.
-
-### 9. **إعدادات متقدمة**
-   - صفحة إعدادات مركزية.
-   - ربط مع Google Sheets, Power BI, و Banks.
-   - تخصيص صلاحيات الفروع.
-   - دعم Multi-Company & Multi-Branch.
-   - تصدير التقارير PDF و Excel.
-   - دعم الوضع الليلي.
-
-### 10. **مميزات إضافية**
-   - كود Python احترافي مع تعليقات.
-   - دعم الأجهزة المحمولة.
-   - أيقونة مخصصة.
-   - إضافة كموديل مستقل في تطبيقات Odoo.
-   - تصميم UX احترافي وحديث.
-   - توافق كامل مع Odoo 18.
-
-## الملفات الموجودة في الموديول
-- **Models**: يحتوي على جميع النماذج (Models) الخاصة بالفروع، الميزانية، الأداء، إلخ.
-- **Views**: يحتوي على جميع العروض (Views) لتقارير الأداء، التحليل المالي، وتحليل العملاء.
-- **Reports**: تقارير PDF وExcel للمؤشرات الرئيسية وتقارير الأداء.
-- **Wizards**: أدوات سريعة للوصول إلى التقارير وتصفية البيانات.
-- **Static**: ملفات CSS وJS مخصصة لتحسين واجهة المستخدم.
-- **Security**: ملفات التحكم في الوصول (Access Control) للموديل.
-- **i18n**: ملفات الترجمة للغات المختلفة (ar.po, en.po).
-- **Data**: يحتوي على المهام المجدولة (Cron Jobs) والبيانات المبدئية.
-
-## كيفية التثبيت
-
-### المتطلبات:
-- Odoo 18
-- Python 3.7 أو أحدث
-- PostgreSQL 10 أو أحدث
-
-### الخطوات:
-1. قم بتحميل أو نسخ الموديول إلى مجلد `addons` في بيئة Odoo الخاصة بك.
-2. قم بتحديث قائمة الموديولات في Odoo.
-3. من خلال واجهة Odoo، انتقل إلى "التطبيقات" وابحث عن "Taknia Branch Management".
-4. اضغط على زر **تثبيت**.
-
-### بعد التثبيت:
-- يمكنك بدء استخدام الموديول عبر صفحة "الفروع" (Branches).
-- يمكنك تخصيص الإعدادات من خلال "الإعدادات" (Settings).
-- استمتع بالتقارير المتقدمة ولوحات القيادة.
-
-## دعم الموديول
-إذا كنت بحاجة إلى الدعم أو لديك أي استفسارات، يمكنك الاتصال بنا عبر البريد الإلكتروني: [support@takniasoft.com](mailto:support@takniasoft.com).
-
-## الترخيص
-هذا الموديول مرخص بموجب **ترخيص مفتوح المصدر**. يمكنك استخدامه وتعديله وفقاً لشروط الترخيص المفتوح.
-
-### حقوق الملكية:
-- **Taknia Soft** - جميع الحقوق محفوظة.
+## Installation
+1. Clone the repository to your Odoo addons directory:
+   ```bash
+   git clone https://github.com/taknia/taknia_branch_management.git

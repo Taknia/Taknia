@@ -1,93 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <data>
-
-        <!-- تعريف قالب التقرير الخاص بتحليل المصاريف للفروع -->
-        <template id="branch_expense_analysis_template">
-            <t t-call="web.external_layout">
+    <template id="branch_expense_analysis_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
                 <div class="page">
-                    <!-- عنوان التقرير -->
-                    <h2 class="text-center">Branch Expense Analysis Report</h2>
-                    
-                    <!-- معلومات الفروع -->
-                    <div class="row">
-                        <div class="col-6">
-                            <strong>Branch:</strong> 
-                            <span t-esc="doc.branch_id.name"/>
-                        </div>
-                        <div class="col-6 text-right">
-                            <strong>Date:</strong>
-                            <span t-esc="doc.date"/>
-                        </div>
-                    </div>
-
-                    <!-- تحليل المصاريف -->
-                    <h3 class="mt-4">Expense Analysis</h3>
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Expense Category</th>
-                                <th>Budget</th>
-                                <th>Actual</th>
-                                <th>Variance</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Operating Expenses</td>
-                                <td t-esc="doc.budget_operating_expenses"/>
-                                <td t-esc="doc.actual_operating_expenses"/>
-                                <td t-esc="doc.operating_expenses_variance"/>
-                            </tr>
-                            <tr>
-                                <td>Salaries and Wages</td>
-                                <td t-esc="doc.budget_salaries"/>
-                                <td t-esc="doc.actual_salaries"/>
-                                <td t-esc="doc.salaries_variance"/>
-                            </tr>
-                            <tr>
-                                <td>Utilities</td>
-                                <td t-esc="doc.budget_utilities"/>
-                                <td t-esc="doc.actual_utilities"/>
-                                <td t-esc="doc.utilities_variance"/>
-                            </tr>
-                            <tr>
-                                <td>Marketing</td>
-                                <td t-esc="doc.budget_marketing"/>
-                                <td t-esc="doc.actual_marketing"/>
-                                <td t-esc="doc.marketing_variance"/>
-                            </tr>
-                            <tr>
-                                <td>Repairs and Maintenance</td>
-                                <td t-esc="doc.budget_repairs"/>
-                                <td t-esc="doc.actual_repairs"/>
-                                <td t-esc="doc.repairs_variance"/>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <!-- تحليل المصاريف الإضافية -->
-                    <h3 class="mt-4">Additional Expense Analysis</h3>
-                    <p><strong>Branch Manager:</strong> <span t-esc="doc.branch_manager.name"/></p>
-                    <p><strong>Financial Advisor:</strong> <span t-esc="doc.financial_advisor.name"/></p>
-                    <p><strong>Expense Summary:</strong> <span t-esc="doc.expense_summary"/></p>
-
-                    <!-- رسومات بيانية (إذا كانت متاحة) -->
-                    <div t-if="doc.expense_chart">
-                        <h3 class="mt-4">Expense Breakdown Chart</h3>
-                        <img t-att-src="'data:image/png;base64,' + doc.expense_chart" alt="Expense Chart"/>
-                    </div>
-
-                    <!-- إجمالي التقرير -->
-                    <div class="text-center mt-5">
-                        <h4>Total Expense Overview</h4>
-                        <strong>Total Expenses: </strong>
-                        <span t-esc="doc.total_expenses"/>
-                    </div>
-
+                    <h2>Branch Expense Analysis Report</h2>
+                    <p>Branch: <t t-esc="doc.branch_id.name"/></p>
+                    <p>Expense Data: <t t-esc="doc.expense_data"/></p>
                 </div>
             </t>
-        </template>
-
-    </data>
+        </t>
+    </template>
 </odoo>

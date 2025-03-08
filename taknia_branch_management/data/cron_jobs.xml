@@ -1,66 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <data>
-
-        <!-- تعريف مهمة مجدولة لتحديث تقارير الفروع بشكل دوري -->
-        <record id="cron_update_branch_reports" model="ir.cron">
-            <field name="name">Update Branch Reports</field>
-            <field name="model_id" ref="model_branch_performance_report"/>
+    <data noupdate="1">
+        <record id="ir_cron_branch_performance_sync" model="ir.cron">
+            <field name="name">Branch Performance Sync</field>
+            <field name="model_id" ref="model_branch_performance"/>
             <field name="state">code</field>
-            <field name="code">model.update_branch_reports()</field>
+            <field name="code">model.sync_branch_performance_data()</field>
+            <field name="interval_number">1</field>
             <field name="interval_type">days</field>
-            <field name="interval_number">1</field> <!-- التحديث كل يوم -->
-            <field name="nextcall">2025-03-09 00:00:00</field> <!-- تحديد وقت البدء -->
-            <field name="user_id" ref="base.user_admin"/>
+            <field name="numbercall">-1</field>
+            <field name="doall">False</field>
         </record>
-
-        <!-- تعريف مهمة مجدولة لمزامنة البيانات مع Google Sheets -->
-        <record id="cron_sync_google_sheets" model="ir.cron">
-            <field name="name">Sync Google Sheets</field>
-            <field name="model_id" ref="model.google_sheets_sync"/>
-            <field name="state">code</field>
-            <field name="code">model.sync_with_google_sheets()</field>
-            <field name="interval_type">hours</field>
-            <field name="interval_number">6</field> <!-- المزامنة كل 6 ساعات -->
-            <field name="nextcall">2025-03-09 06:00:00</field> <!-- تحديد وقت البدء -->
-            <field name="user_id" ref="base.user_admin"/>
-        </record>
-
-        <!-- تعريف مهمة مجدولة لمزامنة البيانات مع Power BI -->
-        <record id="cron_sync_power_bi" model="ir.cron">
-            <field name="name">Sync Power BI</field>
-            <field name="model_id" ref="model.power_bi_sync"/>
-            <field name="state">code</field>
-            <field name="code">model.sync_with_power_bi()</field>
-            <field name="interval_type">hours</field>
-            <field name="interval_number">6</field> <!-- المزامنة كل 6 ساعات -->
-            <field name="nextcall">2025-03-09 06:00:00</field> <!-- تحديد وقت البدء -->
-            <field name="user_id" ref="base.user_admin"/>
-        </record>
-
-        <!-- تعريف مهمة مجدولة لتحليل التوقعات المالية -->
-        <record id="cron_analyze_financial_forecasts" model="ir.cron">
-            <field name="name">Analyze Financial Forecasts</field>
-            <field name="model_id" ref="model.financial_forecast_analysis"/>
-            <field name="state">code</field>
-            <field name="code">model.analyze_forecasts()</field>
-            <field name="interval_type">days</field>
-            <field name="interval_number">1</field> <!-- التحليل كل يوم -->
-            <field name="nextcall">2025-03-09 00:00:00</field> <!-- تحديد وقت البدء -->
-            <field name="user_id" ref="base.user_admin"/>
-        </record>
-
-        <!-- تعريف مهمة مجدولة لتنبيهات الأداء الاستباقية (Predictive Alerts) -->
-        <record id="cron_predictive_alerts" model="ir.cron">
-            <field name="name">Predictive Alerts</field>
-            <field name="model_id" ref="model.predictive_alerts"/>
-            <field name="state">code</field>
-            <field name="code">model.send_predictive_alerts()</field>
-            <field name="interval_type">hours</field>
-            <field name="interval_number">12</field> <!-- التنبيهات كل 12 ساعة -->
-            <field name="nextcall">2025-03-09 00:00:00</field> <!-- تحديد وقت البدء -->
-            <field name="user_id" ref="base.user_admin"/>
-        </record>
-
     </data>
 </odoo>

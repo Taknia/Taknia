@@ -1,68 +1,37 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <!-- عرض قائمة تقارير أداء الفروع (Tree View) -->
-    <record id="view_taknia_branch_performance_tree" model="ir.ui.view">
-        <field name="name">taknia.branch.performance.tree</field>
-        <field name="model">taknia.branch.performance</field>
+    <record id="view_branch_performance_form" model="ir.ui.view">
+        <field name="name">branch.performance.form</field>
+        <field name="model">branch.performance</field>
         <field name="arch" type="xml">
-            <tree string="Branch Performance">
-                <field name="branch_id"/>
-                <field name="kpi_1" string="KPI 1"/>
-                <field name="kpi_2" string="KPI 2"/>
-                <field name="kpi_3" string="KPI 3"/>
-                <field name="performance_score" string="Performance Score"/>
-                <field name="date"/>
-            </tree>
-        </field>
-    </record>
-
-    <!-- عرض تقرير الأداء بشكل تفصيلي (Form View) -->
-    <record id="view_taknia_branch_performance_form" model="ir.ui.view">
-        <field name="name">taknia.branch.performance.form</field>
-        <field name="model">taknia.branch.performance</field>
-        <field name="arch" type="xml">
-            <form string="Branch Performance Details">
+            <form string="Branch Performance">
                 <sheet>
                     <group>
-                        <group name="branch_info">
-                            <field name="branch_id" string="Branch"/>
-                            <field name="date" string="Date"/>
-                            <field name="kpi_1" string="KPI 1"/>
-                            <field name="kpi_2" string="KPI 2"/>
-                            <field name="kpi_3" string="KPI 3"/>
-                            <field name="performance_score" string="Performance Score"/>
-                            <field name="notes" string="Additional Notes"/>
-                        </group>
+                        <field name="branch_id"/>
+                        <field name="kpi"/>
+                        <field name="value"/>
+                        <field name="date"/>
                     </group>
                 </sheet>
             </form>
         </field>
     </record>
 
-    <!-- عرض البحث المتقدم (Search View) -->
-    <record id="view_taknia_branch_performance_search" model="ir.ui.view">
-        <field name="name">taknia.branch.performance.search</field>
-        <field name="model">taknia.branch.performance</field>
+    <record id="view_branch_performance_tree" model="ir.ui.view">
+        <field name="name">branch.performance.tree</field>
+        <field name="model">branch.performance</field>
         <field name="arch" type="xml">
-            <search string="Branch Performance Reports">
-                <filter name="filter_branch" string="Branch" domain="[('branch_id', '!=', False)]"/>
-                <filter name="filter_kpi" string="KPI" domain="[('kpi_1', '>', 0)]"/>
-                <field name="branch_id" string="Branch"/>
-                <field name="date" string="Date"/>
-                <field name="performance_score" string="Performance Score"/>
-            </search>
+            <tree string="Branch Performance">
+                <field name="branch_id"/>
+                <field name="kpi"/>
+                <field name="value"/>
+                <field name="date"/>
+            </tree>
         </field>
     </record>
 
-    <!-- إنشاء إجراء لعرض تقارير أداء الفروع -->
-    <record id="action_taknia_branch_performance" model="ir.actions.act_window">
+    <record id="action_branch_performance" model="ir.actions.act_window">
         <field name="name">Branch Performance</field>
-        <field name="res_model">taknia.branch.performance</field>
+        <field name="res_model">branch.performance</field>
         <field name="view_mode">tree,form</field>
-        <field name="view_id" ref="view_taknia_branch_performance_tree"/>
-        <field name="search_view_id" ref="view_taknia_branch_performance_search"/>
     </record>
-
-    <!-- ربط القائمة بـ Menus -->
-    <menuitem id="taknia_branch_performance_menu" name="Branch Performance" parent="taknia_branches_menu" action="action_taknia_branch_performance" sequence="2"/>
 </odoo>

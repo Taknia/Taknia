@@ -1,70 +1,39 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <!-- عرض قائمة الفروع (Tree View) -->
-    <record id="view_taknia_branch_tree" model="ir.ui.view">
-        <field name="name">taknia.branch.tree</field>
-        <field name="model">taknia.branch.management</field>
+    <record id="view_branch_form" model="ir.ui.view">
+        <field name="name">branch.form</field>
+        <field name="model">branch.management</field>
         <field name="arch" type="xml">
-            <tree string="Branches">
-                <field name="name"/>
-                <field name="region"/>
-                <field name="budget"/>
-                <field name="manager"/>
-                <field name="revenue"/>
-                <field name="customer_count"/>
-                <field name="employee_count"/>
-                <field name="status"/>
-            </tree>
-        </field>
-    </record>
-
-    <!-- عرض نموذج الفرع (Form View) -->
-    <record id="view_taknia_branch_form" model="ir.ui.view">
-        <field name="name">taknia.branch.form</field>
-        <field name="model">taknia.branch.management</field>
-        <field name="arch" type="xml">
-            <form string="Branch Details">
+            <form string="Branch">
                 <sheet>
                     <group>
-                        <group name="branch_info">
-                            <field name="name" string="Branch Name"/>
-                            <field name="region" string="Region"/>
-                            <field name="budget" string="Budget"/>
-                            <field name="manager" string="Branch Manager"/>
-                            <field name="revenue" string="Revenue"/>
-                            <field name="customer_count" string="Customer Count"/>
-                            <field name="employee_count" string="Employee Count"/>
-                        </group>
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="manager"/>
+                        <field name="location"/>
+                        <field name="active"/>
                     </group>
                 </sheet>
             </form>
         </field>
     </record>
 
-    <!-- عرض البحث المتقدم (Search View) -->
-    <record id="view_taknia_branch_search" model="ir.ui.view">
-        <field name="name">taknia.branch.search</field>
-        <field name="model">taknia.branch.management</field>
+    <record id="view_branch_tree" model="ir.ui.view">
+        <field name="name">branch.tree</field>
+        <field name="model">branch.management</field>
         <field name="arch" type="xml">
-            <search string="Branches">
-                <filter name="filter_region" string="Region" domain="[('region', '=', 'North')]"/>
-                <filter name="filter_active" string="Active" domain="[('status', '=', 'active')]"/>
-                <field name="name" string="Branch Name"/>
-                <field name="region" string="Region"/>
-                <field name="status" string="Status"/>
-            </search>
+            <tree string="Branches">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="manager"/>
+                <field name="location"/>
+                <field name="active"/>
+            </tree>
         </field>
     </record>
 
-    <!-- إضافة قائمة الفروع إلى قائمة الفروع في المينيو -->
-    <record id="action_taknia_branch_management" model="ir.actions.act_window">
+    <record id="action_branch" model="ir.actions.act_window">
         <field name="name">Branches</field>
-        <field name="res_model">taknia.branch.management</field>
+        <field name="res_model">branch.management</field>
         <field name="view_mode">tree,form</field>
-        <field name="view_id" ref="view_taknia_branch_tree"/>
-        <field name="search_view_id" ref="view_taknia_branch_search"/>
     </record>
-
-    <!-- ربط القائمة بـ Menus -->
-    <menuitem id="taknia_branch_management_menu" name="Branches" parent="taknia_branches_menu" action="action_taknia_branch_management" sequence="10"/>
 </odoo>
