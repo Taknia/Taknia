@@ -1,10 +1,10 @@
-from odoo import models, fields, api
+from odoo import models, fields
 
 class GoogleSheetsSync(models.Model):
     _name = 'google.sheets.sync'
     _description = 'Google Sheets Sync'
 
-    branch_id = fields.Many2one('branch.management', string='Branch', required=True)
-    sheet_url = fields.Char(string='Google Sheet URL')
-    last_sync_date = fields.Date(string='Last Sync Date')
-    # Add additional fields and methods as necessary
+    branch_id = fields.Many2one('branch', 'Branch', required=True)
+    sheet_url = fields.Char('Sheet URL')
+    sync_status = fields.Selection([('pending', 'Pending'), ('success', 'Success'), ('failed', 'Failed')], 'Sync Status')
+    last_sync_date = fields.Date('Last Sync Date')

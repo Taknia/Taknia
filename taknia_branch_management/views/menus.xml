@@ -1,16 +1,15 @@
 <odoo>
-    <menuitem id="branch_management_menu" name="Branch Management"/>
-    <menuitem id="branch_management_menu_branches" name="Branches" parent="branch_management_menu" action="branch_management.action_branch"/>
-    <menuitem id="branch_management_menu_performance" name="Performance" parent="branch_management_menu" action="branch_management.action_branch_performance"/>
-    <menuitem id="branch_management_menu_budget" name="Budget" parent="branch_management_menu" action="branch_management.action_branch_budget"/>
-    <menuitem id="branch_management_menu_kpi_dashboard" name="KPI Dashboard" parent="branch_management_menu" action="branch_management.action_kpi_dashboard"/>
-    <menuitem id="branch_management_menu_ai_advisor" name="AI Advisor" parent="branch_management_menu" action="branch_management.action_ai_branch_advisor"/>
-    <menuitem id="branch_management_menu_customer_analysis" name="Customer Analysis" parent="branch_management_menu" action="branch_management.action_branch_customer_analysis"/>
-    <menuitem id="branch_management_menu_expense_analysis" name="Expense Analysis" parent="branch_management_menu" action="branch_management.action_branch_expense_analysis"/>
-    <menuitem id="branch_management_menu_stock_analysis" name="Stock Analysis" parent="branch_management_menu" action="branch_management.action_branch_stock_analysis"/>
-    <menuitem id="branch_management_menu_employee_analysis" name="Employee Analysis" parent="branch_management_menu" action="branch_management.action_branch_employee_analysis"/>
-    <menuitem id="branch_management_menu_esg_analysis" name="ESG Analysis" parent="branch_management_menu" action="branch_management.action_branch_esg_analysis"/>
-    <menuitem id="branch_management_menu_financial_health" name="Financial Health" parent="branch_management_menu" action="branch_management.action_branch_financial_health"/>
-    <menuitem id="branch_management_menu_scoring" name="Scoring" parent="branch_management_menu" action="branch_management.action_branch_scoring"/>
-    <menuitem id="branch_management_menu_regional_management" name="Regional Management" parent="branch_management_menu" action="branch_management.action_regional_management"/>
+    <menuitem id="menu_branch_management" name="Branch Management"/>
+    <menuitem id="menu_branch" name="Branches" parent="menu_branch_management"/>
+    <menuitem id="menu_branch_performance" name="Branch Performance" parent="menu_branch_management"/>
+    <menuitem id="menu_branch_budget" name="Branch Budget" parent="menu_branch_management"/>
+    <menuitem id="menu_kpi_dashboard" name="KPI Dashboard" parent="menu_branch_management"/>
+    <menuitem id="menu_ai_branch_advisor" name="AI Branch Advisor" parent="menu_branch_management"/>
+    <menuitem id="menu_branch_customer_analysis" name="Customer Analysis" parent="menu_branch_management"/>
+    <menuitem id="menu_branch_expense_analysis" name="Expense Analysis" parent="menu_branch_management"/>
+    <menuitem id="menu_branch_stock_analysis" name="Stock Analysis" parent="menu_branch_management"/>
+    <menuitem id="menu_branch_employee_analysis" name="Employee Analysis" parent="menu_branch_management"/>
+    <menuitem id="menu_branch_esg_analysis" name="ESG Analysis" parent="menu_branch_management"/>
+    <menuitem id="menu_branch_financial_health" name="Financial Health" parent="menu_branch_management"/>
+    <menuitem id="menu_branch_scoring" name="Branch Scoring" parent="menu_branch_management"/>
 </odoo>

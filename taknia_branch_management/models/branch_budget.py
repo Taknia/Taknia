@@ -1,17 +1,15 @@
-from odoo import models, fields, api
+from odoo import models, fields
 
 class BranchBudget(models.Model):
     _name = 'branch.budget'
     _description = 'Branch Budget'
 
-    branch_id = fields.Many2one('branch.management', string='Branch', required=True)
-    fiscal_year = fields.Char(string='Fiscal Year', required=True)
-    budget_amount = fields.Float(string='Budget Amount')
-    spent_amount = fields.Float(string='Spent Amount')
-    remaining_amount = fields.Float(string='Remaining Amount', compute='_compute_remaining_amount')
+    branch_id = fields.Many2one('branch', 'Branch', required=True)
+    fiscal_year = fields.Char('Fiscal Year', required=True)
+    budget_amount = fields.Float('Budget Amount')
+    actual_amount = fields.Float('Actual Amount')
+    variance = fields.Float('Variance', compute='_compute_variance')
 
-    @api.depends('budget_amount', 'spent_amount')
-    def _compute_remaining_amount(self):
+    def _compute_variance(self):
         for record in self:
-            record.remaining_amount = record.budget_amount - record.spent_amount
-    # Add additional fields and methods as necessary
+            record.variance = record.budget_amount - record.actual_amount

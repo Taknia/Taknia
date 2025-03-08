@@ -1,14 +1,16 @@
 <odoo>
-    <record id="view_res_config_settings_form_inherit" model="ir.ui.view">
-        <field name="name">res.config.settings.form.inherit</field>
+    <record id="view_module_settings_form" model="ir.ui.view">
+        <field name="name">module.settings.form</field>
         <field name="model">res.config.settings</field>
-        <field name="inherit_id" ref="base.view_res_config_settings"/>
         <field name="arch" type="xml">
-            <div name="settings" position="inside">
-                <group>
-                    <field name="branch_management_module_installed"/>
-                </group>
-            </div>
+            <form>
+                <sheet>
+                    <group>
+                        <field name="module_google_sheets_sync"/>
+                        <field name="module_power_bi_sync"/>
+                    </group>
+                </sheet>
+            </form>
         </field>
     </record>
 </odoo>

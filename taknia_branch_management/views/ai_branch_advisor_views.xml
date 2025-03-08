@@ -1,9 +1,21 @@
 <odoo>
+    <record id="view_ai_branch_advisor_tree" model="ir.ui.view">
+        <field name="name">ai.branch.advisor.tree</field>
+        <field name="model">ai.branch.advisor</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="branch_id"/>
+                <field name="advice"/>
+                <field name="date"/>
+            </tree>
+        </field>
+    </record>
+
     <record id="view_ai_branch_advisor_form" model="ir.ui.view">
         <field name="name">ai.branch.advisor.form</field>
         <field name="model">ai.branch.advisor</field>
         <field name="arch" type="xml">
-            <form string="AI Branch Advisor">
+            <form>
                 <sheet>
                     <group>
                         <field name="branch_id"/>
@@ -12,18 +24,6 @@
                     </group>
                 </sheet>
             </form>
-        </field>
-    </record>
-
-    <record id="view_ai_branch_advisor_tree" model="ir.ui.view">
-        <field name="name">ai.branch.advisor.tree</field>
-        <field name="model">ai.branch.advisor</field>
-        <field name="arch" type="xml">
-            <tree string="AI Branch Advisor">
-                <field name="branch_id"/>
-                <field name="advice"/>
-                <field name="date"/>
-            </tree>
         </field>
     </record>
 

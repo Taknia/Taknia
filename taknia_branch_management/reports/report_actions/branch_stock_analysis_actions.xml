@@ -1,9 +1,11 @@
 <odoo>
-    <record id="action_report_branch_stock_analysis" model="ir.actions.report">
-        <field name="name">Branch Stock Analysis Report</field>
-        <field name="model">branch.stock.analysis</field>
-        <field name="report_type">qweb-pdf</field>
-        <field name="report_name">taknia_branch_management.branch_stock_analysis_template</field>
-        <field name="report_file">taknia_branch_management.branch_stock_analysis_template</field>
-    </record>
+    <report 
+        id="report_branch_stock_analysis_action" 
+        model="branch.stock.analysis" 
+        string="Branch Stock Analysis Report" 
+        report_type="qweb-pdf" 
+        name="taknia_branch_management.report_branch_stock_analysis" 
+        file="taknia_branch_management.report_branch_stock_analysis" 
+        print_report_name="'Branch Stock Analysis - %s' % (object.branch_id.name)"
+    />
 </odoo>

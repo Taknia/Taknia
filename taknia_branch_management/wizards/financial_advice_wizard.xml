@@ -3,18 +3,22 @@
         <field name="name">financial.advice.wizard.form</field>
         <field name="model">financial.advice.wizard</field>
         <field name="arch" type="xml">
-            <form string="Financial Advice Wizard">
+            <form>
                 <sheet>
                     <group>
                         <field name="branch_id"/>
                         <field name="advice"/>
+                        <button string="Get Advice" type="object" name="get_advice"/>
                     </group>
-                    <footer>
-                        <button string="Submit" type="object" name="submit_advice" class="btn-primary"/>
-                        <button string="Cancel" class="btn-secondary" special="cancel"/>
-                    </footer>
                 </sheet>
             </form>
         </field>
+    </record>
+
+    <record id="action_financial_advice_wizard" model="ir.actions.act_window">
+        <field name="name">Financial Advice Wizard</field>
+        <field name="res_model">financial.advice.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
     </record>
 </odoo>

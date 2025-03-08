@@ -1,0 +1,9 @@
+<odoo>
+    <data>
+        <record id="ai_advice_main_2025" model="ai.branch.advisor">
+            <field name="branch_id" ref="branch_main"/>
+            <field name="advice">Consider reducing expenses to improve profit margins.</field>
+            <field name="date">2025-02-28</field>
+        </record>
+    </data>
+</odoo>

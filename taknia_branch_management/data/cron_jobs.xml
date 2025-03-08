@@ -1,14 +1,11 @@
 <odoo>
-    <data noupdate="1">
-        <record id="ir_cron_branch_performance_sync" model="ir.cron">
-            <field name="name">Branch Performance Sync</field>
-            <field name="model_id" ref="model_branch_performance"/>
-            <field name="state">code</field>
-            <field name="code">model.sync_branch_performance_data()</field>
-            <field name="interval_number">1</field>
-            <field name="interval_type">days</field>
-            <field name="numbercall">-1</field>
-            <field name="doall">False</field>
-        </record>
-    </data>
+    <record id="ir_cron_branch_performance_sync" model="ir.cron">
+        <field name="name">Branch Performance Sync</field>
+        <field name="model_id" ref="model_branch_performance"/>
+        <field name="state">code</field>
+        <field name="code">model._sync_branch_performance()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+    </record>
 </odoo>

@@ -1,9 +1,11 @@
 <odoo>
-    <record id="action_report_branch_performance" model="ir.actions.report">
-        <field name="name">Branch Performance Report</field>
-        <field name="model">branch.performance</field>
-        <field name="report_type">qweb-pdf</field>
-        <field name="report_name">taknia_branch_management.branch_performance_template</field>
-        <field name="report_file">taknia_branch_management.branch_performance_template</field>
-    </record>
+    <report 
+        id="report_branch_performance_action" 
+        model="branch.performance" 
+        string="Branch Performance Report" 
+        report_type="qweb-pdf" 
+        name="taknia_branch_management.report_branch_performance" 
+        file="taknia_branch_management.report_branch_performance" 
+        print_report_name="'Branch Performance - %s' % (object.branch_id.name)"
+    />
 </odoo>

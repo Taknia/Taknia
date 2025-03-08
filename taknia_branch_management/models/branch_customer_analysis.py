@@ -1,10 +1,10 @@
-from odoo import models, fields, api
+from odoo import models, fields
 
 class BranchCustomerAnalysis(models.Model):
     _name = 'branch.customer.analysis'
     _description = 'Branch Customer Analysis'
 
-    branch_id = fields.Many2one('branch.management', string='Branch', required=True)
-    customer_data = fields.Text(string='Customer Data')  # Add fields to store and analyze customer data
-
-    # Add additional fields and methods as necessary
+    branch_id = fields.Many2one('branch', 'Branch', required=True)
+    customer_segment = fields.Char('Customer Segment', required=True)
+    analysis_data = fields.Text('Analysis Data')
+    date = fields.Date('Date', required=True)

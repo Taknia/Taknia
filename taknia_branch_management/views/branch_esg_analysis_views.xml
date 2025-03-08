@@ -1,32 +1,36 @@
 <odoo>
+    <record id="view_branch_esg_analysis_tree" model="ir.ui.view">
+        <field name="name">branch.esg.analysis.tree</field>
+        <field name="model">branch.esg.analysis</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="branch_id"/>
+                <field name="esg_metric"/>
+                <field name="value"/>
+                <field name="date"/>
+            </tree>
+        </field>
+    </record>
+
     <record id="view_branch_esg_analysis_form" model="ir.ui.view">
         <field name="name">branch.esg.analysis.form</field>
         <field name="model">branch.esg.analysis</field>
         <field name="arch" type="xml">
-            <form string="Branch ESG Analysis">
+            <form>
                 <sheet>
                     <group>
                         <field name="branch_id"/>
-                        <field name="esg_data"/>
+                        <field name="esg_metric"/>
+                        <field name="value"/>
+                        <field name="date"/>
                     </group>
                 </sheet>
             </form>
         </field>
     </record>
 
-    <record id="view_branch_esg_analysis_tree" model="ir.ui.view">
-        <field name="name">branch.esg.analysis.tree</field>
-        <field name="model">branch.esg.analysis</field>
-        <field name="arch" type="xml">
-            <tree string="Branch ESG Analysis">
-                <field name="branch_id"/>
-                <field name="esg_data"/>
-            </tree>
-        </field>
-    </record>
-
     <record id="action_branch_esg_analysis" model="ir.actions.act_window">
-        <field name="name">Branch ESG Analysis</field>
+        <field name="name">ESG Analysis</field>
         <field name="res_model">branch.esg.analysis</field>
         <field name="view_mode">tree,form</field>
     </record>

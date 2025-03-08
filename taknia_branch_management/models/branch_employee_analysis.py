@@ -1,10 +1,10 @@
-from odoo import models, fields, api
+from odoo import models, fields
 
 class BranchEmployeeAnalysis(models.Model):
     _name = 'branch.employee.analysis'
     _description = 'Branch Employee Analysis'
 
-    branch_id = fields.Many2one('branch.management', string='Branch', required=True)
-    employee_data = fields.Text(string='Employee Data')  # Add fields to store and analyze employee data
-
-    # Add additional fields and methods as necessary
+    branch_id = fields.Many2one('branch', 'Branch', required=True)
+    employee_id = fields.Many2one('hr.employee', 'Employee', required=True)
+    analysis_data = fields.Text('Analysis Data')
+    date = fields.Date('Date', required=True)

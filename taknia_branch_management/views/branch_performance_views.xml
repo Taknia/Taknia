@@ -1,31 +1,33 @@
 <odoo>
-    <record id="view_branch_performance_form" model="ir.ui.view">
-        <field name="name">branch.performance.form</field>
-        <field name="model">branch.performance</field>
-        <field name="arch" type="xml">
-            <form string="Branch Performance">
-                <sheet>
-                    <group>
-                        <field name="branch_id"/>
-                        <field name="kpi"/>
-                        <field name="value"/>
-                        <field name="date"/>
-                    </group>
-                </sheet>
-            </form>
-        </field>
-    </record>
-
     <record id="view_branch_performance_tree" model="ir.ui.view">
         <field name="name">branch.performance.tree</field>
         <field name="model">branch.performance</field>
         <field name="arch" type="xml">
-            <tree string="Branch Performance">
+            <tree>
                 <field name="branch_id"/>
-                <field name="kpi"/>
-                <field name="value"/>
                 <field name="date"/>
+                <field name="revenue"/>
+                <field name="expenses"/>
+                <field name="profit"/>
             </tree>
+        </field>
+    </record>
+
+    <record id="view_branch_performance_form" model="ir.ui.view">
+        <field name="name">branch.performance.form</field>
+        <field name="model">branch.performance</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="branch_id"/>
+                        <field name="date"/>
+                        <field name="revenue"/>
+                        <field name="expenses"/>
+                        <field name="profit"/>
+                    </group>
+                </sheet>
+            </form>
         </field>
     </record>
 

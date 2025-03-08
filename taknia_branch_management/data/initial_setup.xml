@@ -1,0 +1,13 @@
+<odoo>
+    <data noupdate="1">
+        <record id="branch_main" model="branch">
+            <field name="name">Main Branch</field>
+            <field name="code">MB001</field>
+            <field name="manager_id" ref="base.user_admin"/>
+            <field name="address">123 Main St</field>
+            <field name="phone">+123456789</field>
+            <field name="email">main.branch@example.com</field>
+            <field name="active">True</field>
+        </record>
+    </data>
+</odoo>

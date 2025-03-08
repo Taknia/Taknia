@@ -1,12 +1,13 @@
-from odoo import models, fields, api
+from odoo import models, fields
 
 class Branch(models.Model):
-    _name = 'branch.management'
-    _description = 'Branch Management'
+    _name = 'branch'
+    _description = 'Branch'
 
-    name = fields.Char(string='Branch Name', required=True)
-    code = fields.Char(string='Branch Code', required=True)
-    manager = fields.Many2one('res.users', string='Branch Manager')
-    location = fields.Char(string='Location')
-    active = fields.Boolean(string='Active', default=True)
-    # Add additional fields as necessary
+    name = fields.Char('Branch Name', required=True)
+    code = fields.Char('Branch Code', required=True)
+    manager_id = fields.Many2one('res.users', 'Branch Manager')
+    address = fields.Char('Branch Address')
+    phone = fields.Char('Branch Phone')
+    email = fields.Char('Branch Email')
+    active = fields.Boolean('Active', default=True)

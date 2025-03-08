@@ -10,7 +10,6 @@ from . import branch_employee_analysis
 from . import branch_esg_analysis
 from . import branch_financial_health
 from . import branch_scoring
-from . import regional_management
 from . import google_sheets_sync
 from . import power_bi_sync
 from . import bank_integration

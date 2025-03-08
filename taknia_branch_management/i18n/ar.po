@@ -1,101 +1,33 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: taknia_branch_management\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"POT-Creation-Date: 2025-03-08 05:15+0000\n"
 "Language: ar\n"
-"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 
-msgid "Branch Name"
-msgstr "اسم الفرع"
-
-msgid "Branch Code"
-msgstr "كود الفرع"
-
-msgid "Branch Manager"
-msgstr "مدير الفرع"
-
-msgid "Location"
-msgstr "الموقع"
-
-msgid "Active"
-msgstr "نشط"
-
-msgid "KPI"
-msgstr "مؤشر الأداء"
-
-msgid "Value"
-msgstr "القيمة"
-
-msgid "Date"
-msgstr "التاريخ"
-
-msgid "Fiscal Year"
-msgstr "السنة المالية"
-
-msgid "Budget Amount"
-msgstr "مبلغ الميزانية"
-
-msgid "Spent Amount"
-msgstr "المبلغ المنفق"
-
-msgid "Remaining Amount"
-msgstr "المبلغ المتبقي"
-
-msgid "KPI Data"
-msgstr "بيانات مؤشرات الأداء الرئيسية"
-
-msgid "Advice"
-msgstr "النصيحة"
-
-msgid "Customer Data"
-msgstr "بيانات العملاء"
-
-msgid "Expense Data"
-msgstr "بيانات النفقات"
-
-msgid "Stock Data"
-msgstr "بيانات المخزون"
-
-msgid "Employee Data"
-msgstr "بيانات الموظفين"
-
-msgid "ESG Data"
-msgstr "بيانات البيئة والمجتمع والحوكمة"
-
-msgid "Financial Health Data"
-msgstr "بيانات الصحة المالية"
-
-msgid "Score"
-msgstr "النتيجة"
-
-msgid "Region Name"
-msgstr "اسم المنطقة"
+msgid "Branch Management"
+msgstr "إدارة الفروع"
 
 msgid "Branches"
 msgstr "الفروع"
 
-msgid "Branch"
-msgstr "فرع"
+msgid "Branch Performance"
+msgstr "أداء الفروع"
 
-msgid "Performance"
-msgstr "الأداء"
-
-msgid "Budget"
-msgstr "الميزانية"
+msgid "Branch Budget"
+msgstr "ميزانية الفروع"
 
 msgid "KPI Dashboard"
-msgstr "لوحة مؤشرات الأداء الرئيسية"
+msgstr "لوحة مؤشرات الأداء"
 
-msgid "AI Advisor"
-msgstr "المستشار الذكي"
+msgid "AI Branch Advisor"
+msgstr "مستشار الفروع الذكي"
 
 msgid "Customer Analysis"
 msgstr "تحليل العملاء"
 
 msgid "Expense Analysis"
-msgstr "تحليل النفقات"
+msgstr "تحليل المصروفات"
 
 msgid "Stock Analysis"
 msgstr "تحليل المخزون"
@@ -104,25 +36,163 @@ msgid "Employee Analysis"
 msgstr "تحليل الموظفين"
 
 msgid "ESG Analysis"
-msgstr "تحليل البيئة والمجتمع والحوكمة"
+msgstr "تحليل الاستدامة"
 
 msgid "Financial Health"
 msgstr "الصحة المالية"
 
-msgid "Scoring"
-msgstr "التسجيل"
+msgid "Branch Scoring"
+msgstr "تقييم الفروع"
 
-msgid "Regional Management"
-msgstr "الإدارة الإقليمية"
+msgid "Google Sheets Sync"
+msgstr "مزامنة Google Sheets"
 
-msgid "Branch Management"
-msgstr "إدارة الفروع"
+msgid "Power BI Sync"
+msgstr "مزامنة Power BI"
+
+msgid "Bank Integration"
+msgstr "تكامل البنوك"
+
+msgid "Settings"
+msgstr "الإعدادات"
+
+msgid "Branch Name"
+msgstr "اسم الفرع"
+
+msgid "Branch Code"
+msgstr "رمز الفرع"
+
+msgid "Branch Manager"
+msgstr "مدير الفرع"
+
+msgid "Branch Address"
+msgstr "عنوان الفرع"
+
+msgid "Branch Phone"
+msgstr "هاتف الفرع"
+
+msgid "Branch Email"
+msgstr "بريد إلكتروني الفرع"
+
+msgid "Active"
+msgstr "نشط"
+
+msgid "Date"
+msgstr "التاريخ"
+
+msgid "Revenue"
+msgstr "الإيرادات"
+
+msgid "Expenses"
+msgstr "المصروفات"
+
+msgid "Profit"
+msgstr "الأرباح"
+
+msgid "Fiscal Year"
+msgstr "السنة المالية"
+
+msgid "Budget Amount"
+msgstr "مبلغ الميزانية"
+
+msgid "Actual Amount"
+msgstr "المبلغ الفعلي"
+
+msgid "Variance"
+msgstr "التفاوت"
+
+msgid "KPI Name"
+msgstr "اسم المؤشر"
+
+msgid "KPI Value"
+msgstr "قيمة المؤشر"
+
+msgid "Target Value"
+msgstr "القيمة المستهدفة"
+
+msgid "Advice"
+msgstr "النصيحة"
+
+msgid "Customer Segment"
+msgstr "قطاع العملاء"
+
+msgid "Analysis Data"
+msgstr "بيانات التحليل"
+
+msgid "Expense Category"
+msgstr "فئة المصروفات"
+
+msgid "Amount"
+msgstr "المبلغ"
+
+msgid "Product"
+msgstr "المنتج"
+
+msgid "Stock Level"
+msgstr "مستوى المخزون"
+
+msgid "Employee"
+msgstr "الموظف"
+
+msgid "ESG Metric"
+msgstr "مقياس الاستدامة"
+
+msgid "Value"
+msgstr "القيمة"
+
+msgid "Financial Metric"
+msgstr "المقياس المالي"
+
+msgid "Score"
+msgstr "الدرجة"
+
+msgid "Sheet URL"
+msgstr "رابط Google Sheets"
+
+msgid "Sync Status"
+msgstr "حالة المزامنة"
+
+msgid "Last Sync Date"
+msgstr "تاريخ آخر مزامنة"
+
+msgid "Report URL"
+msgstr "رابط التقرير"
+
+msgid "Integration Status"
+msgstr "حالة التكامل"
+
+msgid "Last Integration Date"
+msgstr "تاريخ آخر تكامل"
+
+msgid "Enable Google Sheets Sync"
+msgstr "تمكين مزامنة Google Sheets"
+
+msgid "Enable Power BI Sync"
+msgstr "تمكين مزامنة Power BI"
 
 msgid "Generate Report"
-msgstr "إنشاء التقرير"
+msgstr "إنشاء تقرير"
 
-msgid "Submit"
-msgstr "إرسال"
+msgid "Get Advice"
+msgstr "احصل على نصيحة"
 
-msgid "Cancel"
-msgstr "إلغاء"
+msgid "Branch Performance Report"
+msgstr "تقرير أداء الفرع"
+
+msgid "Branch Financial Health Report"
+msgstr "تقرير الصحة المالية للفرع"
+
+msgid "Branch Expense Analysis Report"
+msgstr "تقرير تحليل مصروفات الفرع"
+
+msgid "Branch Stock Analysis Report"
+msgstr "تقرير تحليل مخزون الفرع"
+
+msgid "Branch Customer Analysis Report"
+msgstr "تقرير تحليل عملاء الفرع"
+
+msgid "Branch Scoring Report"
+msgstr "تقرير تقييم الفرع"
+
+msgid "AI Recommendation Report"
+msgstr "تقرير التوصية الذكية"

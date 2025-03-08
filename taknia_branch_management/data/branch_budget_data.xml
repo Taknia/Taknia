@@ -1,0 +1,10 @@
+<odoo>
+    <data>
+        <record id="branch_budget_main_2025" model="branch.budget">
+            <field name="branch_id" ref="branch_main"/>
+            <field name="fiscal_year">2025</field>
+            <field name="budget_amount">200000</field>
+            <field name="actual_amount">220000</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,17 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_branch,access.branch,model_branch,,1,1,1,1
+access_branch_performance,access.branch.performance,model_branch_performance,,1,1,1,1
+access_branch_budget,access.branch.budget,model_branch_budget,,1,1,1,1
+access_branch_kpi_dashboard,access.branch.kpi.dashboard,model_branch_kpi_dashboard,,1,1,1,1
+access_ai_branch_advisor,access.ai.branch.advisor,model_ai_branch_advisor,,1,1,1,1
+access_branch_customer_analysis,access.branch.customer.analysis,model_branch_customer_analysis,,1,1,1,1
+access_branch_expense_analysis,access.branch.expense.analysis,model_branch_expense_analysis,,1,1,1,1
+access_branch_stock_analysis,access.branch.stock.analysis,model_branch_stock_analysis,,1,1,1,1
+access_branch_employee_analysis,access.branch.employee.analysis,model_branch_employee_analysis,,1,1,1,1
+access_branch_esg_analysis,access.branch.esg.analysis,model_branch_esg_analysis,,1,1,1,1
+access_branch_financial_health,access.branch.financial.health,model_branch_financial_health,,1,1,1,1
+access_branch_scoring,access.branch.scoring,model_branch_scoring,,1,1,1,1
+access_google_sheets_sync,access.google.sheets.sync,model_google_sheets_sync,,1,1,1,1
+access_power_bi_sync,access.power.bi.sync,model_power_bi_sync,,1,1,1,1
+access_bank_integration,access.bank.integration,model_bank_integration,,1,1,1,1
+access_res_config_settings,access.res.config.settings,model_res_config_settings,,1,1,1,1

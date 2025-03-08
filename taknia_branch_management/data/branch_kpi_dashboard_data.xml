@@ -1,0 +1,19 @@
+<odoo>
+    <data>
+        <record id="branch_kpi_main_revenue" model="branch.kpi.dashboard">
+            <field name="branch_id" ref="branch_main"/>
+            <field name="kpi_name">Revenue</field>
+            <field name="kpi_value">17000</field>
+            <field name="target_value">20000</field>
+            <field name="date">2025-02-28</field>
+        </record>
+
+        <record id="branch_kpi_main_expenses" model="branch.kpi.dashboard">
+            <field name="branch_id" ref="branch_main"/>
+            <field name="kpi_name">Expenses</field>
+            <field name="kpi_value">7000</field>
+            <field name="target_value">5000</field>
+            <field name="date">2025-02-28</field>
+        </record>
+    </data>
+</odoo>

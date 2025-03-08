@@ -1,9 +1,11 @@
 <odoo>
-    <record id="action_report_branch_financial_health" model="ir.actions.report">
-        <field name="name">Branch Financial Health Report</field>
-        <field name="model">branch.financial.health</field>
-        <field name="report_type">qweb-pdf</field>
-        <field name="report_name">taknia_branch_management.branch_financial_health_template</field>
-        <field name="report_file">taknia_branch_management.branch_financial_health_template</field>
-    </record>
+    <report 
+        id="report_branch_financial_health_action" 
+        model="branch.financial.health" 
+        string="Branch Financial Health Report" 
+        report_type="qweb-pdf" 
+        name="taknia_branch_management.report_branch_financial_health" 
+        file="taknia_branch_management.report_branch_financial_health" 
+        print_report_name="'Branch Financial Health - %s' % (object.branch_id.name)"
+    />
 </odoo>

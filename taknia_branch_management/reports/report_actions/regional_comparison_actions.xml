@@ -1,9 +1,0 @@
-<odoo>
-    <record id="action_report_regional_comparison" model="ir.actions.report">
-        <field name="name">Regional Comparison Report</field>
-        <field name="model">regional.management</field>
-        <field name="report_type">qweb-pdf</field>
-        <field name="report_name">taknia_branch_management.regional_comparison_template</field>
-        <field name="report_file">taknia_branch_management.regional_comparison_template</field>
-    </record>
-</odoo>
