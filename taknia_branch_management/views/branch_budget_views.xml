@@ -1,39 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <!-- Branch Budget Tree View -->
     <record id="view_branch_budget_tree" model="ir.ui.view">
-        <field name="name">branch.budget.tree</field>
-        <field name="model">branch.budget</field>
+        <field name="name">taknia.branch.budget.tree</field>
+        <field name="model">taknia.branch.budget</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree string="Branch Budgets" decoration-info="state=='draft'" decoration-success="state=='approved'" decoration-danger="state=='rejected'">
+                <field name="name"/>
                 <field name="branch_id"/>
-                <field name="fiscal_year"/>
-                <field name="budget_amount"/>
-                <field name="actual_amount"/>
-                <field name="variance"/>
+                <field name="year"/>
+                <field name="total_budget"/>
+                <field name="remaining_budget"/>
+                <field name="state"/>
             </tree>
         </field>
     </record>
 
+    <!-- Branch Budget Form View -->
     <record id="view_branch_budget_form" model="ir.ui.view">
-        <field name="name">branch.budget.form</field>
-        <field name="model">branch.budget</field>
+        <field name="name">taknia.branch.budget.form</field>
+        <field name="model">taknia.branch.budget</field>
         <field name="arch" type="xml">
-            <form>
+            <form string="Branch Budget">
+                <header>
+                    <button name="action_submit" string="Submit" type="object" class="oe_highlight" states="draft"/>
+                    <button name="action_approve" string="Approve" type="object" class="oe_highlight" states="submitted" groups="taknia_branch_management.group_branch_manager"/>
+                    <button name="action_reject" string="Reject" type="object" class="btn-danger" states="submitted" groups="taknia_branch_management.group_branch_manager"/>
+                    <button name="action_reset_to_draft" string="Reset to Draft" type="object" states="rejected"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,submitted,approved"/>
+                </header>
                 <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
                     <group>
-                        <field name="branch_id"/>
-                        <field name="fiscal_year"/>
-                        <field name="budget_amount"/>
-                        <field name="actual_amount"/>
-                        <field name="variance"/>
+                        <group>
+                            <field name="branch_id" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="year" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="total_budget"/>
+                            <field name="remaining_budget"/>
+                        </group>
                     </group>
+                    <notebook>
+                        <page string="Budget Lines">
+                            <field name="line_ids" attrs="{'readonly': [('state', 'in', ['approved', 'rejected'])]}">
+                                <tree editable="bottom">
+                                    <field name="category"/>
+                                    <field name="name"/>
+                                    <field name="amount"/>
+                                    <field name="spent_amount"/>
+                                    <field name="start_date"/>
+                                    <field name="end_date"/>
+                                    <field name="notes"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Notes">
+                            <field name="notes"/>
+                        </page>
+                    </notebook>
                 </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
             </form>
         </field>
     </record>
 
+    <!-- Branch Budget Search View -->
+    <record id="view_branch_budget_search" model="ir.ui.view">
+        <field name="name">taknia.branch.budget.search</field>
+        <field name="model">taknia.branch.budget</field>
+        <field name="arch" type="xml">
+            <search string="Search Branch Budgets">
+                <field name="name"/>
+                <field name="branch_id"/>
+                <field name="year"/>
+                <filter string="Draft" name="draft" domain="[('state','=','draft')]"/>
+                <filter string="Submitted" name="submitted" domain="[('state','=','submitted')]"/>
+                <filter string="Approved" name="approved" domain="[('state','=','approved')]"/>
+                <filter string="Rejected" name="rejected" domain="[('state','=','rejected')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Branch" name="group_by_branch" context="{'group_by': 'branch_id'}"/>
+                    <filter string="Year" name="group_by_year" context="{'group_by': 'year'}"/>
+                    <filter string="Status" name="group_by_state" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Branch Budget Action -->
     <record id="action_branch_budget" model="ir.actions.act_window">
-        <field name="name">Branch Budget</field>
-        <field name="res_model">branch.budget</field>
+        <field name="name">Branch Budgets</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">taknia.branch.budget</field>
         <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_branch_budget_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first branch budget!
+            </p>
+            <p>
+                Create and manage branch budgets to track financial allocations and spending.
+            </p>
+        </field>
     </record>
 </odoo>

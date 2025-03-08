@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Branch Inventory Report -->
+    <record id="report_branch_inventory" model="ir.actions.report">
+        <field name="name">Branch Inventory Report</field>
+        <field name="model">taknia.branch</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">taknia_branch_management.report_branch_inventory_document</field>
+        <field name="report_file">taknia_branch_management.report_branch_inventory</field>
+        <field name="binding_model_id" ref="model_taknia_branch"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_branch_inventory_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2 class="text-center">Branch Inventory Report</h2>
+                        
+                        <!-- Warehouse Information -->
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <h4>Warehouse Details</h4>
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td>Warehouse</td>
+                                        <td><span t-field="doc.warehouse_id.name"/></td>
+                                    </tr>
+                                    <!-- To be implemented: Additional warehouse metrics -->
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Inventory Statistics -->
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <h4>Inventory Overview</h4>
+                                <!-- To be implemented: Inventory statistics and analysis -->
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

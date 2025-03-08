@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Branch ESG Tree View -->
+    <record id="view_branch_esg_tree" model="ir.ui.view">
+        <field name="name">taknia.branch.esg.tree</field>
+        <field name="model">taknia.branch.esg</field>
+        <field name="arch" type="xml">
+            <tree string="ESG Metrics">
+                <field name="name"/>
+                <field name="branch_id"/>
+                <field name="date"/>
+                <field name="environmental_score"/>
+                <field name="social_score"/>
+                <field name="governance_score"/>
+                <field name="overall_esg_score"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Branch ESG Form View -->
+    <record id="view_branch_esg_form" model="ir.ui.view">
+        <field name="name">taknia.branch.esg.form</field>
+        <field name="model">taknia.branch.esg</field>
+        <field name="arch" type="xml">
+            <form string="ESG Metrics">
+                <header>
+                    <button name="generate_esg_report" string="Generate Report" type="object" class="oe_highlight"/>
+                    <button name="export_to_excel" string="Export to Excel" type="object"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="branch_id"/>
+                            <field name="date"/>
+                        </group>
+                        <group>
+                            <field name="overall_esg_score" widget="percentpie"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Environmental">
+                            <group>
+                                <group string="Energy and Resources">
+                                    <field name="energy_consumption"/>
+                                    <field name="renewable_energy_pct" widget="percentage"/>
+                                    <field name="water_usage"/>
+                                </group>
+                                <group string="Waste Management">
+                                    <field name="waste_generated"/>
+                                    <field name="waste_recycled" widget="percentage"/>
+                                    <field name="carbon_emissions"/>
+                                </group>
+                            </group>
+                            <group>
+                                <field name="environmental_score" widget="percentpie"/>
+                            </group>
+                        </page>
+                        <page string="Social">
+                            <group>
+                                <group string="Employee Metrics">
+                                    <field name="employee_satisfaction" widget="percentage"/>
+                                    <field name="training_hours"/>
+                                    <field name="health_safety_incidents"/>
+                                </group>
+                                <group string="Community Impact">
+                                    <field name="community_programs"/>
+                                    <field name="local_employment" widget="percentage"/>
+                                    <field name="diversity_score" widget="percentage"/>
+                                </group>
+                            </group>
+                            <group>
+                                <field name="social_score" widget="percentpie"/>
+                            </group>
+                        </page>
+                        <page string="Governance">
+                            <group>
+                                <group>
+                                    <field name="compliance_score" widget="percentage"/>
+                                    <field name="risk_assessment_score" widget="percentage"/>
+                                    <field name="policy_implementation" widget="percentage"/>
+                                </group>
+                            </group>
+                            <group>
+                                <field name="governance_score" widget="percentpie"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Branch ESG Search View -->
+    <record id="view_branch_esg_search" model="ir.ui.view">
+        <field name="name">taknia.branch.esg.search</field>
+        <field name="model">taknia.branch.esg</field>
+        <field name="arch" type="xml">
+            <search string="Search ESG Records">
+                <field name="name"/>
+                <field name="branch_id"/>
+                <field name="date"/>
+                <filter string="High Environmental Score" domain="[('environmental_score', '>=', 80)]"/>
+                <filter string="High Social Score" domain="[('social_score', '>=', 80)]"/>
+                <filter string="High Governance Score" domain="[('governance_score', '>=', 80)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Branch" name="group_by_branch" context="{'group_by': 'branch_id'}"/>
+                    <filter string="Month" name="group_by_month" context="{'group_by': 'date:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Branch ESG Action -->
+    <record id="action_branch_esg" model="ir.actions.act_window">
+        <field name="name">ESG Metrics</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">taknia.branch.esg</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_branch_esg_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No ESG records found!
+            </p>
+            <p>
+                Track and manage your branch's environmental, social, and governance metrics.
+            </p>
+        </field>
+    </record>
+</odoo>

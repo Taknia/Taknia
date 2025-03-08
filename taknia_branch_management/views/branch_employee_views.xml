@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Branch Employee Tree View -->
+    <record id="view_branch_employee_tree" model="ir.ui.view">
+        <field name="name">taknia.branch.employee.tree</field>
+        <field name="model">hr.employee</field>
+        <field name="arch" type="xml">
+            <tree string="Branch Employees">
+                <field name="name"/>
+                <field name="branch_id"/>
+                <field name="job_id"/>
+                <field name="department_id"/>
+                <field name="work_phone"/>
+                <field name="work_email"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Branch Employee Form View -->
+    <record id="view_branch_employee_form" model="ir.ui.view">
+        <field name="name">taknia.branch.employee.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="after">
+                <field name="branch_id" required="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Branch Employee Search View -->
+    <record id="view_branch_employee_search" model="ir.ui.view">
+        <field name="name">taknia.branch.employee.search</field>
+        <field name="model">hr.employee</field>
+        <field name="arch" type="xml">
+            <search string="Search Branch Employees">
+                <field name="name"/>
+                <field name="branch_id"/>
+                <field name="job_id"/>
+                <field name="department_id"/>
+                <group expand="0" string="Group By">
+                    <filter string="Branch" name="group_by_branch" context="{'group_by': 'branch_id'}"/>
+                    <filter string="Job" name="group_by_job" context="{'group_by': 'job_id'}"/>
+                    <filter string="Department" name="group_by_department" context="{'group_by': 'department_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Branch Employee Action -->
+    <record id="action_branch_employee" model="ir.actions.act_window">
+        <field name="name">Branch Employees</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.employee</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_branch_employee_search"/>
+        <field name="domain">[('branch_id', '!=', False)]</field>
+        <field name="context">{'search_default_group_by_branch': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No employees assigned to branches yet!
+            </p>
+            <p>
+                Assign employees to branches to manage branch operations.
+            </p>
+        </field>
+    </record>
+</odoo>

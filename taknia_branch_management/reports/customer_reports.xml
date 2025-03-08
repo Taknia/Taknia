@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Branch Customer Report -->
+    <record id="report_branch_customer" model="ir.actions.report">
+        <field name="name">Branch Customer Report</field>
+        <field name="model">taknia.branch</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">taknia_branch_management.report_branch_customer_document</field>
+        <field name="report_file">taknia_branch_management.report_branch_customer</field>
+        <field name="binding_model_id" ref="model_taknia_branch"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_branch_customer_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2 class="text-center">Branch Customer Report</h2>
+                        
+                        <!-- Customer Statistics -->
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <h4>Customer Metrics</h4>
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th>Metric</th>
+                                        <th>Value</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Total Customers</td>
+                                        <td><span t-field="doc.customer_count"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Customer Satisfaction</td>
+                                        <td><span t-field="doc.satisfaction_score"/>%</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Customer Segmentation -->
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <h4>Customer Segmentation</h4>
+                                <!-- To be implemented: Customer segmentation analysis -->
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

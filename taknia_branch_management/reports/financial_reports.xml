@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Branch Financial Report -->
+    <record id="report_branch_financial" model="ir.actions.report">
+        <field name="name">Branch Financial Report</field>
+        <field name="model">taknia.branch</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">taknia_branch_management.report_branch_financial_document</field>
+        <field name="report_file">taknia_branch_management.report_branch_financial</field>
+        <field name="binding_model_id" ref="model_taknia_branch"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_branch_financial_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2 class="text-center">Branch Financial Report</h2>
+                        
+                        <!-- Financial Summary -->
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th>Metric</th>
+                                        <th>Target</th>
+                                        <th>Actual</th>
+                                        <th>Variance</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Revenue</td>
+                                        <td><span t-field="doc.revenue_target"/></td>
+                                        <td><span t-field="doc.actual_revenue"/></td>
+                                        <td><span t-esc="doc.actual_revenue - doc.revenue_target"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Budget Utilization</td>
+                                        <td><span t-field="doc.budget"/></td>
+                                        <td><!-- To be implemented --></td>
+                                        <td><!-- To be implemented --></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Financial Metrics -->
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <h4>Financial Performance Indicators</h4>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <strong>Profit Margin:</strong>
+                                        <span t-field="doc.profit_margin"/>%
+                                    </div>
+                                    <!-- Add more financial KPIs here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

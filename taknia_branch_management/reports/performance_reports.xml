@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Branch Performance Report -->
+    <record id="report_branch_performance" model="ir.actions.report">
+        <field name="name">Branch Performance Report</field>
+        <field name="model">taknia.branch</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">taknia_branch_management.report_branch_performance_document</field>
+        <field name="report_file">taknia_branch_management.report_branch_performance</field>
+        <field name="binding_model_id" ref="model_taknia_branch"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_branch_performance_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2 class="text-center">Branch Performance Report</h2>
+                        
+                        <!-- Overall Performance -->
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <h4>Performance Summary</h4>
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td>Overall Score</td>
+                                        <td><span t-field="doc.performance_score"/>%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Revenue Achievement</td>
+                                        <td><span t-esc="(doc.actual_revenue/doc.revenue_target)*100 if doc.revenue_target else 0"/>%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Customer Satisfaction</td>
+                                        <td><span t-field="doc.satisfaction_score"/>%</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- ESG Performance -->
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <h4>ESG Metrics</h4>
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td>Energy Consumption</td>
+                                        <td><span t-field="doc.energy_consumption"/> kWh</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Water Usage</td>
+                                        <td><span t-field="doc.water_usage"/> m³</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Waste Recycled</td>
+                                        <td><span t-field="doc.waste_recycled"/>%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Community Programs</td>
+                                        <td><span t-field="doc.community_programs"/></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

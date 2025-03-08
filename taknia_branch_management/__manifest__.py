@@ -1,55 +1,93 @@
 {
     'name': 'Taknia Branch Management',
-    'version': '1.0',
-    'summary': 'Module to manage branches efficiently',
-    'sequence': 10,
-    'description': """Taknia Branch Management module helps manage branches, track performance, and generate reports.""",
-    'category': 'Management',
+    'version': '18.0.1.0.0',
+    'category': 'Operations/Branches',
+    'summary': 'Professional Branch Management System',
+    'description': """
+Taknia Branch Management
+=======================
+Professional branch management system with advanced features:
+
+Key Features:
+------------
+* Multi-branch & Multi-company support
+* Advanced reporting and analytics
+* Branch performance tracking
+* Customer analysis
+* Budget management
+* ESG reporting
+* AI-powered insights
+* Regional management
+* Google Sheets & Power BI integration
+
+Technical Features:
+-----------------
+* Mobile-responsive
+* Dark mode support
+* Advanced security roles
+* PDF & Excel exports
+* REST API integration
+* Real-time analytics
+    """,
     'author': 'Taknia',
-    'maintainer': 'Taknia',
-    'website': 'https://www.takniasoft.com',
-    'depends': ['base'],
-    'data': [
-        'security/ir.model.access.csv',
-        'views/menus.xml',
-        'views/branch_views.xml',
-        'views/branch_performance_views.xml',
-        'views/branch_budget_views.xml',
-        'views/kpi_dashboard_views.xml',
-        'views/ai_branch_advisor_views.xml',
-        'views/branch_customer_analysis_views.xml',
-        'views/branch_expense_analysis_views.xml',
-        'views/branch_stock_analysis_views.xml',
-        'views/branch_employee_analysis_views.xml',
-        'views/branch_esg_analysis_views.xml',
-        'views/branch_financial_health_views.xml',
-        'views/branch_scoring_views.xml',
-        'views/module_settings_views.xml',
-        'reports/report_templates/branch_performance_template.xml',
-        'reports/report_templates/branch_financial_health_template.xml',
-        'reports/report_templates/branch_expense_analysis_template.xml',
-        'reports/report_templates/branch_stock_analysis_template.xml',
-        'reports/report_templates/branch_customer_analysis_template.xml',
-        'reports/report_templates/branch_scoring_template.xml',
-        'reports/report_templates/ai_recommendation_template.xml',
-        'reports/report_actions/branch_performance_actions.xml',
-        'reports/report_actions/branch_financial_health_actions.xml',
-        'reports/report_actions/branch_expense_analysis_actions.xml',
-        'reports/report_actions/branch_stock_analysis_actions.xml',
-        'reports/report_actions/branch_customer_analysis_actions.xml',
-        'reports/report_actions/branch_scoring_actions.xml',
-        'reports/report_actions/ai_recommendation_actions.xml',
-        'wizards/branch_performance_wizard.xml',
-        'wizards/financial_advice_wizard.xml',
-        'data/cron_jobs.xml',
-        'static/src/css/custom_styles.css',
-        'static/src/js/kpi_charts.js',
-        'i18n/ar.po',
-        'i18n/en.po',
-        'README.md',
-        'index.html',
+    'website': 'https://www.example.com',
+    'depends': [
+        'base',
+        'mail',
+        'account',
+        'stock',
+        'hr',
+        'web',
+        'board',
+        'report_xlsx'
     ],
+    'data': [
+        # Security
+        'security/branch_security.xml',
+        'security/ir.model.access.csv',
+
+        # Data
+        'data/branch_sequence.xml',
+        'data/branch_data.xml',
+
+        # Views
+        'views/branch_views.xml',
+        'views/branch_dashboard.xml',
+        'views/branch_settings.xml',
+        'views/branch_analysis_views.xml',
+        'views/branch_customer_views.xml',
+        'views/branch_employee_views.xml',
+        'views/branch_budget_views.xml',
+        'views/branch_esg_views.xml',
+        'views/menu_views.xml',
+
+        # Reports
+        'reports/branch_reports.xml',
+        'reports/financial_reports.xml',
+        'reports/customer_reports.xml',
+        'reports/employee_reports.xml',
+        'reports/inventory_reports.xml',
+        'reports/esg_reports.xml',
+        'reports/performance_reports.xml',
+
+        # Wizards
+        'wizards/branch_analysis_wizard_views.xml',
+        'wizards/report_wizard_views.xml',
+    ],
+    'assets': {
+        'web.assets_backend': [
+            'taknia_branch_management/static/src/scss/style.scss',
+            'taknia_branch_management/static/src/js/dashboard.js',
+            'taknia_branch_management/static/src/js/charts.js',
+            'taknia_branch_management/static/src/js/ai_advisor.js',
+        ],
+        'web.assets_qweb': [
+            'taknia_branch_management/static/src/xml/dashboard_templates.xml',
+        ],
+    },
     'installable': True,
     'application': True,
     'auto_install': False,
+    'license': 'LGPL-3',
+    'images': ['static/description/icon.png'],
 }

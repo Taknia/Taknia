@@ -1,43 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <!-- Branch Tree View -->
     <record id="view_branch_tree" model="ir.ui.view">
-        <field name="name">branch.tree</field>
-        <field name="model">branch</field>
+        <field name="name">taknia.branch.tree</field>
+        <field name="model">taknia.branch</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree string="Branches">
                 <field name="name"/>
                 <field name="code"/>
+                <field name="region_id"/>
                 <field name="manager_id"/>
-                <field name="address"/>
-                <field name="phone"/>
-                <field name="email"/>
-                <field name="active"/>
+                <field name="city"/>
+                <field name="employee_count"/>
+                <field name="customer_count"/>
+                <field name="company_id" groups="base.group_multi_company"/>
             </tree>
         </field>
     </record>
 
+    <!-- Branch Form View -->
     <record id="view_branch_form" model="ir.ui.view">
-        <field name="name">branch.form</field>
-        <field name="model">branch</field>
+        <field name="name">taknia.branch.form</field>
+        <field name="model">taknia.branch</field>
         <field name="arch" type="xml">
-            <form>
+            <form string="Branch">
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Branch Name"/>
+                        </h1>
+                    </div>
                     <group>
-                        <field name="name"/>
-                        <field name="code"/>
-                        <field name="manager_id"/>
-                        <field name="address"/>
-                        <field name="phone"/>
-                        <field name="email"/>
-                        <field name="active"/>
+                        <group>
+                            <field name="code"/>
+                            <field name="region_id"/>
+                            <field name="manager_id"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="opening_date"/>
+                        </group>
+                        <group>
+                            <field name="street"/>
+                            <field name="street2"/>
+                            <field name="city"/>
+                            <field name="state_id"/>
+                            <field name="zip"/>
+                            <field name="country_id"/>
+                        </group>
                     </group>
+                    <notebook>
+                        <page string="Operations">
+                            <group>
+                                <field name="warehouse_id"/>
+                                <field name="operating_hours"/>
+                            </group>
+                        </page>
+                        <page string="Financial">
+                            <group>
+                                <field name="currency_id" invisible="1"/>
+                                <field name="budget"/>
+                                <field name="revenue_target"/>
+                            </group>
+                        </page>
+                    </notebook>
                 </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
             </form>
         </field>
     </record>
 
+    <!-- Branch Search View -->
+    <record id="view_branch_search" model="ir.ui.view">
+        <field name="name">taknia.branch.search</field>
+        <field name="model">taknia.branch</field>
+        <field name="arch" type="xml">
+            <search string="Search Branches">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="region_id"/>
+                <field name="manager_id"/>
+                <field name="city"/>
+                <separator/>
+                <filter string="Active" name="active" domain="[('active','=',True)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Region" name="group_region" context="{'group_by':'region_id'}"/>
+                    <filter string="Company" name="group_company" context="{'group_by':'company_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Branch Action Window -->
     <record id="action_branch" model="ir.actions.act_window">
         <field name="name">Branches</field>
-        <field name="res_model">branch</field>
+        <field name="res_model">taknia.branch</field>
         <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_branch_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first branch!
+            </p>
+        </field>
     </record>
+
+    <!-- Menu Items -->
+    <menuitem id="menu_branch_root" 
+              name="Branch Management" 
+              sequence="10"/>
+
+    <menuitem id="menu_branch_main" 
+              name="Branches"
+              parent="menu_branch_root"
+              action="action_branch"
+              sequence="10"/>
 </odoo>

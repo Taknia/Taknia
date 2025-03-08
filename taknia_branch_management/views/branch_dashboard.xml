@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Branch Dashboard Kanban View -->
+    <record id="view_branch_dashboard_kanban" model="ir.ui.view">
+        <field name="name">taknia.branch.dashboard.kanban</field>
+        <field name="model">taknia.branch</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_kanban_dashboard" create="0">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="employee_count"/>
+                <field name="customer_count"/>
+                <field name="budget"/>
+                <field name="revenue_target"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_card oe_kanban_global_click">
+                                <div class="oe_kanban_content">
+                                    <!-- Branch Header -->
+                                    <div class="o_kanban_card_header">
+                                        <div class="o_kanban_card_header_title">
+                                            <div class="o_primary">
+                                                <strong><field name="name"/></strong>
+                                            </div>
+                                            <div class="o_secondary">
+                                                <field name="code"/>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Key Metrics -->
+                                    <div class="container o_kanban_card_content">
+                                        <div class="row">
+                                            <!-- Employee Stats -->
+                                            <div class="col-6 o_kanban_primary_left">
+                                                <div class="o_kanban_primary_bottom">
+                                                    <div class="oe_kanban_details">
+                                                        <strong>
+                                                            <field name="employee_count"/> Employees
+                                                        </strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Customer Stats -->
+                                            <div class="col-6 o_kanban_primary_right">
+                                                <div class="o_kanban_primary_bottom">
+                                                    <div class="oe_kanban_details">
+                                                        <strong>
+                                                            <field name="customer_count"/> Customers
+                                                        </strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Financial Metrics -->
+                                        <div class="row mt-3">
+                                            <div class="col-6">
+                                                <div>
+                                                    <label>Budget</label>
+                                                    <field name="budget" widget="monetary"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div>
+                                                    <label>Target</label>
+                                                    <field name="revenue_target" widget="monetary"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Action Buttons -->
+                                    <div class="o_kanban_card_manage_pane">
+                                        <div class="o_kanban_card_manage_section">
+                                            <button name="%(taknia_branch_management.action_branch)d" 
+                                                    type="action" 
+                                                    class="btn btn-primary">
+                                                View Details
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Dashboard Action -->
+    <record id="action_branch_dashboard" model="ir.actions.act_window">
+        <field name="name">Branch Dashboard</field>
+        <field name="res_model">taknia.branch</field>
+        <field name="view_mode">kanban,form</field>
+        <field name="view_id" ref="view_branch_dashboard_kanban"/>
+        <field name="context">{'search_default_active': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first branch to see the dashboard!
+            </p>
+        </field>
+    </record>
+
+    <!-- Dashboard Menu Item -->
+    <menuitem id="menu_branch_dashboard"
+              name="Dashboard"
+              parent="menu_branch_root"
+              action="action_branch_dashboard"
+              sequence="1"/>
+</odoo>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Branch Analysis Wizard Form View -->
+    <record id="view_branch_analysis_wizard_form" model="ir.ui.view">
+        <field name="name">branch.analysis.wizard.form</field>
+        <field name="model">taknia.branch.analysis.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Branch Analysis">
+                <group>
+                    <field name="branch_ids" widget="many2many_tags"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="analysis_type" widget="radio"/>
+                    <field name="report_type"/>
+                </group>
+                <group>
+                    <field name="include_financial" widget="boolean_toggle"/>
+                    <field name="include_operations" widget="boolean_toggle"/>
+                    <field name="include_customers" widget="boolean_toggle"/>
+                    <field name="include_esg" widget="boolean_toggle"/>
+                </group>
+                <footer>
+                    <button name="action_generate_report" string="Generate Report" type="object" class="btn-primary"/>
+                    <button name="action_export_excel" string="Export to Excel" type="object" class="btn-secondary"/>
+                    <button special="cancel" string="Cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Branch Analysis Wizard Action -->
+    <record id="action_branch_analysis_wizard" model="ir.actions.act_window">
+        <field name="name">Branch Analysis</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">taknia.branch.analysis.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

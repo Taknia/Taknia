@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="taknia_branch_management.Dashboard">
+        <div class="o_branch_dashboard">
+            <!-- Header Section -->
+            <div class="dashboard-header mb-4">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h2>Branch Dashboard</h2>
+                    </div>
+                    <div class="col-auto">
+                        <div class="btn-group">
+                            <button class="btn btn-primary refresh-dashboard">
+                                <i class="fa fa-refresh"/> Refresh
+                            </button>
+                            <select class="form-control period-selector ml-2">
+                                <option value="daily">Daily</option>
+                                <option value="weekly">Weekly</option>
+                                <option value="monthly" selected="selected">Monthly</option>
+                                <option value="yearly">Yearly</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KPI Cards -->
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h5>Revenue</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="metric-value" t-esc="total_revenue"/>
+                            <div class="metric-label">Total Revenue</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h5>Customers</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="metric-value" t-esc="customer_count"/>
+                            <div class="metric-label">Active Customers</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h5>Performance</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="metric-value" t-esc="performance_score"/>
+                            <div class="metric-label">Overall Score</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h5>ESG Score</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="metric-value" t-esc="esg_score"/>
+                            <div class="metric-label">Sustainability Score</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h5>Performance Trends</h5>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="performanceChart"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h5>Revenue Analysis</h5>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="revenueChart"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESG and Customer Analysis -->
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h5>ESG Metrics</h5>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="esgChart"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h5>Customer Growth</h5>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="customerChart"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Insights Section -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h5>AI Insights</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="ai-insights" t-esc="ai_insights"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

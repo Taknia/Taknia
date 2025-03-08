@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Branch Settings Form View -->
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.branch</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="90"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block" data-string="Branch Management" id="branch_management_setting">
+                    <h2>General Settings</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="module_google_sheet_integration"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="module_google_sheet_integration"/>
+                                <div class="text-muted">
+                                    Enable Google Sheets integration for reports
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="module_power_bi_integration"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="module_power_bi_integration"/>
+                                <div class="text-muted">
+                                    Enable Power BI integration for analytics
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h2>AI Features</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="enable_ai_advisor"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="enable_ai_advisor"/>
+                                <div class="text-muted">
+                                    Enable AI-powered insights and recommendations
+                                </div>
+                                <div class="content-group" attrs="{'invisible': [('enable_ai_advisor', '=', False)]}">
+                                    <div class="mt8">
+                                        <field name="ai_advisor_interval" class="o_light_label" widget="selection"/>
+                                        <label for="ai_advisor_interval"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="enable_predictive_alerts"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="enable_predictive_alerts"/>
+                                <div class="text-muted">
+                                    Enable predictive alerts for branch performance
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h2>Display Settings</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="enable_dark_mode"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="enable_dark_mode"/>
+                                <div class="text-muted">
+                                    Enable dark mode for the interface
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <label for="dashboard_refresh_interval"/>
+                                <field name="dashboard_refresh_interval" class="o_light_label"/>
+                                <div class="text-muted">
+                                    Dashboard refresh interval in minutes
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Settings Action -->
+    <record id="action_branch_settings" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module' : 'taknia_branch_management'}</field>
+    </record>
+</odoo>

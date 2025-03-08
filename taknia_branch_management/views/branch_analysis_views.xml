@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Branch Analytics Tree View -->
+    <record id="view_branch_analytics_tree" model="ir.ui.view">
+        <field name="name">taknia.branch.analytics.tree</field>
+        <field name="model">taknia.branch.analytics</field>
+        <field name="arch" type="xml">
+            <tree string="Branch Analytics">
+                <field name="branch_id"/>
+                <field name="date"/>
+                <field name="period"/>
+                <field name="revenue"/>
+                <field name="expenses"/>
+                <field name="profit"/>
+                <field name="transaction_count"/>
+                <field name="customer_satisfaction"/>
+                <field name="employee_productivity"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Branch Analytics Form View -->
+    <record id="view_branch_analytics_form" model="ir.ui.view">
+        <field name="name">taknia.branch.analytics.form</field>
+        <field name="model">taknia.branch.analytics</field>
+        <field name="arch" type="xml">
+            <form string="Branch Analytics">
+                <header>
+                    <button name="generate_analysis" string="Generate Analysis" type="object" class="oe_highlight"/>
+                    <button name="export_to_excel" string="Export to Excel" type="object"/>
+                    <button name="send_to_power_bi" string="Send to Power BI" type="object"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="branch_id"/>
+                            <field name="date"/>
+                            <field name="period"/>
+                        </group>
+                        <group>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="revenue"/>
+                            <field name="expenses"/>
+                            <field name="profit"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Operational Metrics">
+                            <group>
+                                <field name="transaction_count"/>
+                                <field name="average_transaction_value"/>
+                                <field name="peak_hours"/>
+                            </group>
+                        </page>
+                        <page string="Customer Metrics">
+                            <group>
+                                <field name="new_customers"/>
+                                <field name="repeat_customers"/>
+                                <field name="customer_satisfaction"/>
+                            </group>
+                        </page>
+                        <page string="Inventory Metrics">
+                            <group>
+                                <field name="stock_turnover"/>
+                                <field name="stockout_incidents"/>
+                            </group>
+                        </page>
+                        <page string="Employee Metrics">
+                            <group>
+                                <field name="employee_productivity"/>
+                                <field name="attendance_rate"/>
+                            </group>
+                        </page>
+                        <page string="ESG Metrics">
+                            <group>
+                                <field name="energy_efficiency"/>
+                                <field name="waste_management"/>
+                                <field name="community_impact"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Branch Analytics Search View -->
+    <record id="view_branch_analytics_search" model="ir.ui.view">
+        <field name="name">taknia.branch.analytics.search</field>
+        <field name="model">taknia.branch.analytics</field>
+        <field name="arch" type="xml">
+            <search string="Search Branch Analytics">
+                <field name="branch_id"/>
+                <field name="date"/>
+                <filter string="This Month" name="this_month" domain="[('date','&gt;=', (context_today() + relativedelta(day=1)).strftime('%Y-%m-%d')),('date','&lt;=', (context_today() + relativedelta(months=1, day=1, days=-1)).strftime('%Y-%m-%d'))]"/>
+                <filter string="This Year" name="this_year" domain="[('date','&gt;=', (context_today() + relativedelta(month=1, day=1)).strftime('%Y-%m-%d')),('date','&lt;=', (context_today() + relativedelta(month=12, day=31)).strftime('%Y-%m-%d'))]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Branch" name="group_by_branch" context="{'group_by': 'branch_id'}"/>
+                    <filter string="Period" name="group_by_period" context="{'group_by': 'period'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Branch Analytics Action -->
+    <record id="action_branch_analytics" model="ir.actions.act_window">
+        <field name="name">Branch Analytics</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">taknia.branch.analytics</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_branch_analytics_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No analytics data found.
+            </p>
+            <p>
+                Create your first branch analytics record or generate analysis for existing branches.
+            </p>
+        </field>
+    </record>
+</odoo>

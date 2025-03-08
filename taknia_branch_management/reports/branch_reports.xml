@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Branch Performance Report -->
+    <record id="report_branch_performance" model="ir.actions.report">
+        <field name="name">Branch Performance Report</field>
+        <field name="model">taknia.branch</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">taknia_branch_management.report_branch_performance_document</field>
+        <field name="report_file">taknia_branch_management.report_branch_performance</field>
+        <field name="binding_model_id" ref="model_taknia_branch"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_branch_performance_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2 class="text-center">Branch Performance Report</h2>
+                        
+                        <!-- Branch Information -->
+                        <div class="row mt-4">
+                            <div class="col-6">
+                                <strong>Branch Name:</strong> <span t-field="doc.name"/>
+                                <br/>
+                                <strong>Branch Code:</strong> <span t-field="doc.code"/>
+                                <br/>
+                                <strong>Region:</strong> <span t-field="doc.region_id.name"/>
+                            </div>
+                            <div class="col-6">
+                                <strong>Manager:</strong> <span t-field="doc.manager_id.name"/>
+                                <br/>
+                                <strong>Opening Date:</strong> <span t-field="doc.opening_date"/>
+                            </div>
+                        </div>
+
+                        <!-- Key Metrics -->
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <h4>Key Performance Metrics</h4>
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th>Metric</th>
+                                        <th>Value</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Employee Count</td>
+                                        <td><span t-field="doc.employee_count"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Customer Count</td>
+                                        <td><span t-field="doc.customer_count"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Annual Budget</td>
+                                        <td><span t-field="doc.budget"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Revenue Target</td>
+                                        <td><span t-field="doc.revenue_target"/></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Contact Information -->
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <h4>Contact Information</h4>
+                                <p>
+                                    <t t-if="doc.street"><span t-field="doc.street"/><br/></t>
+                                    <t t-if="doc.street2"><span t-field="doc.street2"/><br/></t>
+                                    <t t-if="doc.city"><span t-field="doc.city"/></t>
+                                    <t t-if="doc.state_id">, <span t-field="doc.state_id.name"/></t>
+                                    <t t-if="doc.zip"> <span t-field="doc.zip"/></t>
+                                    <br/>
+                                    <t t-if="doc.country_id"><span t-field="doc.country_id.name"/></t>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Operation Hours -->
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <h4>Operating Hours</h4>
+                                <p t-field="doc.operating_hours"/>
+                            </div>
+                        </div>
+
+                        <!-- Footer -->
+                        <div class="row mt-4">
+                            <div class="col-12 text-center">
+                                <small>Report generated on <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M:%S')"/></small>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

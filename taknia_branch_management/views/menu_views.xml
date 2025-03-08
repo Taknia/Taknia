@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Main Menu -->
+    <menuitem id="menu_branch_root"
+              name="Branch Management"
+              web_icon="taknia_branch_management,static/description/icon.png"
+              sequence="10"/>
+
+    <!-- Operations Menu -->
+    <menuitem id="menu_branch_operations"
+              name="Operations"
+              parent="menu_branch_root"
+              sequence="10">
+        
+        <menuitem id="menu_branch_dashboard"
+                  name="Dashboard"
+                  action="action_branch_dashboard"
+                  sequence="1"/>
+        
+        <menuitem id="menu_branch_list"
+                  name="Branches"
+                  action="action_branch"
+                  sequence="2"/>
+        
+        <menuitem id="menu_branch_region"
+                  name="Regions"
+                  action="action_branch_region"
+                  sequence="3"/>
+    </menuitem>
+
+    <!-- Analytics Menu -->
+    <menuitem id="menu_branch_analytics"
+              name="Analytics"
+              parent="menu_branch_root"
+              sequence="20">
+        
+        <menuitem id="menu_branch_performance"
+                  name="Performance Analysis"
+                  action="action_branch_analytics"
+                  sequence="1"/>
+        
+        <menuitem id="menu_branch_reports"
+                  name="Reports"
+                  action="action_branch_reports"
+                  sequence="2"/>
+        
+        <menuitem id="menu_branch_ai_insights"
+                  name="AI Insights"
+                  action="action_branch_ai_advisor"
+                  sequence="3"/>
+    </menuitem>
+
+    <!-- Financial Menu -->
+    <menuitem id="menu_branch_financial"
+              name="Financial"
+              parent="menu_branch_root"
+              sequence="30">
+        
+        <menuitem id="menu_branch_budget"
+                  name="Budgets"
+                  action="action_branch_budget"
+                  sequence="1"/>
+        
+        <menuitem id="menu_branch_revenue"
+                  name="Revenue Analysis"
+                  action="action_branch_revenue"
+                  sequence="2"/>
+    </menuitem>
+
+    <!-- ESG Menu -->
+    <menuitem id="menu_branch_esg"
+              name="ESG"
+              parent="menu_branch_root"
+              sequence="40">
+        
+        <menuitem id="menu_branch_esg_dashboard"
+                  name="ESG Dashboard"
+                  action="action_branch_esg_dashboard"
+                  sequence="1"/>
+        
+        <menuitem id="menu_branch_esg_reports"
+                  name="ESG Reports"
+                  action="action_branch_esg_reports"
+                  sequence="2"/>
+    </menuitem>
+
+    <!-- Configuration Menu -->
+    <menuitem id="menu_branch_configuration"
+              name="Configuration"
+              parent="menu_branch_root"
+              sequence="100">
+        
+        <menuitem id="menu_branch_settings"
+                  name="Settings"
+                  action="action_branch_settings"
+                  sequence="1"/>
+        
+        <menuitem id="menu_branch_integration"
+                  name="Integrations"
+                  action="action_branch_integration"
+                  sequence="2"/>
+    </menuitem>
+</odoo>

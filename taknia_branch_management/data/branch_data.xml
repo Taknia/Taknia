@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Default Branch Types -->
+        <record id="branch_type_retail" model="taknia.branch.type">
+            <field name="name">Retail Branch</field>
+            <field name="code">RETAIL</field>
+            <field name="description">Standard retail branch with customer-facing operations</field>
+        </record>
+
+        <record id="branch_type_wholesale" model="taknia.branch.type">
+            <field name="name">Wholesale Branch</field>
+            <field name="code">WHOLE</field>
+            <field name="description">Wholesale and distribution center</field>
+        </record>
+
+        <!-- Default Regions -->
+        <record id="region_central" model="taknia.branch.region">
+            <field name="name">Central Region</field>
+            <field name="code">CENTRAL</field>
+        </record>
+
+        <record id="region_eastern" model="taknia.branch.region">
+            <field name="name">Eastern Region</field>
+            <field name="code">EASTERN</field>
+        </record>
+
+        <record id="region_western" model="taknia.branch.region">
+            <field name="name">Western Region</field>
+            <field name="code">WESTERN</field>
+        </record>
+
+        <!-- ESG Categories -->
+        <record id="esg_category_environmental" model="taknia.branch.esg.category">
+            <field name="name">Environmental</field>
+            <field name="code">ENV</field>
+            <field name="weight">0.33</field>
+        </record>
+
+        <record id="esg_category_social" model="taknia.branch.esg.category">
+            <field name="name">Social</field>
+            <field name="code">SOC</field>
+            <field name="weight">0.33</field>
+        </record>
+
+        <record id="esg_category_governance" model="taknia.branch.esg.category">
+            <field name="name">Governance</field>
+            <field name="code">GOV</field>
+            <field name="weight">0.34</field>
+        </record>
+
+        <!-- Budget Categories -->
+        <record id="budget_category_operational" model="taknia.branch.budget.category">
+            <field name="name">Operational Expenses</field>
+            <field name="code">OPEX</field>
+        </record>
+
+        <record id="budget_category_marketing" model="taknia.branch.budget.category">
+            <field name="name">Marketing</field>
+            <field name="code">MKTG</field>
+        </record>
+
+        <record id="budget_category_personnel" model="taknia.branch.budget.category">
+            <field name="name">Personnel</field>
+            <field name="code">HR</field>
+        </record>
+    </data>
+</odoo>
