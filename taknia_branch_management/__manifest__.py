@@ -16,7 +16,7 @@
     'author': 'Taknia Soft - Emad Kadry',
     'website': 'https://www.takniasoft.com',
     'category': 'Taknia Modules',
-    'depends': ['base', 'account', 'hr', 'stock', 'taknia_advanced_accounting'],
+    'depends': ['base', 'account', 'hr', 'stock'],
     'data': [
         'security/ir.model.access.csv',
         'views/menus.xml',
