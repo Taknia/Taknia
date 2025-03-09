@@ -1,0 +1,33 @@
+<odoo>
+    <record id="view_branch_budget_form" model="ir.ui.view">
+        <field name="name">branch.budget.form</field>
+        <field name="model">taknia.branch.budget</field>
+        <field name="arch" type="xml">
+            <form string="Branch Budget">
+                <sheet>
+                    <group>
+                        <field name="branch_id"/>
+                        <field name="budget"/>
+                        <field name="expenses" readonly="1"/>
+                        <field name="remaining_budget" readonly="1"/>
+                        <field name="over_budget" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_branch_budget_tree" model="ir.ui.view">
+        <field name="name">branch.budget.tree</field>
+        <field name="model">taknia.branch.budget</field>
+        <field name="arch" type="xml">
+            <tree string="Branch Budgets">
+                <field name="branch_id"/>
+                <field name="budget"/>
+                <field name="expenses"/>
+                <field name="remaining_budget"/>
+                <field name="over_budget"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,31 @@
+{
+    'name': 'Taknia Branch Management',
+    'version': '1.0',
+    'summary': 'Advanced Branch Management Module',
+    'author': 'Taknia Soft',
+    'category': 'Management',
+    'depends': ['base'],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/branch_views.xml',
+        'views/customer_views.xml',
+        'views/product_views.xml',
+        'views/budget_views.xml',
+        'views/scoring_views.xml',
+        'views/employee_analysis_views.xml',
+        'views/sustainability_views.xml',
+        'views/ai_advisor_views.xml',
+        'wizards/wizard_views.xml',
+        'reports/report_templates.xml',
+        'settings/settings_views.xml',
+    ],
+    'assets': {
+        'web.assets_backend': [
+            'taknia_branch_management/static/src/css/style.css',
+            'taknia_branch_management/static/src/js/script.js',
+        ],
+    },
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+}

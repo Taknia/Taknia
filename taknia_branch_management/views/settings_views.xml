@@ -1,0 +1,31 @@
+<odoo>
+    <record id="view_advanced_settings_form" model="ir.ui.view">
+        <field name="name">advanced.settings.form</field>
+        <field name="model">taknia.advanced.settings</field>
+        <field name="arch" type="xml">
+            <form string="Advanced Settings">
+                <sheet>
+                    <group>
+                        <field name="enable_dark_mode"/>
+                        <field name="enable_google_sheets"/>
+                        <field name="enable_power_bi"/>
+                        <field name="enable_bank_integration"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_advanced_settings_tree" model="ir.ui.view">
+        <field name="name">advanced.settings.tree</field>
+        <field name="model">taknia.advanced.settings</field>
+        <field name="arch" type="xml">
+            <tree string="Advanced Settings">
+                <field name="enable_dark_mode"/>
+                <field name="enable_google_sheets"/>
+                <field name="enable_power_bi"/>
+                <field name="enable_bank_integration"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

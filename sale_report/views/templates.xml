@@ -1,0 +1,23 @@
+<odoo>
+    <data>
+        <template id="sale.report_saleorder_document" inherit_id="sale.report_saleorder_document">
+            <xpath expr="//t[@t-call='web.external_layout']" position="inside">
+                <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)"/>
+                
+                <div class="row">
+                    <strong>Car Type:</strong>
+                    <span t-field="doc.car_type"/>
+                </div>
+                <div class="row">
+                    <strong>Car Model:</strong>
+                    <span t-field="doc.car_model"/>
+                </div>
+                <div class="row">
+                    <strong>License Plate Number:</strong>
+                    <span t-field="doc.car_license_plate_no"/>
+                </div>
+                <div class="row">
+                    <strong>Car Color:</strong>
+                    <span t-field="doc.car_color"/>
+                </div>
+            </>

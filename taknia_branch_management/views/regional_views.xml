@@ -1,0 +1,32 @@
+<odoo>
+    <record id="view_regional_management_form" model="ir.ui.view">
+        <field name="name">regional.management.form</field>
+        <field name="model">taknia.regional.management</field>
+        <field name="arch" type="xml">
+            <form string="Regional Management">
+                <sheet>
+                    <group>
+                        <field name="region_name"/>
+                        <field name="branch_ids" widget="many2many_tags"/>
+                        <field name="total_revenue" readonly="1"/>
+                        <field name="total_expenses" readonly="1"/>
+                        <field name="performance_score" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_regional_management_tree" model="ir.ui.view">
+        <field name="name">regional.management.tree</field>
+        <field name="model">taknia.regional.management</field>
+        <field name="arch" type="xml">
+            <tree string="Regional Management">
+                <field name="region_name"/>
+                <field name="total_revenue"/>
+                <field name="total_expenses"/>
+                <field name="performance_score"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,24 @@
+<odoo>
+    <record id="view_branch_dashboard" model="ir.ui.view">
+        <field name="name">branch.dashboard</field>
+        <field name="model">taknia.branch.dashboard</field>
+        <field name="arch" type="xml">
+            <kanban string="Branch Dashboard">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="o_kanban_record">
+                            <div class="o_kanban_image"><t t-esc="record.name.value"/></div>
+                            <div class="o_kanban_content">
+                                <span>Revenue: <t t-esc="record.revenue.value"/></span><br/>
+                                <span>Expenses: <t t-esc="record.expenses.value"/></span><br/>
+                                <span>Budget: <t t-esc="record.budget.value"/></span><br/>
+                                <span>Performance Score: <t t-esc="record.performance_score.value"/></span><br/>
+                                <span>Customer Satisfaction: <t t-esc="record.customer_satisfaction.value"/>%</span>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+</odoo>

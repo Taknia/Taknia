@@ -1,0 +1,13 @@
+<odoo>
+    <menuitem id="menu_taknia_branch_root" name="Branch Management" sequence="10"/>
+    
+    <menuitem id="menu_taknia_branch" name="Branches" parent="menu_taknia_branch_root" sequence="20"/>
+    
+    <menuitem id="menu_taknia_branch_management" name="Manage Branches" parent="menu_taknia_branch" sequence="30" action="action_taknia_branch"/>
+    
+    <record id="action_taknia_branch" model="ir.actions.act_window">
+        <field name="name">Branches</field>
+        <field name="res_model">taknia.branch</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

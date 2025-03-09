@@ -1,0 +1,21 @@
+<odoo>
+    <report id="branch_performance_report"
+            model="taknia.branch.performance"
+            string="Branch Performance Report"
+            report_type="qweb-pdf"
+            file="taknia_branch_management.branch_performance_report_template"
+            name="taknia_branch_management.branch_performance_report_template"/>
+    
+    <template id="branch_performance_report_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <h2>Branch Performance Report</h2>
+                <p><strong>Branch:</strong> <t t-esc="doc.branch_id.name"/></p>
+                <p><strong>Performance Score:</strong> <t t-esc="doc.performance_score"/></p>
+                <p><strong>Customer Satisfaction:</strong> <t t-esc="doc.customer_satisfaction"/>%</p>
+                <p><strong>ESG Rating:</strong> <t t-esc="doc.esg_rating"/>%</p>
+                <p><strong>Last Updated:</strong> <t t-esc="doc.last_updated"/></p>
+            </t>
+        </t>
+    </template>
+</odoo>

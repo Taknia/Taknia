@@ -1,0 +1,42 @@
+<odoo>
+    <record id="view_branch_form" model="ir.ui.view">
+        <field name="name">branch.form</field>
+        <field name="model">taknia.branch</field>
+        <field name="arch" type="xml">
+            <form string="Branch">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="manager_id"/>
+                        <field name="region"/>
+                        <field name="budget"/>
+                        <field name="revenue"/>
+                        <field name="expenses"/>
+                        <field name="company_id"/>
+                        <field name="active"/>
+                        <field name="customers" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_branch_tree" model="ir.ui.view">
+        <field name="name">branch.tree</field>
+        <field name="model">taknia.branch</field>
+        <field name="arch" type="xml">
+            <tree string="Branches">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="manager_id"/>
+                <field name="region"/>
+                <field name="budget"/>
+                <field name="revenue"/>
+                <field name="expenses"/>
+                <field name="company_id"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+</odoo>
